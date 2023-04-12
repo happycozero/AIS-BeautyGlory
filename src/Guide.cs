@@ -148,14 +148,14 @@ namespace BeautyGlory
         {
             if (tbCat.Text == "")
             {
-                 MessageBox.Show("Ошибка! Сначала заполните все поля!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление категории", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
             {
                 if (GetCategory() != 1012)
                 {
-                    MessageBox.Show("Ошибка! Такая категория уже существует.", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ошибка! Такая категория уже существует.", "Добавление категории", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbCat.Clear();
                 }
 
@@ -174,7 +174,7 @@ namespace BeautyGlory
                     FillCat();
                     CountRowsDgv();
 
-                    MessageBox.Show("Успешно! Запись добавлена.", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Успешно! Запись добавлена.", "Добавление категории", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -183,14 +183,14 @@ namespace BeautyGlory
         {
             if (tbRole.Text == "")
             {
-                MessageBox.Show("Ошибка! Сначала заполните все поля!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление роли", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
             {
                 if (GetRole() != 1012)
                 {
-                    MessageBox.Show("Ошибка! Такая роль уже существует.", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ошибка! Такая роль уже существует.", "Добавление роли", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbRole.Clear();
                 }
 
@@ -209,7 +209,7 @@ namespace BeautyGlory
                     FillRole();
                     CountRowsDgv(); 
 
-                    MessageBox.Show("Успешно! Запись добавлена.", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Успешно! Запись добавлена.", "Добавление роли", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -220,6 +220,7 @@ namespace BeautyGlory
             {
                 id_role = dgvRole.Rows[e.RowIndex].Cells[0].Value.ToString();
                 tbRole.Text = dgvRole.Rows[e.RowIndex].Cells[1].Value.ToString();
+
                 bDel_Role.Enabled = true;
                 bEdit_Role.Enabled = true;
             }
@@ -236,6 +237,7 @@ namespace BeautyGlory
             {
                 id_cat = dgvCat.Rows[e.RowIndex].Cells[0].Value.ToString();
                 tbCat.Text = dgvCat.Rows[e.RowIndex].Cells[1].Value.ToString();
+
                 bDel_Cat.Enabled = true;
                 bUpd_Cat.Enabled = true;
             }
@@ -248,7 +250,7 @@ namespace BeautyGlory
 
         private void bDel_Cat_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную запись?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную запись?", "Удаление категории", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (DialogResult.Yes == result)
             {
@@ -285,7 +287,7 @@ namespace BeautyGlory
 
         private void bDel_Role_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную запись?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную запись?", "Удаление роли", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (DialogResult.Yes == result)
             {
@@ -340,7 +342,7 @@ namespace BeautyGlory
 
                 connection.CloseConnect();
 
-                MessageBox.Show("Запись успешно отредактирована.", "Редактирование", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Запись успешно отредактирована.", "Редактирование категории", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 bDel_Cat.Enabled = false;
                 bUpd_Cat.Enabled = false;
@@ -406,13 +408,22 @@ namespace BeautyGlory
 
                 MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 
-                int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
+                object result = com.ExecuteScalar();
 
-                return temp;
+                if (result != null)
+                {
+                    int temp = Convert.ToInt32(result.ToString());
+                    return temp;
+                }
+                else
+                {
+                    // handle the case where the query does not return any results
+                    return 1012;
+                }
             }
-
             catch
             {
+                // handle any other exceptions that may occur
                 return 1012;
             }
         }
@@ -428,13 +439,22 @@ namespace BeautyGlory
 
                 MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 
-                int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
+                object result = com.ExecuteScalar();
 
-                return temp;
+                if (result != null)
+                {
+                    int temp = Convert.ToInt32(result.ToString());
+                    return temp;
+                }
+                else
+                {
+                    // handle the case where the query does not return any results
+                    return 1012;
+                }
             }
-
-            catch 
+            catch
             {
+                // handle any other exceptions that may occur
                 return 1012;
             }
         }
@@ -679,6 +699,26 @@ namespace BeautyGlory
             catch
             {
                 return 1012;
+            }
+        }
+
+        private void tbRole_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvCat_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && dgvCat.Columns[e.ColumnIndex].Selected)
+            {
+                try
+                {
+                    //
+                }
+                catch (Exception msg)
+                {
+                    //
+                }
             }
         }
     }

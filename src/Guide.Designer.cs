@@ -56,6 +56,10 @@
             this.bAdd_Role = new System.Windows.Forms.Button();
             this.dgvRole = new System.Windows.Forms.DataGridView();
             this.tabEmp = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbLogin = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbFirst_name = new System.Windows.Forms.TextBox();
@@ -68,10 +72,6 @@
             this.bAdd_Emp = new System.Windows.Forms.Button();
             this.dgvEmp = new System.Windows.Forms.DataGridView();
             this.bBack = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbLogin = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCat)).BeginInit();
             this.tabGuide.SuspendLayout();
             this.tabCat.SuspendLayout();
@@ -126,6 +126,7 @@
             this.dgvCat.Size = new System.Drawing.Size(1068, 261);
             this.dgvCat.TabIndex = 14;
             this.dgvCat.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCat_CellMouseClick);
+            this.dgvCat.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCat_ColumnHeaderMouseClick);
             // 
             // tabGuide
             // 
@@ -264,6 +265,7 @@
             this.tbRole.Name = "tbRole";
             this.tbRole.Size = new System.Drawing.Size(297, 37);
             this.tbRole.TabIndex = 24;
+            this.tbRole.TextChanged += new System.EventHandler(this.tbRole_TextChanged);
             this.tbRole.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbRole_KeyPress);
             // 
             // bDel_Role
@@ -371,6 +373,38 @@
             this.tabEmp.TabIndex = 2;
             this.tabEmp.Text = "Сотрудники";
             this.tabEmp.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(784, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(82, 29);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "Логин:";
+            // 
+            // tbLogin
+            // 
+            this.tbLogin.Location = new System.Drawing.Point(789, 48);
+            this.tbLogin.Name = "tbLogin";
+            this.tbLogin.Size = new System.Drawing.Size(285, 37);
+            this.tbLogin.TabIndex = 41;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(784, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 29);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Пароль:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(789, 120);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(285, 37);
+            this.textBox1.TabIndex = 39;
             // 
             // label9
             // 
@@ -527,38 +561,6 @@
             this.bBack.Text = "Назад в меню";
             this.bBack.UseVisualStyleBackColor = false;
             this.bBack.Click += new System.EventHandler(this.bBack_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(784, 88);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 29);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "Пароль:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(789, 120);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(285, 37);
-            this.textBox1.TabIndex = 39;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(784, 16);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 29);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "Логин:";
-            // 
-            // tbLogin
-            // 
-            this.tbLogin.Location = new System.Drawing.Point(789, 48);
-            this.tbLogin.Name = "tbLogin";
-            this.tbLogin.Size = new System.Drawing.Size(285, 37);
-            this.tbLogin.TabIndex = 41;
             // 
             // Guide
             // 

@@ -65,7 +65,7 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = "SELECT DISTINCT orders.id AS 'Номер заказа', CONCAT(emp.first_name, ' ', emp.name, ' ', emp.middle_name) AS 'Сотрудник', orders.date AS 'Дата заказа', orders.discount AS 'Скидка', itog_sum AS 'Сумма заказа', orders.status AS 'Статус' FROM practice_db.orders INNER JOIN emp ON orders.id_client = emp.id ORDER BY orders.id;";
+                string sql = "SELECT DISTINCT order.OrderID AS 'Номер заказа', CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Сотрудник', order.OrderDate AS 'Дата заказа', order.OrderCode AS 'Код получения', order.OrderStatus AS 'Статус' FROM trade1.order INNER JOIN user ON order.OrderClient = user.UserID ORDER BY order.OrderID;";
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
@@ -114,7 +114,7 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = "SELECT DISTINCT orders.id AS 'Номер заказа', CONCAT(emp.first_name, ' ', emp.name, ' ', emp.middle_name) AS 'Сотрудник', orders.date AS 'Дата заказа', orders.discount AS 'Скидка', itog_sum AS 'Сумма заказа', orders.status AS 'Статус' FROM practice_db.orders INNER JOIN emp ON orders.id_client = emp.id WHERE orders.status = 'Выполнен' ORDER BY orders.id;";
+                string sql = "SELECT DISTINCT order.OrderID AS 'Номер заказа', CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Сотрудник', order.OrderDate AS 'Дата заказа', order.OrderCode AS 'Код получения', order.OrderStatus AS 'Статус' FROM trade1.order INNER JOIN user ON order.OrderClient = user.UserID WHERE order.OrderStatus = 'Выполнен' ORDER BY order.OrderID;";
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
@@ -154,7 +154,7 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = "SELECT DISTINCT orders.id AS 'Номер заказа', CONCAT(emp.first_name, ' ', emp.name, ' ', emp.middle_name) AS 'Сотрудник', orders.date AS 'Дата заказа', orders.discount AS 'Скидка', itog_sum AS 'Сумма заказа', orders.status AS 'Статус' FROM practice_db.orders INNER JOIN emp ON orders.id_client = emp.id WHERE orders.status = 'Отменен' ORDER BY orders.id;";
+                string sql = "SELECT DISTINCT order.OrderID AS 'Номер заказа', CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Сотрудник', order.OrderDate AS 'Дата заказа', order.OrderCode AS 'Код получения', order.OrderStatus AS 'Статус' FROM trade1.order INNER JOIN user ON order.OrderClient = user.UserID WHERE order.OrderStatus = 'Отменен' ORDER BY order.OrderID;";
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
@@ -194,7 +194,7 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = "SELECT DISTINCT orders.id AS 'Номер заказа', CONCAT(emp.first_name, ' ', emp.name, ' ', emp.middle_name) AS 'Сотрудник', orders.date AS 'Дата заказа', orders.discount AS 'Скидка', itog_sum AS 'Сумма заказа', orders.status AS 'Статус' FROM practice_db.orders INNER JOIN emp ON orders.id_client = emp.id ORDER BY orders.discount;";
+                string sql = "SELECT DISTINCT order.OrderID AS 'Номер заказа', CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Сотрудник', order.OrderDate AS 'Дата заказа', order.OrderCode AS 'Код получения', order.OrderStatus AS 'Статус' FROM trade1.order INNER JOIN user ON order.OrderClient = user.UserID ORDER BY order.OrderStatus;";
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
@@ -234,7 +234,7 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = "SELECT DISTINCT orders.id AS 'Номер заказа', CONCAT(emp.first_name, ' ', emp.name, ' ', emp.middle_name) AS 'Сотрудник', orders.date AS 'Дата заказа', orders.discount AS 'Скидка', itog_sum AS 'Сумма заказа', orders.status AS 'Статус' FROM practice_db.orders INNER JOIN emp ON orders.id_client = emp.id ORDER BY orders.itog_sum;";
+                string sql = "SELECT DISTINCT order.OrderID AS 'Номер заказа', CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Сотрудник', order.OrderDate AS 'Дата заказа', order.OrderCode AS 'Код получения', order.OrderStatus AS 'Статус' FROM trade1.order INNER JOIN user ON order.OrderClient = user.UserID ORDER BY order.OrderStatus;";
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
@@ -277,7 +277,7 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql = "SELECT DISTINCT SUM(itog_sum) FROM orders WHERE status = 'Выполнен'";
+            string sql = "SELECT DISTINCT SUM(ProductCost) FROM order WHERE OrderStatus = 'Выполнен'";
 
             MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
             lProf.Text = "Вся прибыль: " + com.ExecuteScalar().ToString() + " руб.";
@@ -294,7 +294,7 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = @"SELECT * FROM emp WHERE id = " + idUser[i];
+                string sql = @"SELECT * FROM user WHERE UserID = " + idUser[i];
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
 
                 MySqlDataReader reader = com.ExecuteReader();
@@ -335,7 +335,7 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = String.Format("SELECT DISTINCT orders.id AS 'Номер заказа', CONCAT(emp.first_name, ' ', emp.name, ' ', emp.middle_name) AS 'Сотрудник', orders.date AS 'Дата заказа', orders.discount AS 'Скидка', orders.itog_sum AS 'Сумма заказа', orders.status AS 'Статус' FROM practice_db.orders INNER JOIN emp ON orders.id_client = emp.id WHERE orders.id_client = {0} ORDER BY orders.id;", n);
+                string sql = String.Format("SELECT DISTINCT order.OrderID AS 'Номер заказа', CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Сотрудник', order.OrderDate AS 'Дата заказа', order.OrderCode AS 'Код получения', order.OrderStatus AS 'Статус', order.OrderStatus AS 'Статус' FROM trade1.order INNER JOIN user ON order.OrderClient = user.UserID WHERE order.OrderClient = {0} ORDER BY order.OrderID;", n);
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
@@ -358,12 +358,12 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql_count = @"SELECT COUNT(*) FROM users WHERE role = 2;";
+            string sql_count = @"SELECT COUNT(*) FROM user WHERE UserRole = 2;";
             MySqlCommand com_count = new MySqlCommand(sql_count, connection.GetConnect());
             int N = Convert.ToInt32(com_count.ExecuteScalar());
             idUser = new int [N];
 
-            string sql_id = @"SELECT id_emp FROM users WHERE role = 2;";
+            string sql_id = @"SELECT UserID FROM user WHERE UserRole = 2;";
             MySqlCommand com_id = new MySqlCommand(sql_id, connection.GetConnect());
             MySqlDataReader reader = com_id.ExecuteReader();
             
@@ -403,7 +403,7 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql = "SELECT DISTINCT orders.id AS 'Номер заказа', CONCAT(emp.first_name, ' ', emp.name, ' ', emp.middle_name) AS 'Сотрудник', orders.date AS 'Дата заказа', orders.discount AS 'Скидка', itog_sum AS 'Сумма заказа', orders.status AS 'Статус' FROM practice_db.orders INNER JOIN emp ON orders.id_client = emp.id ORDER BY orders.id;";
+            string sql = "SELECT DISTINCT order.OrderID AS 'Номер заказа', CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Сотрудник', order.OrderDate AS 'Дата заказа', order.OrderCode AS 'Код получения', order.OrderStatus AS 'Статус', FROM trade1.order INNER JOIN user ON order.UserClient = user.UserID ORDER BY order.OrderID;";
             MySqlCommand cmd = new MySqlCommand(sql, connection.GetConnect());
 
             cmd.ExecuteNonQuery();

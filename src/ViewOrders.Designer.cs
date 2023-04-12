@@ -54,11 +54,11 @@
             // bBack
             // 
             this.bBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bBack.Location = new System.Drawing.Point(931, 665);
-            this.bBack.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bBack.Location = new System.Drawing.Point(1000, 840);
+            this.bBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(263, 52);
+            this.bBack.Size = new System.Drawing.Size(285, 66);
             this.bBack.TabIndex = 23;
             this.bBack.Text = "Назад в меню";
             this.bBack.UseVisualStyleBackColor = true;
@@ -66,11 +66,11 @@
             // 
             // lCountOrder
             // 
-            this.lCountOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCountOrder.Location = new System.Drawing.Point(8, 573);
+            this.lCountOrder.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lCountOrder.Location = new System.Drawing.Point(9, 722);
             this.lCountOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lCountOrder.Name = "lCountOrder";
-            this.lCountOrder.Size = new System.Drawing.Size(270, 32);
+            this.lCountOrder.Size = new System.Drawing.Size(292, 40);
             this.lCountOrder.TabIndex = 41;
             this.lCountOrder.Text = "Всего заказов: 0";
             this.lCountOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -85,21 +85,21 @@
             this.groupBox1.Controls.Add(this.cmUser);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(13, 12);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox1.Location = new System.Drawing.Point(8, 8);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(1181, 613);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1279, 773);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             // 
             // lDate
             // 
             this.lDate.AutoSize = true;
-            this.lDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lDate.Location = new System.Drawing.Point(15, 30);
+            this.lDate.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lDate.Location = new System.Drawing.Point(16, 38);
             this.lDate.Name = "lDate";
-            this.lDate.Size = new System.Drawing.Size(70, 25);
+            this.lDate.Size = new System.Drawing.Size(72, 29);
             this.lDate.TabIndex = 42;
             this.lDate.Text = "label2";
             // 
@@ -118,14 +118,14 @@
             this.dgvOrderAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Maroon;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvOrderAll.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvOrderAll.Location = new System.Drawing.Point(11, 182);
-            this.dgvOrderAll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvOrderAll.Location = new System.Drawing.Point(12, 229);
+            this.dgvOrderAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvOrderAll.MultiSelect = false;
             this.dgvOrderAll.Name = "dgvOrderAll";
             this.dgvOrderAll.ReadOnly = true;
@@ -135,28 +135,28 @@
             this.dgvOrderAll.ShowCellToolTips = false;
             this.dgvOrderAll.ShowEditingIcon = false;
             this.dgvOrderAll.ShowRowErrors = false;
-            this.dgvOrderAll.Size = new System.Drawing.Size(1162, 388);
+            this.dgvOrderAll.Size = new System.Drawing.Size(1259, 489);
             this.dgvOrderAll.TabIndex = 36;
             this.dgvOrderAll.TabStop = false;
             this.dgvOrderAll.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOrderAll_CellMouseDoubleClick);
             // 
             // lProf
             // 
-            this.lProf.Location = new System.Drawing.Point(577, 573);
+            this.lProf.Location = new System.Drawing.Point(625, 722);
             this.lProf.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lProf.Name = "lProf";
-            this.lProf.Size = new System.Drawing.Size(597, 32);
+            this.lProf.Size = new System.Drawing.Size(647, 40);
             this.lProf.TabIndex = 35;
             this.lProf.Text = "0";
             this.lProf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(544, 25);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(589, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 32);
+            this.label1.Size = new System.Drawing.Size(151, 40);
             this.label1.TabIndex = 33;
             this.label1.Text = "Сотрудник:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,11 +164,12 @@
             // cmUser
             // 
             this.cmUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmUser.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmUser.FormattingEnabled = true;
-            this.cmUser.Location = new System.Drawing.Point(690, 29);
-            this.cmUser.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cmUser.Location = new System.Drawing.Point(748, 37);
+            this.cmUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmUser.Name = "cmUser";
-            this.cmUser.Size = new System.Drawing.Size(483, 31);
+            this.cmUser.Size = new System.Drawing.Size(523, 37);
             this.cmUser.TabIndex = 32;
             this.cmUser.SelectedIndexChanged += new System.EventHandler(this.cmUser_SelectedIndexChanged);
             // 
@@ -176,12 +177,12 @@
             // 
             this.groupBox4.Controls.Add(this.cbNo);
             this.groupBox4.Controls.Add(this.cbYes);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(933, 74);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox4.Location = new System.Drawing.Point(1011, 93);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox4.Size = new System.Drawing.Size(240, 102);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(260, 129);
             this.groupBox4.TabIndex = 31;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Статус";
@@ -189,10 +190,10 @@
             // cbNo
             // 
             this.cbNo.AutoSize = true;
-            this.cbNo.Location = new System.Drawing.Point(7, 63);
-            this.cbNo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbNo.Location = new System.Drawing.Point(8, 79);
+            this.cbNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbNo.Name = "cbNo";
-            this.cbNo.Size = new System.Drawing.Size(120, 29);
+            this.cbNo.Size = new System.Drawing.Size(120, 33);
             this.cbNo.TabIndex = 32;
             this.cbNo.Text = "Отменен";
             this.cbNo.UseVisualStyleBackColor = true;
@@ -201,10 +202,10 @@
             // cbYes
             // 
             this.cbYes.AutoSize = true;
-            this.cbYes.Location = new System.Drawing.Point(7, 30);
-            this.cbYes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbYes.Location = new System.Drawing.Point(8, 38);
+            this.cbYes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbYes.Name = "cbYes";
-            this.cbYes.Size = new System.Drawing.Size(132, 29);
+            this.cbYes.Size = new System.Drawing.Size(137, 33);
             this.cbYes.TabIndex = 2;
             this.cbYes.Text = "Выполнен";
             this.cbYes.UseVisualStyleBackColor = true;
@@ -214,12 +215,12 @@
             // 
             this.groupBox2.Controls.Add(this.cbPrice);
             this.groupBox2.Controls.Add(this.cbCount);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 74);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox2.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox2.Location = new System.Drawing.Point(13, 93);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Size = new System.Drawing.Size(392, 102);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(425, 129);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Сортировка по возрастанию";
@@ -227,10 +228,10 @@
             // cbPrice
             // 
             this.cbPrice.AutoSize = true;
-            this.cbPrice.Location = new System.Drawing.Point(7, 63);
-            this.cbPrice.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbPrice.Location = new System.Drawing.Point(8, 79);
+            this.cbPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbPrice.Name = "cbPrice";
-            this.cbPrice.Size = new System.Drawing.Size(174, 29);
+            this.cbPrice.Size = new System.Drawing.Size(164, 33);
             this.cbPrice.TabIndex = 1;
             this.cbPrice.Text = "Сумма заказа";
             this.cbPrice.UseVisualStyleBackColor = true;
@@ -239,10 +240,10 @@
             // cbCount
             // 
             this.cbCount.AutoSize = true;
-            this.cbCount.Location = new System.Drawing.Point(7, 30);
-            this.cbCount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbCount.Location = new System.Drawing.Point(8, 38);
+            this.cbCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbCount.Name = "cbCount";
-            this.cbCount.Size = new System.Drawing.Size(104, 29);
+            this.cbCount.Size = new System.Drawing.Size(101, 33);
             this.cbCount.TabIndex = 0;
             this.cbCount.Text = "Скидка";
             this.cbCount.UseVisualStyleBackColor = true;
@@ -251,11 +252,11 @@
             // bExcel
             // 
             this.bExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bExcel.Location = new System.Drawing.Point(13, 665);
-            this.bExcel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.bExcel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bExcel.Location = new System.Drawing.Point(14, 838);
+            this.bExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bExcel.Name = "bExcel";
-            this.bExcel.Size = new System.Drawing.Size(263, 52);
+            this.bExcel.Size = new System.Drawing.Size(285, 66);
             this.bExcel.TabIndex = 47;
             this.bExcel.Text = "Сформировать отчет";
             this.bExcel.UseVisualStyleBackColor = true;
@@ -263,21 +264,21 @@
             // 
             // ViewOrders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1210, 729);
+            this.ClientSize = new System.Drawing.Size(1311, 919);
             this.Controls.Add(this.bExcel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bBack);
-            this.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.Name = "ViewOrders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Учёт продаж";
+            this.Text = "Учёт продаж | ООО \"Красотка\"";
             this.Load += new System.EventHandler(this.ViewOrders_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -189,6 +189,7 @@ namespace BeautyGlory
             {
                 this.Close();
             }
+
         }
     }
 }
