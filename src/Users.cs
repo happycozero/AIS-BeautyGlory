@@ -62,10 +62,10 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql = @"SELECT users.id AS 'ID', emp.first_name AS 'Фамилия', 
-                         emp.name AS 'Имя', emp.middle_name AS 'Отчество', 
-                         users.login AS 'Логин', users.password AS 'Пароль', 
-                         role.name AS 'Роль', users.id_emp AS 'ID_EMP' FROM `users` INNER JOIN `role` ON role.id = users.role INNER JOIN `emp` ON emp.id = users.id_emp;";
+            string sql = @"SELECT user.UserID, user.UserSurname AS 'Фамилия', user.UserName AS 'Имя', user.UserPatronymic AS 'Отчество',
+                         user.UserLogin AS 'Логин', user.UserPassword AS 'Пароль', role.RoleName AS 'Роль'
+                         FROM user
+                         INNER JOIN role ON role.RoleID = user.UserRole;";
 
             MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
             com.ExecuteNonQuery();
@@ -77,13 +77,13 @@ namespace BeautyGlory
             dgvUsers.DataSource = dt;
 
             dgvUsers.Columns[0].Visible = false;
-            dgvUsers.Columns[1].Width = 180;
-            dgvUsers.Columns[2].Width = 180;
-            dgvUsers.Columns[3].Width = 180;
-            dgvUsers.Columns[4].Width = 119;
-            dgvUsers.Columns[5].Width = 180;
-            dgvUsers.Columns[6].Width = 180;
-            dgvUsers.Columns[7].Visible = false;
+
+            dgvUsers.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvUsers.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvUsers.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvUsers.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvUsers.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvUsers.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             connection.CloseConnect();
         }
@@ -95,7 +95,7 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql = @"SELECT * FROM emp;";
+            string sql = @"SELECT * FROM user;";
             MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
 
             MySqlDataReader reader = com.ExecuteReader();
@@ -134,19 +134,19 @@ namespace BeautyGlory
         {
             if (tbLog.Text == "" || tbPass.Text == "" || cmEmp.Text == "" || cmRole.Text == "")
             {
-                MessageBox.Show("Ошибка. Сначала заполните все поля!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
             {
                 if (CheckUser() == false)
                 {
-                    MessageBox.Show("Данный логин уже занят!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Данный логин уже занят!", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else if (CheckAccount() == false)
                 {
-                    MessageBox.Show("У данного пользователя уже есть действующая учетная запись!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("У данного пользователя уже есть действующая учетная запись.", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else
@@ -165,7 +165,7 @@ namespace BeautyGlory
                     FillDgv();
                     UpdateInfo();
 
-                    MessageBox.Show("Успешно! Запись добавлена.", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Успешно! Запись добавлена.", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -175,7 +175,7 @@ namespace BeautyGlory
             db_connect connect = new db_connect();
             connect.OpenConnect();
 
-            string sql = "SELECT id FROM role WHERE name = '" + cmRole.Text + "';";
+            string sql = "SELECT RoleID FROM role WHERE RoleName = '" + cmRole.Text + "';";
 
             MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 
@@ -197,7 +197,7 @@ namespace BeautyGlory
                 db_connect connect = new db_connect();
                 connect.OpenConnect();
 
-                string sql = "SELECT id FROM users WHERE login = '" + tbLog.Text + "';";
+                string sql = "SELECT UserID FROM user WHERE login = '" + tbLog.Text + "';";
 
                 MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 
@@ -235,7 +235,7 @@ namespace BeautyGlory
                 db_connect connect = new db_connect();
                 connect.OpenConnect();
 
-                string sql = "SELECT id FROM users WHERE id_emp = " + id_emp[0] + ";";
+                string sql = "SELECT UserID FROM user WHERE UserID = " + id_emp[0] + ";";
 
                 MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 
@@ -271,9 +271,6 @@ namespace BeautyGlory
                 tbPass.Text = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
                 cmRole.Text = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
 
-                string s = dgvUsers.Rows[e.RowIndex].Cells[7].Value.ToString() + " - " + dgvUsers.Rows[e.RowIndex].Cells[1].Value.ToString() + " " + dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString()[0] + "." + dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString()[0] + ".";
-                cmEmp.Text = s;
-
                 bEdit.Enabled = true;
                 bDel.Enabled = true;
             }
@@ -288,7 +285,7 @@ namespace BeautyGlory
         {
             if (tbLog.Text == "" || tbPass.Text == "" || cmEmp.Text == "" || cmRole.Text == "")
             {
-                MessageBox.Show("Ошибка. Сначала заполните все поля!", "Редактирование", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка. Сначала заполните все поля!", "Редактирование пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
@@ -296,7 +293,7 @@ namespace BeautyGlory
                  db_connect connection = new db_connect();
                  connection.OpenConnect();
 
-                 string sql = String.Format(@"UPDATE `users` SET login = '{0}', password = '{1}', role = {2} WHERE id = {3};", tbLog.Text, tbPass.Text, get_idRole(), id_user);
+                 string sql = String.Format(@"UPDATE `user` SET UserLogin = '{0}', UserPassword = '{1}', UserRole = {2} WHERE UserID = {3};", tbLog.Text, tbPass.Text, get_idRole(), id_user);
 
                  MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                  com.ExecuteNonQuery();
@@ -308,7 +305,7 @@ namespace BeautyGlory
                  bEdit.Enabled = false;
                  bDel.Enabled = false; 
 
-                 MessageBox.Show("Успешно! Данные о пользователе изменены.", "Редактирование", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 MessageBox.Show("Успешно! Данные о пользователе изменены.", "Редактирование пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -321,7 +318,7 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = String.Format("DELETE FROM users WHERE id = {0}", id_user);
+                string sql = String.Format("DELETE FROM user WHERE UserID = {0}", id_user);
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
@@ -333,7 +330,7 @@ namespace BeautyGlory
                 bEdit.Enabled = false;
                 bDel.Enabled = false; 
 
-                MessageBox.Show("Успешно! Учетная запись пользователя удалена.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Успешно! Учетная запись пользователя удалена.", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

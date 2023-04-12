@@ -37,7 +37,7 @@ namespace BeautyGlory
             cmSup_Fill();
             cmMan_Fill();
             FillFilter();
-            pbPhoto.ImageLocation = "Photo/picture.png";
+            pbPhoto.ImageLocation = "Photo/img_holder.png";
             bPhoto.Visible = false;
         }
 
@@ -125,7 +125,7 @@ namespace BeautyGlory
             tbPhoto.Clear();
             cmCategory.SelectedIndex = -1;
             cmSupplier.SelectedIndex = -1;
-            pbPhoto.ImageLocation = "Photo/picture.png";
+            pbPhoto.ImageLocation = "Photo/img_holder.png";
         }
 
         private void cmMan_Fill()
@@ -184,6 +184,21 @@ namespace BeautyGlory
                 tbDisc.Text = dgvProduct.Rows[e.RowIndex].Cells[9].Value.ToString();
                 tbDiscMax.Text = dgvProduct.Rows[e.RowIndex].Cells[10].Value.ToString();
                 pbPhoto.ImageLocation = "Photo/" + Convert.ToString(dgvProduct.Rows[e.RowIndex].Cells[11].Value.ToString());
+
+                // Путь к базе данных
+                string pathToDB = "host=localhost;uid=root;pwd=root;database=trade1;";
+
+                if (string.IsNullOrEmpty(pathToDB))
+                {
+                    // Если путь к базе данных пустой, то подставляем фото-заглушку
+                    pbPhoto.Image = Image.FromFile("Photo/img_holder.png");
+                }
+                else
+                {
+                    // Иначе загружаем данные из базы данных
+                    // ...
+                }
+
             }
 
             catch (Exception msg)
@@ -319,6 +334,14 @@ namespace BeautyGlory
                 {
                     dgvProduct.Rows[i].Cells[7].Style.BackColor = Color.DarkRed;
                 }
+            }
+        }
+
+        private void dgvProduct_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.ColumnIndex < dgvProduct.Columns.Count)
+            {
+                // код обработки щелчка по заголовку столбца
             }
         }
     }

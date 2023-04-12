@@ -75,15 +75,15 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql_first_name = "SELECT first_name FROM emp WHERE id = " + Auth.id_user + ";";
+            string sql_first_name = "SELECT UserSurname FROM user WHERE UserID = " + Auth.id_user + ";";
             MySqlCommand com1 = new MySqlCommand(sql_first_name, connection.GetConnect());
             string first_name = com1.ExecuteScalar().ToString();
 
-            string sql_name = "SELECT name FROM emp WHERE id = " + Auth.id_user + ";";
+            string sql_name = "SELECT UserName FROM user WHERE UserID = " + Auth.id_user + ";";
             MySqlCommand com2 = new MySqlCommand(sql_name, connection.GetConnect());
             string name = com2.ExecuteScalar().ToString();
 
-            string sql_middle_name = "SELECT middle_name FROM emp WHERE id = " + Auth.id_user + ";";
+            string sql_middle_name = "SELECT UserPatronymic FROM user WHERE UserID = " + Auth.id_user + ";";
             MySqlCommand com3 = new MySqlCommand(sql_middle_name, connection.GetConnect());
             string middle_name = com3.ExecuteScalar().ToString();
 

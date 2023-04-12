@@ -22,7 +22,7 @@ namespace BeautyGlory
                 myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
                 return myCp;
             }
-        } 
+        }
 
         string id_role = "";
         string id_cat = "";
@@ -59,7 +59,7 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql = @"SELECT id AS 'ID', name AS 'Роль' FROM role;";
+            string sql = @"SELECT RoleID AS 'ID', RoleName AS 'Доступ пользователя' FROM role;";
 
             MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
             com.ExecuteNonQuery();
@@ -70,32 +70,44 @@ namespace BeautyGlory
 
             dgvRole.DataSource = dt;
 
+            dgvRole.RowTemplate.Height = 60;
+
             dgvRole.Columns[0].Visible = false;
-            dgvRole.Columns[1].Width = 838;
+            dgvRole.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvRole.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             connection.CloseConnect();
         }
 
         public void FillCat()
         {
-            db_connect connection = new db_connect();
-            connection.OpenConnect();
+            try
+            {
+                db_connect connection = new db_connect();
+                connection.OpenConnect();
 
-            string sql = @"SELECT id AS 'ID', name AS 'Категория' FROM category;";
+                string sql = @"SELECT idCategory AS 'ID', Category AS 'Категория товара' FROM productcategory;";
 
-            MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
-            com.ExecuteNonQuery();
+                MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
+                com.ExecuteNonQuery();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(com);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
 
-            dgvCat.DataSource = dt;
+                dgvCat.DataSource = dt;
 
-            dgvCat.Columns[0].Visible = false;
-            dgvCat.Columns[1].Width = 838;
+                dgvCat.RowTemplate.Height = 60;
 
-            connection.CloseConnect();
+                dgvCat.Columns[0].Visible = false;
+                dgvCat.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                connection.CloseConnect();
+            }
+            catch (Exception msg)
+            {
+                MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FillEmp()
@@ -103,7 +115,7 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql = @"SELECT id AS 'ID', first_name AS 'Фамилия', name AS 'Имя', middle_name AS 'Отчество', number_phone AS 'Номер телефона' FROM emp;";
+            string sql = @"SELECT UserID AS 'ID', UserSurname AS 'Фамилия', USerName AS 'Имя', UserPatronymic AS 'Отчество', UserLogin AS 'Логин', UserPassword AS 'Пароль' FROM user;";
 
             MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
             com.ExecuteNonQuery();
@@ -114,11 +126,20 @@ namespace BeautyGlory
 
             dgvEmp.DataSource = dt;
 
+            dgvCat.RowTemplate.Height = 60;
+
             dgvEmp.Columns[0].Visible = false;
-            dgvEmp.Columns[1].Width = 200;
-            dgvEmp.Columns[2].Width = 200;
-            dgvEmp.Columns[3].Width = 203;
-            dgvEmp.Columns[4].Width = 235;
+            dgvEmp.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvEmp.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvEmp.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvEmp.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvEmp.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvEmp.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvEmp.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvEmp.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvEmp.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvEmp.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
 
             connection.CloseConnect();
         }
@@ -134,7 +155,7 @@ namespace BeautyGlory
             {
                 if (GetCategory() != 1012)
                 {
-                    MessageBox.Show("Ошибка! Такая категория уже существует!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ошибка! Такая категория уже существует.", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbCat.Clear();
                 }
 
@@ -143,7 +164,7 @@ namespace BeautyGlory
                     db_connect connection = new db_connect();
                     connection.OpenConnect();
 
-                    string sql = String.Format("INSERT INTO category VALUES (null, '{0}');", tbCat.Text);
+                    string sql = String.Format("INSERT INTO productcategory VALUES (null, '{0}');", tbCat.Text);
 
                     MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                     com.ExecuteNonQuery();
@@ -169,7 +190,7 @@ namespace BeautyGlory
             {
                 if (GetRole() != 1012)
                 {
-                    MessageBox.Show("Ошибка! Такая роль уже существует!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ошибка! Такая роль уже существует.", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbRole.Clear();
                 }
 
@@ -238,14 +259,14 @@ namespace BeautyGlory
                     db_connect connection = new db_connect();
                     connection.OpenConnect();
 
-                    string sql = @"DELETE FROM category WHERE id = " + id_cat + ";";
+                    string sql = @"DELETE FROM productcategory WHERE idCategory = " + id_cat + ";";
 
                     MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                     com.ExecuteNonQuery();
 
                     connection.CloseConnect();
 
-                    MessageBox.Show("Запись успешно удалена.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Запись успешно удалена.", "Удаление категории", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     bDel_Cat.Enabled = false;
                     bUpd_Cat.Enabled = false;
@@ -275,14 +296,14 @@ namespace BeautyGlory
                     db_connect connection = new db_connect();
                     connection.OpenConnect();
 
-                    string sql = @"DELETE FROM role WHERE id = " + id_role + ";";
+                    string sql = @"DELETE FROM role WHERE RoleID = " + id_role + ";";
 
                     MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                     com.ExecuteNonQuery();
 
                     connection.CloseConnect();
 
-                    MessageBox.Show("Запись успешно удалена.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Запись успешно удалена.", "Удаление роли", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     bDel_Role.Enabled = false;
                     bEdit_Role.Enabled = false;
@@ -303,7 +324,7 @@ namespace BeautyGlory
         {
             if (GetCategory() != 1012)
             {
-                MessageBox.Show("Ошибка! Такая категория уже существует!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка! Такая категория уже существует.", "Добавление категории", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tbCat.Clear();
             }
 
@@ -312,7 +333,7 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = String.Format("UPDATE category SET name = '{0}' WHERE id = {1};", tbCat.Text, id_cat);
+                string sql = String.Format("UPDATE productcategory SET Category = '{0}' WHERE idCategory = {1};", tbCat.Text, id_cat);
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
@@ -334,7 +355,7 @@ namespace BeautyGlory
         {
             if (GetRole() != 1012)
             {
-                MessageBox.Show("Ошибка! Такая роль уже существует!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка! Такая роль уже существует.", "Добавление роли", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tbRole.Clear();
             }
 
@@ -343,14 +364,14 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = String.Format("UPDATE role SET name = '{0}' WHERE id = {1};", tbRole.Text, id_role);
+                string sql = String.Format("UPDATE role SET RoleName = '{0}' WHERE RoleID = {1};", tbRole.Text, id_role);
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
 
                 connection.CloseConnect();
 
-                MessageBox.Show("Запись успешно отредактирована.", "Редактирование", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Запись успешно отредактирована.", "Редактирование роли", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 bDel_Role.Enabled = false;
                 bEdit_Role.Enabled = false;
@@ -381,7 +402,7 @@ namespace BeautyGlory
                 db_connect connect = new db_connect();
                 connect.OpenConnect();
 
-                string sql = "SELECT id FROM category WHERE name ='" + tbCat.Text + "';";
+                string sql = "SELECT idCategory FROM productcategory WHERE Category ='" + tbCat.Text + "';";
 
                 MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 
@@ -403,7 +424,7 @@ namespace BeautyGlory
                 db_connect connect = new db_connect();
                 connect.OpenConnect();
 
-                string sql = "SELECT id FROM role WHERE name ='" + tbRole.Text + "';";
+                string sql = "SELECT RoleID FROM role WHERE RoleName ='" + tbRole.Text + "';";
 
                 MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 
@@ -425,7 +446,7 @@ namespace BeautyGlory
                 db_connect connect = new db_connect();
                 connect.OpenConnect();
 
-                string sql = "SELECT name FROM products WHERE сategory =" + GetCategory() + ";";
+                string sql = "SELECT ProductName FROM product WHERE ProductCategory =" + GetCategory() + ";";
 
                 MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 
@@ -485,17 +506,16 @@ namespace BeautyGlory
 
         private void bAdd_Emp_Click(object sender, EventArgs e)
         {
-            if (tbFirst_name.Text == "" || tbName.Text == "" || tbMiddle_name.Text == "" || tbPhone.MaskCompleted == false)
+            if (tbFirst_name.Text == "" || tbName.Text == "" || tbMiddle_name.Text == "" || tbLogin.Text == "")
             {
-                MessageBox.Show("Ошибка! Сначала заполните все поля!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tbPhone.Clear();
+                MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
             {
                 if(CheckNum() != 1012)
                 {
-                    MessageBox.Show("Данный номер уже используется другим сотрудником!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Предупреждение! Данный логин уже используется другим сотрудником.", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else
@@ -503,7 +523,7 @@ namespace BeautyGlory
                     db_connect connection = new db_connect();
                     connection.OpenConnect();
 
-                    string sql = String.Format("INSERT INTO emp VALUES(null, '{0}', '{1}', '{2}', '{3}') ;", tbFirst_name.Text, tbName.Text, tbMiddle_name.Text, tbPhone.Text);
+                    string sql = String.Format("INSERT INTO user VALUES(null, '{0}', '{1}', '{2}', '{3}') ;", tbFirst_name.Text, tbName.Text, tbMiddle_name.Text, tbLogin.Text);
 
                     MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                     com.ExecuteNonQuery();
@@ -521,17 +541,17 @@ namespace BeautyGlory
 
         private void bEdit_Emp_Click(object sender, EventArgs e)
         {
-            if (tbFirst_name.Text == "" || tbName.Text == "" || tbMiddle_name.Text == "" || tbPhone.MaskCompleted == false)
+            if (tbFirst_name.Text == "" || tbName.Text == "" || tbMiddle_name.Text == "" || tbLogin.Text == "")
             {
-                MessageBox.Show("Ошибка! Сначала заполните все поля!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
             {
                 if (CheckNumUpd() != 1012)
                 {
-                    MessageBox.Show("Данный номер уже используется другим сотрудником!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    tbPhone.Clear();
+                    MessageBox.Show("Предупреждение! Данный логин уже используется другим сотрудником.", "Добавление пользователя ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbLogin.Clear();
                 }
 
                 else
@@ -539,7 +559,7 @@ namespace BeautyGlory
                     db_connect connection = new db_connect();
                     connection.OpenConnect();
 
-                    string sql = String.Format("UPDATE emp SET first_name = '{0}', name = '{1}', middle_name = '{2}', number_phone = '{3}' WHERE id = {4};", tbFirst_name.Text, tbName.Text, tbMiddle_name.Text, tbPhone.Text, id_emp);
+                    string sql = String.Format("UPDATE user SET UserSurname = '{0}', UserName = '{1}', UserPatronymic = '{2}', UserLogin = '{3}' WHERE UserID = {4};", tbFirst_name.Text, tbName.Text, tbMiddle_name.Text, tbLogin.Text, id_emp);
 
                     MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                     com.ExecuteNonQuery();
@@ -564,7 +584,7 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = @"DELETE FROM emp WHERE id = " + id_emp + ";";
+                string sql = @"DELETE FROM user WHERE UserID = " + id_emp + ";";
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
@@ -589,7 +609,7 @@ namespace BeautyGlory
                 db_connect connect = new db_connect();
                 connect.OpenConnect();
 
-                string sql = "SELECT id FROM emp WHERE number_phone ='" + tbPhone.Text + "';";
+                string sql = "SELECT UserID FROM user WHERE UserLogin ='" + tbLogin.Text + "';";
 
                 MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 
@@ -612,7 +632,7 @@ namespace BeautyGlory
                 tbFirst_name.Text = dgvEmp.Rows[e.RowIndex].Cells[1].Value.ToString();
                 tbName.Text = dgvEmp.Rows[e.RowIndex].Cells[2].Value.ToString();
                 tbMiddle_name.Text = dgvEmp.Rows[e.RowIndex].Cells[3].Value.ToString();
-                tbPhone.Text = dgvEmp.Rows[e.RowIndex].Cells[4].Value.ToString();
+                tbLogin.Text = dgvEmp.Rows[e.RowIndex].Cells[4].Value.ToString();
 
                 bEdit_Emp.Enabled = true;
                 bDel_Emp.Enabled = true;
@@ -629,7 +649,7 @@ namespace BeautyGlory
             tbFirst_name.Clear();
             tbName.Clear();
             tbMiddle_name.Clear();
-            tbPhone.Clear();
+            tbLogin.Clear();
         }
 
         private int CheckNumUpd()
@@ -639,7 +659,7 @@ namespace BeautyGlory
                 db_connect connect = new db_connect();
                 connect.OpenConnect();
 
-                string sql = "SELECT id FROM emp WHERE number_phone ='" + tbPhone.Text + "';";
+                string sql = "SELECT UserID FROM user WHERE UserLogin ='" + tbLogin.Text + "';";
 
                 MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 

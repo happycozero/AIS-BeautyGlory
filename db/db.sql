@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `trade1` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `trade1`;
--- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: trade1
+-- Host: localhost    Database: trade1
 -- ------------------------------------------------------
--- Server version	8.0.30
+-- Server version	8.0.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -86,7 +86,7 @@ DROP TABLE IF EXISTS `orderproduct`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orderproduct` (
   `OrderID` int NOT NULL,
-  `ProductArticleNumber` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `ProductArticleNumber` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `OrderCount` int NOT NULL,
   PRIMARY KEY (`OrderID`,`ProductArticleNumber`),
   KEY `ProductArticleNumber` (`ProductArticleNumber`),
@@ -101,7 +101,7 @@ CREATE TABLE `orderproduct` (
 
 LOCK TABLES `orderproduct` WRITE;
 /*!40000 ALTER TABLE `orderproduct` DISABLE KEYS */;
-INSERT INTO `orderproduct` VALUES (1,'А112Т4',3),(2,'H936R5',1),(3,'K892T6',5),(4,'H792T5',3),(5,'K782T5',2),(6,'D682R2',1),(7,'B782T5',1),(8,'K963R5',2),(9,'S672R5',2),(10,'N725R4',2),(11,'U933T6',5),(12,'L726D4',1),(13,'N826F5',1),(14,'L902F5',1),(15,'G729T5',1),(16,'K902F4',2),(17,'H782R4',2),(18,'V627S4',1),(19,'G892T6',3),(20,'F683T5',1);
+INSERT INTO `orderproduct` VALUES (1,'А112Т4',3),(4,'H792T5',3),(5,'K782T5',2),(6,'D682R2',1),(7,'B782T5',1),(8,'K963R5',2),(9,'S672R5',2),(10,'N725R4',2),(11,'U933T6',5),(12,'L726D4',1),(13,'N826F5',1),(14,'L902F5',1),(15,'G729T5',1),(17,'H782R4',2),(18,'V627S4',1),(19,'G892T6',3),(20,'F683T5',1);
 /*!40000 ALTER TABLE `orderproduct` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +137,7 @@ DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product` (
-  `ProductArticleNumber` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `ProductArticleNumber` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `ProductName` text NOT NULL,
   `ProductDescription` text NOT NULL,
   `ProductCategory` int NOT NULL,
@@ -167,7 +167,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES ('A283F5','Пудра','Пудра для лица, MAC studio fix powder plus foundation',11,'',10,3200.0000,3,17,1,1,25),('B782T5','Пудра','Компактная пудра с эффектом сияния, MAC extra dimension skinfinish',11,'',10,3200.0000,3,15,1,2,15),('C672R4','Палетка','Палетка для сияния лица, DIOR BACKSTAGE glow face palette',9,'',7,3200.0000,3,12,1,1,10),('D672R5','Тушь для ресниц','Тушь для ресниц влагостойкая,VIVIENNE SABO cabaret latex',1,'',1,500.0000,2,17,1,1,15),('D682R2','Скульптор лица','Скульптор для лица, ESTRADE mon secret',8,'',6,250.0000,4,14,1,2,5),('F683T5','Гель для бровей','VIVIENNE SABO EYEBROW EXTRA STRONG FIXING GEL',2,'F683T5.jpg',1,149.0000,2,6,1,1,5),('G729T5','Тушь для ресниц','Тушь для ресниц со сценическим эффектом, VIVIENNE SABO cabaret premiere',1,'G729T5.jpg',1,400.0000,2,14,1,2,15),('G892T6','Гель для бровей','VIVIENNE SABO HAUTE COUTURE FIXATEUR BROW&LASH FIXING GEL',2,'G892T6.jpg',1,384.0000,2,14,1,2,15),('H198T5','Карандаш для губ','Карандаш для губ, PUPA true lips',7,'H198T5.jpg',5,500.0000,2,16,1,1,15),('H782R4','Тушь для ресниц','Суперобъемная тушь для ресниц, ART-VISAGE chicago',1,'',4,300.0000,2,5,1,1,15),('H792T5','Помада','Жидкая губная помада, SIGMA BEAUTY liquid lipstick',5,'H792T5.jpg',1,1500.0000,3,16,1,1,25),('H936R5','Тени для бровей','VIVIENNE SABO BROW ARCADE EYEBROW SHADOW DUO',3,'H936R5.jpg',1,380.0000,4,21,1,2,20),('J892T5','Крем','BB 10, ERBORIAN bb creme',10,'',8,4000.0000,4,7,1,2,5),('K782T5','Подводка','Подводка-фломастер для глаз, ART-VISAGE cat eyes',6,'K782T5.jpg',4,3255.0000,3,7,1,2,30),('K892T6','Тени для век','ПАЛИТРА ТЕНЕЙ ДЛЯ ВЕК С ЭФФЕКТОМ ЕСТЕСТВЕННОГО СИЯНИЯ',3,'K892T6.jpg',3,3630.0000,4,8,1,1,20),('K902F4','Тени для век','Палетка для контурирования лица, SIGMA BEAUTY sculpt highlight + contour palette',3,'',1,3700.0000,3,25,1,2,10),('K902R5','Пудра','Пудра-компакт, DARLING* plush air',11,'',11,1215.0000,4,13,1,2,15),('K921G6','Скульптор лица','Тройная палетка для скульптурирования, NYX PROFESSIONAL MAKEUP 3 steps to sculpt face sculpting palette',8,'',9,700.0000,4,6,1,1,40),('K963R5','Масло для губ','Масло для губ, ESTRADE treatment lip oil',5,'',6,180.0000,2,6,1,2,5),('L726D4','Румяна','Румяна для лица, MAC sheertone blush',12,'',10,2300.0000,2,9,1,2,15),('L902F5','Румяна','Кремовые румяна, ART-VISAGE cream blush',12,'',4,324.0000,3,9,1,2,5),('M788G5','Румяна','Румяна для лица, MAC mineralize blush',12,'',10,2790.0000,2,23,1,1,30),('N725R4','13','Устойчивый 13, MAC kajal crayon',13,'',10,1990.0000,3,7,1,2,15),('N826F5','Минеральная пудра','Минеральная прозрачная пудра для фиксации макияжа, NYX PROFESSIONAL MAKEUP studio finishing powder shade',11,'',9,1000.0000,4,15,1,1,10),('S672R5','Масло для губ','Масло-тинт для губ, DARLING* lava lamp',5,'',11,2000.0000,5,19,1,1,15),('U933T6','Кисть для макияжа','УНИВЕРСАЛЬНАЯ КИСТЬ КАБУКИ, SIGMA BEAUTY 3dhd® kabuki',4,'U933T6.jpg',1,1900.0000,2,15,1,2,30),('V627S4','Крем','CC крем \"Абсолютное совершенство\"\", cc color correcting cream\"',10,'',8,1237.0000,2,18,1,2,5),('V672S5','Жидкие тени','Жидкие тени-глиттер для век,DARLING* soul sisters',3,'',11,810.0000,4,15,1,2,30),('Y276S4','Пудра','Перламутровая пудра, MAC mineralize skinfinish',11,'',10,3190.0000,2,15,1,1,10),('А112Т4','Тушь для ресниц','SIGMA BEAUTY sinuosity lash',1,'А112Т4.jpg',1,1400.0000,4,6,1,1,30);
+INSERT INTO `product` VALUES ('A283F5','Пудра','Пудра для лица, MAC studio fix powder plus foundation',11,'img_holder.png',10,3200.0000,3,17,1,1,25),('B782T5','Пудра','Компактная пудра с эффектом сияния, MAC extra dimension skinfinish',11,'img_holder.png',10,3200.0000,3,15,1,2,15),('C672R4','Палетка','Палетка для сияния лица, DIOR BACKSTAGE glow face palette',9,'img_holder.png',7,3200.0000,3,12,1,1,10),('D672R5','Тушь для ресниц','Тушь для ресниц влагостойкая,VIVIENNE SABO cabaret latex',1,'img_holder.png',1,500.0000,2,17,1,1,15),('D682R2','Скульптор лица','Скульптор для лица, ESTRADE mon secret',8,'img_holder.png',6,250.0000,4,14,1,2,5),('F683T5','Гель для бровей','VIVIENNE SABO EYEBROW EXTRA STRONG FIXING GEL',2,'F683T5.jpg',1,149.0000,2,6,1,1,5),('G729T5','Тушь для ресниц','Тушь для ресниц со сценическим эффектом, VIVIENNE SABO cabaret premiere',1,'G729T5.jpg',1,400.0000,2,14,1,2,15),('G892T6','Гель для бровей','VIVIENNE SABO HAUTE COUTURE FIXATEUR BROW&LASH FIXING GEL',2,'G892T6.jpg',1,384.0000,2,14,1,2,15),('H198T5','Карандаш для губ','Карандаш для губ, PUPA true lips',7,'H198T5.jpg',5,500.0000,2,16,1,1,15),('H782R4','Тушь для ресниц','Суперобъемная тушь для ресниц, ART-VISAGE chicago',1,'img_holder.png',4,300.0000,2,5,1,1,15),('H792T5','Помада','Жидкая губная помада, SIGMA BEAUTY liquid lipstick',5,'H792T5.jpg',1,1500.0000,3,16,1,1,25),('J892T5','Крем','BB 10, ERBORIAN bb creme',10,'img_holder.png',8,4000.0000,4,7,1,2,5),('K782T5','Подводка','Подводка-фломастер для глаз, ART-VISAGE cat eyes',6,'K782T5.jpg',4,3255.0000,3,7,1,2,30),('K902R5','Пудра','Пудра-компакт, DARLING* plush air',11,'img_holder.png',11,1215.0000,4,13,1,2,15),('K921G6','Скульптор лица','Тройная палетка для скульптурирования, NYX PROFESSIONAL MAKEUP 3 steps to sculpt face sculpting palette',8,'img_holder.png',9,700.0000,4,6,1,1,40),('K963R5','Масло для губ','Масло для губ, ESTRADE treatment lip oil',5,'img_holder.png',6,180.0000,2,6,1,2,5),('L726D4','Румяна','Румяна для лица, MAC sheertone blush',12,'img_holder.png',10,2300.0000,2,9,1,2,15),('L902F5','Румяна','Кремовые румяна, ART-VISAGE cream blush',12,'img_holder.png',4,324.0000,3,9,1,2,5),('M788G5','Румяна','Румяна для лица, MAC mineralize blush',12,'img_holder.png',10,2790.0000,2,23,1,1,30),('N725R4','13','Устойчивый 13, MAC kajal crayon',13,'img_holder.png',10,1990.0000,3,7,1,2,15),('N826F5','Минеральная пудра','Минеральная прозрачная пудра для фиксации макияжа, NYX PROFESSIONAL MAKEUP studio finishing powder shade',11,'img_holder.png',9,1000.0000,4,15,1,1,10),('S672R5','Масло для губ','Масло-тинт для губ, DARLING* lava lamp',5,'пр03.png',11,2000.0000,5,19,1,1,15),('U933T6','Кисть для макияжа','УНИВЕРСАЛЬНАЯ КИСТЬ КАБУКИ, SIGMA BEAUTY 3dhd® kabuki',4,'U933T6.jpg',1,1900.0000,2,15,1,2,30),('V627S4','Крем','CC крем \"Абсолютное совершенство\"\", cc color correcting cream\"',10,'img_holder.png',8,1237.0000,2,18,1,2,5),('Y276S4','Пудра','Перламутровая пудра, MAC mineralize skinfinish',11,'img_holder.png',10,3190.0000,2,15,1,1,10),('А112Т4','Тушь для ресниц','SIGMA BEAUTY sinuosity lash',1,'А112Т4.jpg',1,1400.0000,4,6,1,1,30);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -339,4 +339,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-12  7:09:06
+-- Dump completed on 2023-04-12 13:34:33

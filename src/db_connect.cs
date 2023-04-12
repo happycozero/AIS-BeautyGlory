@@ -7,11 +7,20 @@ using System.Threading.Tasks;
 
 namespace BeautyGlory
 {
-    class db_connect
+    class db_connect : IDisposable
     {
-        
-        MySqlConnection connection = new MySqlConnection("host=localhost;uid=root;pwd=;database=trade1;");
-        //MySqlConnection connection = new MySqlConnection("host=localhost;uid=root;pwd=root;database=trade;");
+        private readonly MySqlConnection connection;
+
+        public db_connect()
+        {
+            connection = new MySqlConnection("host=localhost;uid=root;pwd=root;database=trade1;");
+            OpenConnect();
+        }
+
+        public void Dispose()
+        {
+            CloseConnect();
+        }
 
         public void OpenConnect()
         {

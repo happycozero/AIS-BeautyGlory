@@ -13,16 +13,6 @@ namespace BeautyGlory
 {
     public partial class Auth : Form
     {
-        private const int CP_NOCLOSE_BUTTON = 0x200;
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams myCp = base.CreateParams;
-                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
-                return myCp;
-            }
-        } 
 
         static public int role_user = 0;
         static public string id_user = "";
@@ -124,25 +114,33 @@ namespace BeautyGlory
                             tbPass.Clear();
                             tbLog.Clear();
 
-                            this.Visible = false;
-                            menuuser.ShowDialog();
-                            this.Visible = true;
+                            switch (role_user)
+                            {
+                                case 1:
+                                    checkform = 0;
+                                    this.Visible = false;
+                                    menuuser.ShowDialog();
+                                    this.Visible = true;
+                                    break;
 
-                            //if (role_user == 1)
-                            //{
-                            //    checkform = 0;
-                            //    this.Visible = false;
-                            //    menuadmin.ShowDialog();
-                            //    this.Visible = true;
-                            //}
+                                case 2:
+                                    checkform = 14741;
+                                    this.Visible = false;
+                                    menumanager.ShowDialog();
+                                    this.Visible = true;
+                                    break;
 
-                            //else
-                            //{
-                            //    checkform = 14741;
-                            //    this.Visible = false;
-                            //    menumanager.ShowDialog();
-                            //    this.Visible = true;
-                            //}
+                                case 3:
+                                    checkform = 0;
+                                    this.Visible = false;
+                                    menuadmin.ShowDialog();
+                                    this.Visible = true;
+                                    break;
+
+                                default:
+                                    break;
+                            }
+
                         }
 
                         else
@@ -158,16 +156,6 @@ namespace BeautyGlory
             catch (Exception msg)
             {
                 MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void bExit_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Вы действительно хотите выйти?", "Выход", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
             }
         }
 
@@ -191,6 +179,16 @@ namespace BeautyGlory
             this.Visible = false;
             vprod.ShowDialog();
             this.Visible = true;
+        }
+
+        private void Auth_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Вы действительно хотите выйти из программы?", "Выход", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -100,7 +100,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle2;
@@ -199,10 +199,10 @@
             // lCount
             // 
             this.lCount.AutoSize = true;
-            this.lCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lCount.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lCount.Location = new System.Drawing.Point(5, 678);
             this.lCount.Name = "lCount";
-            this.lCount.Size = new System.Drawing.Size(192, 20);
+            this.lCount.Size = new System.Drawing.Size(211, 26);
             this.lCount.TabIndex = 12;
             this.lCount.Text = "Количество записей: ";
             // 
@@ -305,7 +305,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(774, 232);
+            this.label3.Location = new System.Drawing.Point(734, 232);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(189, 31);
             this.label3.TabIndex = 28;
@@ -313,7 +313,7 @@
             // 
             // tbDisc
             // 
-            this.tbDisc.Location = new System.Drawing.Point(969, 225);
+            this.tbDisc.Location = new System.Drawing.Point(930, 229);
             this.tbDisc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDisc.MaxLength = 3;
             this.tbDisc.Name = "tbDisc";
@@ -375,7 +375,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(817, 169);
+            this.label10.Location = new System.Drawing.Point(817, 164);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 31);
             this.label10.TabIndex = 35;
@@ -384,7 +384,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1047, 234);
+            this.label11.Location = new System.Drawing.Point(1008, 232);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(33, 31);
             this.label11.TabIndex = 36;
@@ -453,7 +453,7 @@
             this.MaximizeBox = false;
             this.Name = "Products";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Товары || ООО \"Рулевой\"";
+            this.Text = "Товары | ООО \"Красотка\"";
             this.Load += new System.EventHandler(this.Products_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
