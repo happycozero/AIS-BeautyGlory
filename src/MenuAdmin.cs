@@ -45,7 +45,7 @@ namespace BeautyGlory
 
             string sql_query = "SELECT UserSurname, UserName, UserPatronymic FROM user WHERE UserID = @id_user;";
             MySqlCommand command = new MySqlCommand(sql_query, connection.GetConnect());
-            command.Parameters.AddWithValue("@id_user", Auth.id_user);
+            command.Parameters.AddWithValue("@id_user", AuthForm.id_user);
 
             using (MySqlDataReader reader = command.ExecuteReader())
             {

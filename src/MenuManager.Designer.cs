@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lFIO = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bNewOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,6 +107,19 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // bNewOrder
+            // 
+            this.bNewOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bNewOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bNewOrder.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bNewOrder.Location = new System.Drawing.Point(12, 221);
+            this.bNewOrder.Name = "bNewOrder";
+            this.bNewOrder.Size = new System.Drawing.Size(725, 50);
+            this.bNewOrder.TabIndex = 0;
+            this.bNewOrder.Text = "Корзина";
+            this.bNewOrder.UseVisualStyleBackColor = false;
+            this.bNewOrder.Click += new System.EventHandler(this.bProducts_Click);
+            // 
             // MenuManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -117,6 +131,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bBack);
+            this.Controls.Add(this.bNewOrder);
             this.Controls.Add(this.bProducts);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -142,5 +157,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label lFIO;
+        private System.Windows.Forms.Button bNewOrder;
     }
 }

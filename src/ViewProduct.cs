@@ -24,6 +24,8 @@ namespace BeautyGlory
             }
         }
 
+        string id_prod;
+
         public ViewProduct()
         {
             InitializeComponent();
@@ -346,5 +348,145 @@ namespace BeautyGlory
         {
 
         }
+
+        private void dgvProduct_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (AuthForm.role_user == 2 || AuthForm.role_user == 1)
+            {
+                DialogResult result = MessageBox.Show("Вы действительно хотите добавить товар в корзину?", "Корзина", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (id_prod == "")
+                        {
+                            MessageBox.Show("Ошибка! Сначала выберите товар!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        else
+                        {
+                            if (Convert.ToInt32(dgvProduct.CurrentRow.Cells[7].Value) == 0)
+                            {
+                                MessageBox.Show("К сожалению, товар закончился на складе!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+
+                            else
+                            {
+                                if (CheckCartTovar() == false)
+                                {
+                                    db_connect connection = new db_connect();
+                                    connection.OpenConnect();
+
+                                    MySqlTransaction trans = connection.GetConnect().BeginTransaction();
+
+                                    string sql1 = String.Format("UPDATE cart SET Quantity = (Quantity + 1)  WHERE idProduct = '{0}' AND idUser = {1};", id_prod, AuthForm.id_user);
+                                    MySqlCommand com1 = new MySqlCommand(sql1, connection.GetConnect());
+                                    com1.Transaction = trans;
+
+                                    string sql2 = String.Format("UPDATE product SET ProductQuantityInStock = (ProductQuantityInStock - 1) WHERE ProductArticleNumber = '{0}';", id_prod);
+                                    MySqlCommand com2 = new MySqlCommand(sql2, connection.GetConnect());
+                                    com2.Transaction = trans;
+
+                                    try
+                                    {
+                                        com1.ExecuteNonQuery();
+                                        com2.ExecuteNonQuery();
+                                        trans.Commit();
+                                        ProductFill();
+
+                                        MessageBox.Show("Успешно! Товар с артикулом - " + id_prod + ". Добавлен в корзину в количестве 1-ой позиции.", "Корзина", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+
+                                    catch (Exception msg)
+                                    {
+                                        MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        trans.Rollback();
+                                    }
+                                }
+
+                                else
+                                {
+                                    db_connect connection = new db_connect();
+                                    connection.OpenConnect();
+
+                                    MySqlTransaction trans = connection.GetConnect().BeginTransaction();
+
+                                    double price = Convert.ToDouble(tbPrice.Text);
+                                    double disc = Convert.ToInt32(tbDisc.Text) / 100.0;
+                                    price = price - (price * disc);
+                                    string price2 = Convert.ToString((Math.Round(price, 2))).Replace(",", ".");
+
+                                    string sql1 = String.Format("INSERT INTO cart VALUES(null, {0}, '{1}', '{2}', {3}, 1);", AuthForm.id_user, id_prod, tbName.Text, price2);
+                                    MySqlCommand com1 = new MySqlCommand(sql1, connection.GetConnect());
+                                    com1.Transaction = trans;
+
+                                    string sql2 = String.Format("UPDATE product SET ProductQuantityInStock = (ProductQuantityInStock - 1) WHERE ProductArticleNumber = '{0}';", id_prod);
+                                    MySqlCommand com2 = new MySqlCommand(sql2, connection.GetConnect());
+                                    com2.Transaction = trans;
+
+                                    try
+                                    {
+                                        com1.ExecuteNonQuery();
+                                        com2.ExecuteNonQuery();
+                                        trans.Commit();
+                                        ProductFill();
+
+                                        MessageBox.Show("Успешно! Товар с артикулом - " + id_prod + ". Добавлен в корзину в количестве 1-ой позиции.", "Корзина", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+
+                                    catch (Exception msg)
+                                    {
+                                        MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        trans.Rollback();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception msg)
+                    {
+                        MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+        private bool CheckCartTovar()
+        {
+            try
+            {
+                bool flag = false;
+                string count = "";
+
+                db_connect connect = new db_connect();
+                connect.OpenConnect();
+
+                string sql = "SELECT Quantity FROM cart WHERE idUser = " + AuthForm.id_user + " AND idProduct = '" + id_prod + "';";
+
+                MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
+
+                try
+                {
+                    count = com.ExecuteScalar().ToString();
+                    flag = false;
+                }
+
+                catch
+                {
+                    flag = true;
+                    return flag;
+                }
+
+                return flag;
+
+            }
+
+            catch (Exception msg)
+            {
+                MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
     }
 }

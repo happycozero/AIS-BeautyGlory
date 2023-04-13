@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace BeautyGlory
 {
-    public partial class Auth : Form
+    public partial class AuthForm : Form
     {
         static public int role_user = 0;
         static public string id_user = "";
@@ -25,7 +25,7 @@ namespace BeautyGlory
         MenuUser menuuser = new MenuUser();
         ViewProduct vprod = new ViewProduct();
 
-        public Auth()
+        public AuthForm()
         {
             BackupDB bk = new BackupDB();
             bk.getBackup();

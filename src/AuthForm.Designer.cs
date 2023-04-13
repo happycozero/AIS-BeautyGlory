@@ -1,6 +1,6 @@
 ﻿namespace BeautyGlory
 {
-    partial class Auth
+    partial class AuthForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Auth));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthForm));
             this.bAuth = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbLog = new System.Windows.Forms.TextBox();

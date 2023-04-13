@@ -121,6 +121,7 @@
             this.dgvProduct.Size = new System.Drawing.Size(1409, 393);
             this.dgvProduct.TabIndex = 1;
             this.dgvProduct.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduct_CellMouseClick);
+            this.dgvProduct.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduct_CellMouseDoubleClick);
             this.dgvProduct.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduct_ColumnHeaderMouseClick);
             // 
             // label1
