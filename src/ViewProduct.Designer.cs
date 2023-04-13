@@ -163,7 +163,7 @@
             this.tbName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
-            this.tbName.Size = new System.Drawing.Size(298, 37);
+            this.tbName.Size = new System.Drawing.Size(296, 37);
             this.tbName.TabIndex = 11;
             // 
             // lCount
@@ -247,7 +247,7 @@
             this.cmCategory.Location = new System.Drawing.Point(402, 223);
             this.cmCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmCategory.Name = "cmCategory";
-            this.cmCategory.Size = new System.Drawing.Size(298, 37);
+            this.cmCategory.Size = new System.Drawing.Size(296, 37);
             this.cmCategory.TabIndex = 20;
             // 
             // bPhoto

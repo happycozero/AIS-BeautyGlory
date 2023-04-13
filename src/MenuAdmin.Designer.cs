@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAdmin));
-            this.bSpec = new System.Windows.Forms.Button();
             this.bBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -40,19 +39,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bSpec
-            // 
-            this.bSpec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
-            this.bSpec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bSpec.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bSpec.Location = new System.Drawing.Point(12, 371);
-            this.bSpec.Name = "bSpec";
-            this.bSpec.Size = new System.Drawing.Size(725, 50);
-            this.bSpec.TabIndex = 4;
-            this.bSpec.Text = "Специальные возможности";
-            this.bSpec.UseVisualStyleBackColor = false;
-            this.bSpec.Click += new System.EventHandler(this.bSpec_Click);
             // 
             // bBack
             // 
@@ -144,7 +130,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bBack);
-            this.Controls.Add(this.bSpec);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
@@ -163,7 +148,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button bSpec;
+
         private System.Windows.Forms.Button bBack;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;

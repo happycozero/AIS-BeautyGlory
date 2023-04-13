@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,6 @@ namespace BeautyGlory
 {
     public partial class Auth : Form
     {
-
         static public int role_user = 0;
         static public string id_user = "";
         int count_auth = 0;
@@ -27,6 +27,8 @@ namespace BeautyGlory
 
         public Auth()
         {
+            BackupDB bk = new BackupDB();
+            bk.getBackup();
             InitializeComponent();
         }
 
