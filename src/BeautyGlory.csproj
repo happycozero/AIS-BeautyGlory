@@ -97,24 +97,6 @@
     <Compile Include="MenuUser.Designer.cs">
       <DependentUpon>MenuUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewOrder.Designer.cs">
-      <DependentUpon>NewOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OrderInf.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderInf.Designer.cs">
-      <DependentUpon>OrderInf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OrderView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderView.Designer.cs">
-      <DependentUpon>OrderView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Products.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,12 +122,6 @@
     <Compile Include="Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewOrders.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewOrders.Designer.cs">
-      <DependentUpon>ViewOrders.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,15 +146,6 @@
     <EmbeddedResource Include="MenuUser.resx">
       <DependentUpon>MenuUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewOrder.resx">
-      <DependentUpon>NewOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderInf.resx">
-      <DependentUpon>OrderInf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderView.resx">
-      <DependentUpon>OrderView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Products.resx">
       <DependentUpon>Products.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,9 +159,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewOrders.resx">
-      <DependentUpon>ViewOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewProduct.resx">
       <DependentUpon>ViewProduct.cs</DependentUpon>

@@ -387,7 +387,7 @@
             // 
             this.tbLogin.Location = new System.Drawing.Point(789, 48);
             this.tbLogin.Name = "tbLogin";
-            this.tbLogin.Size = new System.Drawing.Size(285, 37);
+            this.tbLogin.Size = new System.Drawing.Size(291, 37);
             this.tbLogin.TabIndex = 41;
             // 
             // label4
@@ -403,7 +403,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(789, 120);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(285, 37);
+            this.textBox1.Size = new System.Drawing.Size(291, 37);
             this.textBox1.TabIndex = 39;
             // 
             // label9

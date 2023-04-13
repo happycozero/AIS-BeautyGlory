@@ -136,39 +136,46 @@
             // 
             // bEdit
             // 
+            this.bEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bEdit.Location = new System.Drawing.Point(238, 717);
             this.bEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bEdit.Name = "bEdit";
             this.bEdit.Size = new System.Drawing.Size(207, 44);
             this.bEdit.TabIndex = 3;
             this.bEdit.Text = "Редактировать";
-            this.bEdit.UseVisualStyleBackColor = true;
+            this.bEdit.UseVisualStyleBackColor = false;
             this.bEdit.Click += new System.EventHandler(this.bEdit_Click);
             // 
             // bAdd
             // 
+            this.bAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bAdd.Location = new System.Drawing.Point(8, 716);
             this.bAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(207, 44);
             this.bAdd.TabIndex = 4;
             this.bAdd.Text = "Добавить";
-            this.bAdd.UseVisualStyleBackColor = true;
+            this.bAdd.UseVisualStyleBackColor = false;
             this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
             // bDel
             // 
+            this.bDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bDel.Location = new System.Drawing.Point(462, 717);
             this.bDel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bDel.Name = "bDel";
             this.bDel.Size = new System.Drawing.Size(207, 44);
             this.bDel.TabIndex = 5;
             this.bDel.Text = "Удалить";
-            this.bDel.UseVisualStyleBackColor = true;
+            this.bDel.UseVisualStyleBackColor = false;
             this.bDel.Click += new System.EventHandler(this.bDel_Click);
             // 
             // bBack
             // 
+            this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Location = new System.Drawing.Point(1246, 713);
             this.bBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bBack.Name = "bBack";
@@ -274,6 +281,7 @@
             // 
             // bPhoto
             // 
+            this.bPhoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bPhoto.Location = new System.Drawing.Point(1246, 219);
             this.bPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bPhoto.Name = "bPhoto";
@@ -288,7 +296,7 @@
             this.pbPhoto.Location = new System.Drawing.Point(1246, 18);
             this.pbPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbPhoto.Name = "pbPhoto";
-            this.pbPhoto.Size = new System.Drawing.Size(207, 173);
+            this.pbPhoto.Size = new System.Drawing.Size(207, 182);
             this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPhoto.TabIndex = 21;
             this.pbPhoto.TabStop = false;
@@ -364,11 +372,11 @@
             // 
             // tbPhoto
             // 
-            this.tbPhoto.Location = new System.Drawing.Point(675, 722);
+            this.tbPhoto.Location = new System.Drawing.Point(680, 720);
             this.tbPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPhoto.Multiline = true;
             this.tbPhoto.Name = "tbPhoto";
-            this.tbPhoto.Size = new System.Drawing.Size(178, 35);
+            this.tbPhoto.Size = new System.Drawing.Size(178, 40);
             this.tbPhoto.TabIndex = 34;
             this.tbPhoto.Visible = false;
             // 

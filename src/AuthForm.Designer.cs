@@ -46,7 +46,7 @@
             this.bAuth.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bAuth.Location = new System.Drawing.Point(14, 238);
             this.bAuth.Name = "bAuth";
-            this.bAuth.Size = new System.Drawing.Size(317, 52);
+            this.bAuth.Size = new System.Drawing.Size(317, 50);
             this.bAuth.TabIndex = 0;
             this.bAuth.Text = "Авторизоваться";
             this.bAuth.UseVisualStyleBackColor = false;

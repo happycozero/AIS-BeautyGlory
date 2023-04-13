@@ -57,7 +57,7 @@
             this.bBack.Location = new System.Drawing.Point(842, 573);
             this.bBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(192, 41);
+            this.bBack.Size = new System.Drawing.Size(192, 40);
             this.bBack.TabIndex = 17;
             this.bBack.Text = "Назад в меню";
             this.bBack.UseVisualStyleBackColor = false;
@@ -206,7 +206,7 @@
             this.bDel.Location = new System.Drawing.Point(408, 573);
             this.bDel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bDel.Name = "bDel";
-            this.bDel.Size = new System.Drawing.Size(192, 41);
+            this.bDel.Size = new System.Drawing.Size(192, 40);
             this.bDel.TabIndex = 27;
             this.bDel.Text = "Удалить";
             this.bDel.UseVisualStyleBackColor = false;
@@ -220,7 +220,7 @@
             this.bEdit.Location = new System.Drawing.Point(210, 573);
             this.bEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bEdit.Name = "bEdit";
-            this.bEdit.Size = new System.Drawing.Size(192, 41);
+            this.bEdit.Size = new System.Drawing.Size(192, 40);
             this.bEdit.TabIndex = 28;
             this.bEdit.Text = "Редактировать";
             this.bEdit.UseVisualStyleBackColor = false;
@@ -234,7 +234,7 @@
             this.bAdd.Location = new System.Drawing.Point(12, 573);
             this.bAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bAdd.Name = "bAdd";
-            this.bAdd.Size = new System.Drawing.Size(192, 41);
+            this.bAdd.Size = new System.Drawing.Size(192, 40);
             this.bAdd.TabIndex = 29;
             this.bAdd.Text = "Добавить";
             this.bAdd.UseVisualStyleBackColor = false;

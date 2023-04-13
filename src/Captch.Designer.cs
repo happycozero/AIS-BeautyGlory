@@ -57,13 +57,15 @@
             // 
             // bInput
             // 
+            this.bInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bInput.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bInput.Location = new System.Drawing.Point(31, 236);
             this.bInput.Name = "bInput";
-            this.bInput.Size = new System.Drawing.Size(376, 38);
+            this.bInput.Size = new System.Drawing.Size(376, 40);
             this.bInput.TabIndex = 4;
             this.bInput.Text = "Ввести";
-            this.bInput.UseVisualStyleBackColor = true;
+            this.bInput.UseVisualStyleBackColor = false;
             this.bInput.Click += new System.EventHandler(this.bInput_Click);
             // 
             // bReload
