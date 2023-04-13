@@ -42,8 +42,10 @@
             // 
             // bBack
             // 
+            this.bBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bBack.Location = new System.Drawing.Point(13, 329);
+            this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bBack.Location = new System.Drawing.Point(13, 309);
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(725, 58);
             this.bBack.TabIndex = 5;
@@ -95,6 +97,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(12, 165);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(725, 50);
@@ -110,7 +113,6 @@
             this.pictureBox2.Location = new System.Drawing.Point(597, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(140, 125);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
@@ -119,7 +121,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(749, 399);
+            this.ClientSize = new System.Drawing.Size(749, 378);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lRole);

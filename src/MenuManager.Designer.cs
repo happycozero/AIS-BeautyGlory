@@ -54,9 +54,10 @@
             // 
             // bBack
             // 
+            this.bBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bBack.Location = new System.Drawing.Point(12, 417);
+            this.bBack.Location = new System.Drawing.Point(12, 313);
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(725, 50);
             this.bBack.TabIndex = 5;
@@ -110,7 +111,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(749, 479);
+            this.ClientSize = new System.Drawing.Size(749, 379);
             this.Controls.Add(this.lFIO);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

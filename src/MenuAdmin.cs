@@ -25,7 +25,6 @@ namespace BeautyGlory
         } 
 
         Products prod = new Products();
-        Users user = new Users();
         Guide guide = new Guide();
         Spec spec = new Spec();
 
@@ -56,7 +55,7 @@ namespace BeautyGlory
                     string name = reader.GetString(1);
                     string middle_name = reader.GetString(2);
 
-                    lFIO.Text = $"{first_name} {name[0]}. {middle_name[0]}.";
+                    lFIO.Text = string.Format("{0} {1}. {2}.", first_name, name[0], middle_name[0]);
                 }
             }
 
@@ -77,13 +76,6 @@ namespace BeautyGlory
         {
             this.Visible = false;
             prod.ShowDialog();
-            this.Visible = true;
-        }
-
-        private void bUser_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            user.ShowDialog();
             this.Visible = true;
         }
 

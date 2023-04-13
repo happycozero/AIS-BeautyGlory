@@ -49,7 +49,6 @@
             this.bPhoto = new System.Windows.Forms.Button();
             this.folderPhoto = new System.Windows.Forms.FolderBrowserDialog();
             this.openPhoto = new System.Windows.Forms.OpenFileDialog();
-            this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbDisc = new System.Windows.Forms.TextBox();
@@ -60,6 +59,7 @@
             this.tbPhoto = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.pbPhoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
@@ -262,17 +262,6 @@
             this.bPhoto.Text = "Выбрать фото";
             this.bPhoto.UseVisualStyleBackColor = true;
             // 
-            // pbPhoto
-            // 
-            this.pbPhoto.ErrorImage = global::BeautyGlory.Properties.Resources.img_holder;
-            this.pbPhoto.Location = new System.Drawing.Point(1207, 18);
-            this.pbPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pbPhoto.Name = "pbPhoto";
-            this.pbPhoto.Size = new System.Drawing.Size(207, 190);
-            this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPhoto.TabIndex = 21;
-            this.pbPhoto.TabStop = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -378,6 +367,16 @@
             this.label11.Size = new System.Drawing.Size(33, 31);
             this.label11.TabIndex = 35;
             this.label11.Text = "%";
+            // 
+            // pbPhoto
+            // 
+            this.pbPhoto.ErrorImage = null;
+            this.pbPhoto.Location = new System.Drawing.Point(1207, 18);
+            this.pbPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbPhoto.Name = "pbPhoto";
+            this.pbPhoto.Size = new System.Drawing.Size(207, 190);
+            this.pbPhoto.TabIndex = 21;
+            this.pbPhoto.TabStop = false;
             // 
             // ViewProduct
             // 

@@ -46,6 +46,7 @@ namespace BeautyGlory
             FillEmp();
             cbRole_Fill();
             CountRowsDgv();
+            ClearTbEmp();
 
             bDel_Role.Enabled = false;
             bEdit_Role.Enabled = false;
@@ -86,6 +87,8 @@ namespace BeautyGlory
                         }
                     }
                 }
+
+                ClearTbEmp();
 
                 connection.CloseConnect();
             }
@@ -174,7 +177,7 @@ namespace BeautyGlory
             {
                 connection.OpenConnect();
 
-                string sql = $"INSERT INTO productcategory VALUES (null, '{tbCat.Text}')";
+                string sql = string.Format("INSERT INTO productcategory VALUES (null, '{0}')", tbCat.Text);
 
                 using (var com = new MySqlCommand(sql, connection.GetConnect()))
                 {
@@ -574,7 +577,7 @@ namespace BeautyGlory
                     db_connect connection = new db_connect();
                     connection.OpenConnect();
 
-                    string sql = String.Format("INSERT INTO user VALUES(null, '{0}', '{1}', '{2}', '{3}', '{4}', '{5}') ;", tbFirst_name.Text, tbName.Text, tbMiddle_name.Text, tbLogin.Text, tbPass.Text, cbRole.Text);
+                    string sql = String.Format("INSERT INTO user VALUES(null, '{0}', '{1}', '{2}', '{3}', '{4}', {5}) ;", tbFirst_name.Text, tbName.Text, tbMiddle_name.Text, tbLogin.Text, tbPass.Text, role_id_u());
 
                     MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                     com.ExecuteNonQuery();
@@ -588,6 +591,21 @@ namespace BeautyGlory
                     MessageBox.Show("Успешно! Запись добавлена.", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        public int role_id_u()
+        {
+            db_connect connection = new db_connect();
+            connection.OpenConnect();
+
+            string sql = "SELECT RoleID FROM role WHERE RoleName = '" + cbRole.Text + "';";
+            MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
+
+            int role_int_id_u = Convert.ToInt32(com.ExecuteScalar());
+
+            connection.CloseConnect();
+
+            return role_int_id_u;
         }
 
         private void bEdit_Emp_Click(object sender, EventArgs e)
@@ -683,13 +701,13 @@ namespace BeautyGlory
                 {
                     DataGridViewRow row = dgvEmp.Rows[e.RowIndex];
 
-                    id_emp = row.Cells[0].Value?.ToString();
-                    tbFirst_name.Text = row.Cells[1].Value?.ToString();
-                    tbName.Text = row.Cells[2].Value?.ToString();
-                    tbMiddle_name.Text = row.Cells[3].Value?.ToString();
-                    tbLogin.Text = row.Cells[4].Value?.ToString();
-                    tbPass.Text = row.Cells[5].Value?.ToString();
-                    cbRole.Text = row.Cells[6].Value?.ToString();
+                    id_emp = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : "";
+                    tbFirst_name.Text = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : "";
+                    tbName.Text = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : "";
+                    tbMiddle_name.Text = row.Cells[3].Value != null ? row.Cells[3].Value.ToString() : "";
+                    tbLogin.Text = row.Cells[4].Value != null ? row.Cells[4].Value.ToString() : "";
+                    tbPass.Text = row.Cells[5].Value != null ? row.Cells[5].Value.ToString() : "";
+                    cbRole.Text = row.Cells[6].Value != null ? row.Cells[6].Value.ToString() : "";
 
                     bEdit_Emp.Enabled = true;
                     bDel_Emp.Enabled = true;
