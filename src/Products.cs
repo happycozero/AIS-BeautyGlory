@@ -286,10 +286,9 @@ namespace BeautyGlory
                 tbDiscMax.Text = dgvProduct.Rows[e.RowIndex].Cells[10].Value.ToString();
                 pbPhoto.ImageLocation = "Photo/" + Convert.ToString(dgvProduct.Rows[e.RowIndex].Cells[11].Value.ToString());
             }
-
-            catch (Exception msg)
+            catch (Exception)
             {
-                MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ;
             }
         }
 

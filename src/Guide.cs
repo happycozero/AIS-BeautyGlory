@@ -39,13 +39,14 @@ namespace BeautyGlory
         {
             this.Close();
         }
-
         private void Guide_Load(object sender, EventArgs e)
         {
             FillRole();
             FillCat();
             FillEmp();
+            cbRole_Fill();
             CountRowsDgv();
+
             bDel_Role.Enabled = false;
             bEdit_Role.Enabled = false;
             bDel_Emp.Enabled = false;
@@ -53,56 +54,72 @@ namespace BeautyGlory
             bDel_Cat.Enabled = false;
             bUpd_Cat.Enabled = false;
         }
-
         public void FillRole()
         {
-            db_connect connection = new db_connect();
-            connection.OpenConnect();
+            using (var connection = new db_connect())
+            {
+                connection.OpenConnect();
 
-            string sql = @"SELECT RoleID AS 'ID', RoleName AS 'Доступ пользователя' FROM role;";
+                string sql = @"SELECT RoleID AS 'ID', RoleName AS 'Доступ пользователя' FROM role;";
 
-            MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
-            com.ExecuteNonQuery();
+                using (var com = new MySqlCommand(sql, connection.GetConnect()))
+                {
+                    using (var adapter = new MySqlDataAdapter(com))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(com);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
+                        dgvRole.DataSource = dt;
 
-            dgvRole.DataSource = dt;
+                        dgvRole.RowTemplate.Height = 60;
 
-            dgvRole.RowTemplate.Height = 60;
+                        foreach (DataGridViewColumn column in dgvRole.Columns)
+                        {
+                            if (column.Index == 0)
+                            {
+                                column.Visible = false;
+                            }
+                            else
+                            {
+                                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                            }
+                        }
+                    }
+                }
 
-            dgvRole.Columns[0].Visible = false;
-            dgvRole.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvRole.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-            connection.CloseConnect();
+                connection.CloseConnect();
+            }
         }
-
         public void FillCat()
         {
             try
             {
-                db_connect connection = new db_connect();
-                connection.OpenConnect();
+                using (var connection = new db_connect())
+                {
+                    connection.OpenConnect();
 
-                string sql = @"SELECT idCategory AS 'ID', Category AS 'Категория товара' FROM productcategory;";
+                    string sql = @"SELECT idCategory AS 'ID', Category AS 'Категория товара' FROM productcategory;";
 
-                MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
-                com.ExecuteNonQuery();
+                    using (var com = new MySqlCommand(sql, connection.GetConnect()))
+                    {
+                        using (var adapter = new MySqlDataAdapter(com))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter(com);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
+                            dgvCat.DataSource = dt;
 
-                dgvCat.DataSource = dt;
-
-                dgvCat.RowTemplate.Height = 60;
-
-                dgvCat.Columns[0].Visible = false;
-                dgvCat.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-                connection.CloseConnect();
+                            dgvCat.Columns[0].Visible = false;
+                            foreach (DataGridViewColumn column in dgvCat.Columns)
+                            {
+                                if (column.Index != 0)
+                                {
+                                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception msg)
             {
@@ -115,7 +132,7 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql = @"SELECT UserID AS 'ID', UserSurname AS 'Фамилия', USerName AS 'Имя', UserPatronymic AS 'Отчество', UserLogin AS 'Логин', UserPassword AS 'Пароль' FROM user;";
+            string sql = @"SELECT user.UserID AS 'ID', user.UserSurname AS 'Фамилия', user.USerName AS 'Имя', user.UserPatronymic AS 'Отчество', user.UserLogin AS 'Логин', user.UserPassword AS 'Пароль',  role.RoleName AS 'Доступ' FROM user INNER JOIN role ON role.RoleID = user.UserRole;";
 
             MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
             com.ExecuteNonQuery();
@@ -129,61 +146,56 @@ namespace BeautyGlory
             dgvCat.RowTemplate.Height = 60;
 
             dgvEmp.Columns[0].Visible = false;
-            dgvEmp.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvEmp.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvEmp.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvEmp.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvEmp.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvEmp.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvEmp.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvEmp.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvEmp.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvEmp.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
+            foreach (DataGridViewColumn column in dgvEmp.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
 
             connection.CloseConnect();
         }
-
         private void bAdd_Cat_Click(object sender, EventArgs e)
         {
-            if (tbCat.Text == "")
+            if (string.IsNullOrWhiteSpace(tbCat.Text))
             {
-                 MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление категории", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление категории", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            else
+            int categoryID = GetCategory();
+            if (categoryID != 1012)
             {
-                if (GetCategory() != 1012)
+                MessageBox.Show("Ошибка! Такая категория уже существует.", "Добавление категории", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbCat.Clear();
+                return;
+            }
+
+            using (var connection = new db_connect())
+            {
+                connection.OpenConnect();
+
+                string sql = $"INSERT INTO productcategory VALUES (null, '{tbCat.Text}')";
+
+                using (var com = new MySqlCommand(sql, connection.GetConnect()))
                 {
-                    MessageBox.Show("Ошибка! Такая категория уже существует.", "Добавление категории", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    tbCat.Clear();
-                }
-
-                else
-                {
-                    db_connect connection = new db_connect();
-                    connection.OpenConnect();
-
-                    string sql = String.Format("INSERT INTO productcategory VALUES (null, '{0}');", tbCat.Text);
-
-                    MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                     com.ExecuteNonQuery();
-
-                    connection.CloseConnect();
-                    tbCat.Clear();
-                    FillCat();
-                    CountRowsDgv();
-
-                    MessageBox.Show("Успешно! Запись добавлена.", "Добавление категории", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-        }
 
+            tbCat.Clear();
+            FillCat();
+            CountRowsDgv();
+
+            MessageBox.Show("Успешно! Запись добавлена.", "Добавление категории", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         private void bAdd_Role_Click(object sender, EventArgs e)
         {
+            // Очищаем поле tbRole и проверяем, заполнено ли оно
+            tbRole.Clear();
             if (tbRole.Text == "")
             {
                 MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление роли", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             else
@@ -225,9 +237,9 @@ namespace BeautyGlory
                 bEdit_Role.Enabled = true;
             }
 
-            catch (Exception msg)
+            catch (Exception)
             {
-                MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ;
             }
         }
 
@@ -242,9 +254,9 @@ namespace BeautyGlory
                 bUpd_Cat.Enabled = true;
             }
 
-            catch (Exception msg)
+            catch (Exception)
             {
-                MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ;
             }
         }
 
@@ -495,7 +507,7 @@ namespace BeautyGlory
                 db_connect connect = new db_connect();
                 connect.OpenConnect();
 
-                string sql = "SELECT name FROM users WHERE role =" + GetRole() + ";";
+                string sql = "SELECT RoleName FROM user WHERE UserRole =" + GetRole() + ";";
 
                 MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
 
@@ -524,9 +536,28 @@ namespace BeautyGlory
             label9.Text = "Количество сотрудников: " + dgvEmp.Rows.Count;
         }
 
+        private void cbRole_Fill()
+        {
+            cbRole.Items.Clear();
+
+            db_connect connect = new db_connect();
+            connect.OpenConnect();
+
+            string sql = "SELECT * FROM role;";
+
+            MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
+
+            MySqlDataReader reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                cbRole.Items.Add(reader[1].ToString());
+            }
+
+            connect.CloseConnect();
+        }
         private void bAdd_Emp_Click(object sender, EventArgs e)
         {
-            if (tbFirst_name.Text == "" || tbName.Text == "" || tbMiddle_name.Text == "" || tbLogin.Text == "")
+            if (tbFirst_name.Text == "" || tbName.Text == "" || tbMiddle_name.Text == "" || tbLogin.Text == "" || tbPass.Text == "" || cbRole.Text == "")
             {
                 MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -543,7 +574,7 @@ namespace BeautyGlory
                     db_connect connection = new db_connect();
                     connection.OpenConnect();
 
-                    string sql = String.Format("INSERT INTO user VALUES(null, '{0}', '{1}', '{2}', '{3}') ;", tbFirst_name.Text, tbName.Text, tbMiddle_name.Text, tbLogin.Text);
+                    string sql = String.Format("INSERT INTO user VALUES(null, '{0}', '{1}', '{2}', '{3}', '{4}', '{5}') ;", tbFirst_name.Text, tbName.Text, tbMiddle_name.Text, tbLogin.Text, tbPass.Text, cbRole.Text);
 
                     MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                     com.ExecuteNonQuery();
@@ -554,16 +585,16 @@ namespace BeautyGlory
                     FillEmp();
                     CountRowsDgv();
 
-                    MessageBox.Show("Успешно! Запись добавлена.", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Успешно! Запись добавлена.", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
         private void bEdit_Emp_Click(object sender, EventArgs e)
         {
-            if (tbFirst_name.Text == "" || tbName.Text == "" || tbMiddle_name.Text == "" || tbLogin.Text == "")
+            if (tbFirst_name.Text == "" || tbName.Text == "" || tbMiddle_name.Text == "" || tbLogin.Text == "" || tbPass.Text == "" || cbRole.Text == "")
             {
-                MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
@@ -590,14 +621,14 @@ namespace BeautyGlory
                     FillEmp();
                     CountRowsDgv();
 
-                    MessageBox.Show("Успешно! Запись отредактирована.", "Редактирование", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Успешно! Запись отредактирована.", "Редактирование пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
         private void bDel_Emp_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную запись?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную запись?", "Удаление пользователя", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (DialogResult.Yes == result)
             {
@@ -611,7 +642,7 @@ namespace BeautyGlory
 
                 connection.CloseConnect();
 
-                MessageBox.Show("Запись успешно удалена.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Запись успешно удалена.", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 bEdit_Emp.Enabled = false;
                 bDel_Emp.Enabled = false;
@@ -648,19 +679,26 @@ namespace BeautyGlory
         {
             try
             {
-                id_emp = dgvEmp.Rows[e.RowIndex].Cells[0].Value.ToString();
-                tbFirst_name.Text = dgvEmp.Rows[e.RowIndex].Cells[1].Value.ToString();
-                tbName.Text = dgvEmp.Rows[e.RowIndex].Cells[2].Value.ToString();
-                tbMiddle_name.Text = dgvEmp.Rows[e.RowIndex].Cells[3].Value.ToString();
-                tbLogin.Text = dgvEmp.Rows[e.RowIndex].Cells[4].Value.ToString();
+                if (e.RowIndex >= 0 && e.RowIndex < dgvEmp.Rows.Count)
+                {
+                    DataGridViewRow row = dgvEmp.Rows[e.RowIndex];
 
-                bEdit_Emp.Enabled = true;
-                bDel_Emp.Enabled = true;
+                    id_emp = row.Cells[0].Value?.ToString();
+                    tbFirst_name.Text = row.Cells[1].Value?.ToString();
+                    tbName.Text = row.Cells[2].Value?.ToString();
+                    tbMiddle_name.Text = row.Cells[3].Value?.ToString();
+                    tbLogin.Text = row.Cells[4].Value?.ToString();
+                    tbPass.Text = row.Cells[5].Value?.ToString();
+                    cbRole.Text = row.Cells[6].Value?.ToString();
+
+                    bEdit_Emp.Enabled = true;
+                    bDel_Emp.Enabled = true;
+                }
             }
 
-            catch (Exception msg)
+            catch (Exception )
             {
-                MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ;
             }
         }
 
@@ -670,6 +708,8 @@ namespace BeautyGlory
             tbName.Clear();
             tbMiddle_name.Clear();
             tbLogin.Clear();
+            tbPass.Clear();
+            cbRole.SelectedIndex = -1;
         }
 
         private int CheckNumUpd()
@@ -699,26 +739,6 @@ namespace BeautyGlory
             catch
             {
                 return 1012;
-            }
-        }
-
-        private void tbRole_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvCat_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex >= 0 && dgvCat.Columns[e.ColumnIndex].Selected)
-            {
-                try
-                {
-                    //
-                }
-                catch (Exception msg)
-                {
-                    //
-                }
             }
         }
     }

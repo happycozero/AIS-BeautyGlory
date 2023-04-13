@@ -116,7 +116,6 @@ namespace BeautyGlory
         {
             tbDisc.Clear();
             tbDiscMax.Clear();
-            lUnit.Text = "";
             tbName.Clear();
             tbDesc.Clear();
             cmMan.SelectedIndex = -1;
@@ -180,7 +179,6 @@ namespace BeautyGlory
                 cmSupplier.Text = dgvProduct.Rows[e.RowIndex].Cells[6].Value.ToString();
                 tbQuantly.Text = dgvProduct.Rows[e.RowIndex].Cells[7].Value.ToString();
                 tbPhoto.Text = dgvProduct.Rows[e.RowIndex].Cells[11].Value.ToString();
-                lUnit.Text = dgvProduct.Rows[e.RowIndex].Cells[8].Value.ToString();
                 tbDisc.Text = dgvProduct.Rows[e.RowIndex].Cells[9].Value.ToString();
                 tbDiscMax.Text = dgvProduct.Rows[e.RowIndex].Cells[10].Value.ToString();
                 pbPhoto.ImageLocation = "Photo/" + Convert.ToString(dgvProduct.Rows[e.RowIndex].Cells[11].Value.ToString());
@@ -196,14 +194,13 @@ namespace BeautyGlory
                 else
                 {
                     // Иначе загружаем данные из базы данных
-                    // ...
                 }
 
             }
 
-            catch (Exception msg)
+            catch (Exception)
             {
-                MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ;
             }
         }
 

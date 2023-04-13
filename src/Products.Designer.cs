@@ -142,7 +142,7 @@
             this.bEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bEdit.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bEdit.Location = new System.Drawing.Point(238, 717);
+            this.bEdit.Location = new System.Drawing.Point(218, 760);
             this.bEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bEdit.Name = "bEdit";
             this.bEdit.Size = new System.Drawing.Size(207, 44);
@@ -156,7 +156,7 @@
             this.bAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bAdd.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bAdd.Location = new System.Drawing.Point(8, 716);
+            this.bAdd.Location = new System.Drawing.Point(5, 760);
             this.bAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(207, 44);
@@ -170,7 +170,7 @@
             this.bDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bDel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bDel.Location = new System.Drawing.Point(462, 717);
+            this.bDel.Location = new System.Drawing.Point(431, 760);
             this.bDel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bDel.Name = "bDel";
             this.bDel.Size = new System.Drawing.Size(207, 44);
@@ -183,10 +183,10 @@
             // 
             this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bBack.Location = new System.Drawing.Point(1246, 713);
+            this.bBack.Location = new System.Drawing.Point(1246, 760);
             this.bBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(207, 44);
+            this.bBack.Size = new System.Drawing.Size(169, 44);
             this.bBack.TabIndex = 6;
             this.bBack.Text = "Назад в меню";
             this.bBack.UseVisualStyleBackColor = true;
@@ -216,7 +216,7 @@
             // 
             this.lCount.AutoSize = true;
             this.lCount.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCount.Location = new System.Drawing.Point(5, 678);
+            this.lCount.Location = new System.Drawing.Point(0, 711);
             this.lCount.Name = "lCount";
             this.lCount.Size = new System.Drawing.Size(231, 29);
             this.lCount.TabIndex = 12;
@@ -310,6 +310,7 @@
             // 
             // pbPhoto
             // 
+            this.pbPhoto.ErrorImage = global::BeautyGlory.Properties.Resources.img_holder;
             this.pbPhoto.Location = new System.Drawing.Point(1207, 18);
             this.pbPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbPhoto.Name = "pbPhoto";
@@ -396,7 +397,7 @@
             // 
             // tbPhoto
             // 
-            this.tbPhoto.Location = new System.Drawing.Point(680, 720);
+            this.tbPhoto.Location = new System.Drawing.Point(644, 764);
             this.tbPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPhoto.Multiline = true;
             this.tbPhoto.Name = "tbPhoto";
@@ -461,7 +462,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1427, 770);
+            this.ClientSize = new System.Drawing.Size(1424, 817);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.cmUnit);

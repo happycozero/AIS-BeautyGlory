@@ -214,6 +214,7 @@
     <Content Include="Photo\А112Т4.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\captch.png" />
     <None Include="Resources\refresh.png" />
     <None Include="Resources\img_holder.png" />
     <None Include="Resources\logo.png" />

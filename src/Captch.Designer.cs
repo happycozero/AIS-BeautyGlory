@@ -49,11 +49,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(69, 128);
+            this.label2.Location = new System.Drawing.Point(64, 131);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(271, 29);
+            this.label2.Size = new System.Drawing.Size(312, 29);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Введите текст с картинки:";
+            this.label2.Text = "Введите символы с картинки:";
             // 
             // bInput
             // 
@@ -71,6 +71,7 @@
             // bReload
             // 
             this.bReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.bReload.Image = global::BeautyGlory.Properties.Resources.refresh;
             this.bReload.Location = new System.Drawing.Point(340, 169);
@@ -83,11 +84,12 @@
             // lCaptch
             // 
             this.lCaptch.AutoSize = true;
-            this.lCaptch.Font = new System.Drawing.Font("Comic Sans MS", 56.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCaptch.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lCaptch.Location = new System.Drawing.Point(30, 23);
+            this.lCaptch.Font = new System.Drawing.Font("Comic Sans MS", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lCaptch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lCaptch.Image = global::BeautyGlory.Properties.Resources.captch;
+            this.lCaptch.Location = new System.Drawing.Point(59, 31);
             this.lCaptch.Name = "lCaptch";
-            this.lCaptch.Size = new System.Drawing.Size(377, 105);
+            this.lCaptch.Size = new System.Drawing.Size(322, 90);
             this.lCaptch.TabIndex = 0;
             this.lCaptch.Text = "Captch78";
             // 

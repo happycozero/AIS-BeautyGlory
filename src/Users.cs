@@ -132,7 +132,7 @@ namespace BeautyGlory
 
         private void bAdd_Click(object sender, EventArgs e)
         {
-            if (tbLog.Text == "" || tbPass.Text == "" || cmEmp.Text == "" || cmRole.Text == "")
+            if (tbLog.Text == "" || tbPass.Text == "" || cmRole.Text == "")
             {
                 MessageBox.Show("Ошибка! Сначала заполните все поля.", "Добавление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -156,7 +156,7 @@ namespace BeautyGlory
                     db_connect connection = new db_connect();
                     connection.OpenConnect();
 
-                    string sql = String.Format(@"INSERT INTO `users` VALUES (null, {0}, '{1}', '{2}', {3});", id_emp[0], tbLog.Text, tbPass.Text, get_idRole());
+                    string sql = String.Format(@"INSERT INTO `user` VALUES (null, {0}, '{1}', '{2}', {3});", id_emp[0], tbLog.Text, tbPass.Text, get_idRole());
 
                     MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                     com.ExecuteNonQuery();

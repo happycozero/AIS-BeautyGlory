@@ -25,7 +25,6 @@ namespace BeautyGlory
         MenuUser menuuser = new MenuUser();
         ViewProduct vprod = new ViewProduct();
 
-
         public Auth()
         {
             InitializeComponent();
@@ -91,7 +90,7 @@ namespace BeautyGlory
                         count_auth++;
                     }
 
-                    if (flag == true)
+                    if (flag)
                     {
                         if (count_auth > 1)
                         {
@@ -103,13 +102,19 @@ namespace BeautyGlory
                         {
                             count_auth = 0;
 
-                            string sql_role = "SELECT UserRole FROM user WHERE UserLogin = '" + tblog + "';";
-                            MySqlCommand com = new MySqlCommand(sql_role, connection.GetConnect());
-                            role_user = Convert.ToInt32(com.ExecuteScalar());
+                            var sql_role = "SELECT UserRole FROM user WHERE UserLogin = @tblog;";
+                            using (var com = new MySqlCommand(sql_role, connection.GetConnect()))
+                            {
+                                com.Parameters.AddWithValue("@tblog", tblog);
+                                role_user = Convert.ToInt32(com.ExecuteScalar());
+                            }
 
-                            string sql_userid = "SELECT UserID FROM user WHERE UserLogin = '" + tblog + "';";
-                            MySqlCommand com_id = new MySqlCommand(sql_userid, connection.GetConnect());
-                            id_user = com_id.ExecuteScalar().ToString();
+                            var sql_userid = "SELECT UserID FROM user WHERE UserLogin = @tblog;";
+                            using (var com_id = new MySqlCommand(sql_userid, connection.GetConnect()))
+                            {
+                                com_id.Parameters.AddWithValue("@tblog", tblog);
+                                id_user = com_id.ExecuteScalar().ToString();
+                            }
 
                             tbPass.Clear();
                             tbLog.Clear();
@@ -142,10 +147,9 @@ namespace BeautyGlory
                             }
 
                         }
-
                         else
                         {
-                            MessageBox.Show("Ошибка! Введен неверный пароль. Повторите попытку.", "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Ошибка! Введен неверный пароль.\n Повторите попытку.", "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             tbPass.Clear();
                             count_auth++;
                         }
@@ -183,13 +187,10 @@ namespace BeautyGlory
 
         private void Auth_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Вы действительно хотите выйти из программы?", "Выход", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
-
+            if (MessageBox.Show("Вы уверены, что хотите выйти из программы?", "Выход из программы", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
+            else
+                e.Cancel = false;
         }
     }
 }

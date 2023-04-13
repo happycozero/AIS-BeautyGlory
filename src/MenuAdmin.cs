@@ -28,7 +28,6 @@ namespace BeautyGlory
         Users user = new Users();
         Guide guide = new Guide();
         Spec spec = new Spec();
-        ViewOrders vieworders = new ViewOrders();
 
         public MenuAdmin()
         {
@@ -45,23 +44,23 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql_first_name = "SELECT UserSurname FROM user WHERE UserID = " + Auth.id_user + ";";
-            MySqlCommand com1 = new MySqlCommand(sql_first_name, connection.GetConnect());
-            string first_name = com1.ExecuteScalar().ToString();
+            string sql_query = "SELECT UserSurname, UserName, UserPatronymic FROM user WHERE UserID = @id_user;";
+            MySqlCommand command = new MySqlCommand(sql_query, connection.GetConnect());
+            command.Parameters.AddWithValue("@id_user", Auth.id_user);
 
-            string sql_name = "SELECT UserName FROM user WHERE UserID = " + Auth.id_user + ";";
-            MySqlCommand com2 = new MySqlCommand(sql_name, connection.GetConnect());
-            string name = com2.ExecuteScalar().ToString();
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    string first_name = reader.GetString(0);
+                    string name = reader.GetString(1);
+                    string middle_name = reader.GetString(2);
 
-            string sql_middle_name = "SELECT UserPatronymic FROM user WHERE UserID = " + Auth.id_user + ";";
-            MySqlCommand com3 = new MySqlCommand(sql_middle_name, connection.GetConnect());
-            string middle_name = com3.ExecuteScalar().ToString();
+                    lFIO.Text = $"{first_name} {name[0]}. {middle_name[0]}.";
+                }
+            }
 
             connection.CloseConnect();
-
-            lFIO.Text = "";
-
-            lFIO.Text = first_name + " " + name[0] + ". " + middle_name[0] + ". ";
         }
 
         private void bBack_Click(object sender, EventArgs e)
@@ -99,13 +98,6 @@ namespace BeautyGlory
         {
             this.Visible = false;
             spec.ShowDialog();
-            this.Visible = true;
-        }
-
-        private void bOrder_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            vieworders.ShowDialog();
             this.Visible = true;
         }
     }

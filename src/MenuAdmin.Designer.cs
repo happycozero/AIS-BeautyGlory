@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAdmin));
-            this.bOrder = new System.Windows.Forms.Button();
             this.bSpec = new System.Windows.Forms.Button();
             this.bBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,19 +41,6 @@
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bOrder
-            // 
-            this.bOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
-            this.bOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bOrder.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bOrder.Location = new System.Drawing.Point(12, 333);
-            this.bOrder.Name = "bOrder";
-            this.bOrder.Size = new System.Drawing.Size(725, 50);
-            this.bOrder.TabIndex = 3;
-            this.bOrder.Text = "Учет заказов";
-            this.bOrder.UseVisualStyleBackColor = false;
-            this.bOrder.Click += new System.EventHandler(this.bOrder_Click);
             // 
             // bSpec
             // 
@@ -173,7 +159,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bBack);
             this.Controls.Add(this.bSpec);
-            this.Controls.Add(this.bOrder);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -193,7 +178,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button bOrder;
         private System.Windows.Forms.Button bSpec;
         private System.Windows.Forms.Button bBack;
         private System.Windows.Forms.PictureBox pictureBox1;

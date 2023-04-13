@@ -25,8 +25,6 @@ namespace BeautyGlory
         } 
 
         ViewProduct viewprod = new ViewProduct();
-        NewOrder neworder = new NewOrder();
-        ViewOrders vieworders = new ViewOrders();
         public static string globalFIO = "";
 
         public MenuManager()
@@ -48,20 +46,6 @@ namespace BeautyGlory
         {
             this.Visible = false;
             viewprod.ShowDialog();
-            this.Visible = true;
-        }
-
-        private void bOrder_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            vieworders.ShowDialog();
-            this.Visible = true;
-        }
-
-        private void bSpec_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            neworder.ShowDialog();
             this.Visible = true;
         }
 

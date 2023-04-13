@@ -30,14 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuManager));
             this.bProducts = new System.Windows.Forms.Button();
-            this.bOrder = new System.Windows.Forms.Button();
-            this.bSpec = new System.Windows.Forms.Button();
             this.bBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label2 = new System.Windows.Forms.Label();
-            this.lFIO = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lFIO = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,32 +51,6 @@
             this.bProducts.Text = "Просмотр товаров";
             this.bProducts.UseVisualStyleBackColor = false;
             this.bProducts.Click += new System.EventHandler(this.bProducts_Click);
-            // 
-            // bOrder
-            // 
-            this.bOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
-            this.bOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bOrder.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bOrder.Location = new System.Drawing.Point(12, 277);
-            this.bOrder.Name = "bOrder";
-            this.bOrder.Size = new System.Drawing.Size(725, 50);
-            this.bOrder.TabIndex = 3;
-            this.bOrder.Text = "Учет заказов";
-            this.bOrder.UseVisualStyleBackColor = false;
-            this.bOrder.Click += new System.EventHandler(this.bOrder_Click);
-            // 
-            // bSpec
-            // 
-            this.bSpec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
-            this.bSpec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bSpec.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bSpec.Location = new System.Drawing.Point(13, 221);
-            this.bSpec.Name = "bSpec";
-            this.bSpec.Size = new System.Drawing.Size(725, 50);
-            this.bSpec.TabIndex = 4;
-            this.bSpec.Text = "Новый заказ";
-            this.bSpec.UseVisualStyleBackColor = false;
-            this.bSpec.Click += new System.EventHandler(this.bSpec_Click);
             // 
             // bBack
             // 
@@ -112,16 +84,6 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Доступ: Менеджер";
             // 
-            // lFIO
-            // 
-            this.lFIO.AutoSize = true;
-            this.lFIO.Font = new System.Drawing.Font("Comic Sans MS", 17.25F);
-            this.lFIO.Location = new System.Drawing.Point(7, 69);
-            this.lFIO.Name = "lFIO";
-            this.lFIO.Size = new System.Drawing.Size(64, 31);
-            this.lFIO.TabIndex = 9;
-            this.lFIO.Text = "ФИО";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::BeautyGlory.Properties.Resources.logo;
@@ -132,6 +94,16 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            // 
+            // lFIO
+            // 
+            this.lFIO.AutoSize = true;
+            this.lFIO.Font = new System.Drawing.Font("Comic Sans MS", 17.25F);
+            this.lFIO.Location = new System.Drawing.Point(7, 69);
+            this.lFIO.Name = "lFIO";
+            this.lFIO.Size = new System.Drawing.Size(64, 31);
+            this.lFIO.TabIndex = 9;
+            this.lFIO.Text = "ФИО";
             // 
             // MenuManager
             // 
@@ -144,8 +116,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bBack);
-            this.Controls.Add(this.bSpec);
-            this.Controls.Add(this.bOrder);
             this.Controls.Add(this.bProducts);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -165,8 +135,6 @@
         #endregion
 
         private System.Windows.Forms.Button bProducts;
-        private System.Windows.Forms.Button bOrder;
-        private System.Windows.Forms.Button bSpec;
         private System.Windows.Forms.Button bBack;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;

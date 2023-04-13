@@ -62,12 +62,12 @@
             this.tabDB.Controls.Add(this.tabImport);
             this.tabDB.Controls.Add(this.tabExport);
             this.tabDB.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabDB.Location = new System.Drawing.Point(16, 15);
-            this.tabDB.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.tabDB.Location = new System.Drawing.Point(16, 17);
+            this.tabDB.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tabDB.Multiline = true;
             this.tabDB.Name = "tabDB";
             this.tabDB.SelectedIndex = 0;
-            this.tabDB.Size = new System.Drawing.Size(364, 380);
+            this.tabDB.Size = new System.Drawing.Size(364, 424);
             this.tabDB.TabIndex = 16;
             // 
             // tabImport
@@ -80,10 +80,10 @@
             this.tabImport.Controls.Add(this.bFile);
             this.tabImport.Controls.Add(this.bImport);
             this.tabImport.Location = new System.Drawing.Point(4, 38);
-            this.tabImport.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.tabImport.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tabImport.Name = "tabImport";
-            this.tabImport.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.tabImport.Size = new System.Drawing.Size(356, 338);
+            this.tabImport.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tabImport.Size = new System.Drawing.Size(356, 382);
             this.tabImport.TabIndex = 0;
             this.tabImport.Text = "Импорт БД";
             this.tabImport.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 91);
+            this.label3.Location = new System.Drawing.Point(41, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(248, 29);
             this.label3.TabIndex = 29;
@@ -105,7 +105,7 @@
             ";",
             ",",
             "|"});
-            this.cbrazdel.Location = new System.Drawing.Point(48, 123);
+            this.cbrazdel.Location = new System.Drawing.Point(48, 137);
             this.cbrazdel.Name = "cbrazdel";
             this.cbrazdel.Size = new System.Drawing.Size(258, 37);
             this.cbrazdel.TabIndex = 28;
@@ -114,7 +114,7 @@
             // 
             this.cmImport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmImport.FormattingEnabled = true;
-            this.cmImport.Location = new System.Drawing.Point(48, 49);
+            this.cmImport.Location = new System.Drawing.Point(48, 55);
             this.cmImport.Name = "cmImport";
             this.cmImport.Size = new System.Drawing.Size(258, 37);
             this.cmImport.TabIndex = 27;
@@ -122,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 17);
+            this.label1.Location = new System.Drawing.Point(43, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(205, 29);
             this.label1.TabIndex = 26;
@@ -130,7 +130,7 @@
             // 
             // tbImport
             // 
-            this.tbImport.Location = new System.Drawing.Point(48, 238);
+            this.tbImport.Location = new System.Drawing.Point(48, 265);
             this.tbImport.Name = "tbImport";
             this.tbImport.ReadOnly = true;
             this.tbImport.Size = new System.Drawing.Size(258, 37);
@@ -140,9 +140,9 @@
             // 
             this.bFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bFile.Location = new System.Drawing.Point(47, 192);
+            this.bFile.Location = new System.Drawing.Point(47, 214);
             this.bFile.Name = "bFile";
-            this.bFile.Size = new System.Drawing.Size(259, 40);
+            this.bFile.Size = new System.Drawing.Size(259, 45);
             this.bFile.TabIndex = 18;
             this.bFile.Text = "Выберите файл";
             this.bFile.UseVisualStyleBackColor = false;
@@ -152,9 +152,9 @@
             // 
             this.bImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bImport.Location = new System.Drawing.Point(47, 290);
+            this.bImport.Location = new System.Drawing.Point(47, 323);
             this.bImport.Name = "bImport";
-            this.bImport.Size = new System.Drawing.Size(259, 40);
+            this.bImport.Size = new System.Drawing.Size(259, 45);
             this.bImport.TabIndex = 17;
             this.bImport.Text = "Импорт";
             this.bImport.UseVisualStyleBackColor = false;
@@ -170,10 +170,10 @@
             this.tabExport.Controls.Add(this.bExport);
             this.tabExport.Controls.Add(this.bPath);
             this.tabExport.Location = new System.Drawing.Point(4, 38);
-            this.tabExport.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.tabExport.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tabExport.Name = "tabExport";
-            this.tabExport.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.tabExport.Size = new System.Drawing.Size(356, 338);
+            this.tabExport.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tabExport.Size = new System.Drawing.Size(356, 382);
             this.tabExport.TabIndex = 1;
             this.tabExport.Text = "Экспорт БД";
             this.tabExport.UseVisualStyleBackColor = true;
@@ -186,24 +186,24 @@
             ";",
             ",",
             "|"});
-            this.cbrazdel2.Location = new System.Drawing.Point(48, 123);
+            this.cbrazdel2.Location = new System.Drawing.Point(48, 137);
             this.cbrazdel2.Name = "cbrazdel2";
-            this.cbrazdel2.Size = new System.Drawing.Size(257, 37);
+            this.cbrazdel2.Size = new System.Drawing.Size(258, 37);
             this.cbrazdel2.TabIndex = 30;
             // 
             // cmExport
             // 
             this.cmExport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmExport.FormattingEnabled = true;
-            this.cmExport.Location = new System.Drawing.Point(48, 49);
+            this.cmExport.Location = new System.Drawing.Point(48, 55);
             this.cmExport.Name = "cmExport";
-            this.cmExport.Size = new System.Drawing.Size(257, 37);
+            this.cmExport.Size = new System.Drawing.Size(258, 37);
             this.cmExport.TabIndex = 29;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 91);
+            this.label4.Location = new System.Drawing.Point(41, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(248, 29);
             this.label4.TabIndex = 28;
@@ -212,7 +212,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 17);
+            this.label2.Location = new System.Drawing.Point(43, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(205, 29);
             this.label2.TabIndex = 28;
@@ -220,7 +220,7 @@
             // 
             // tbExport
             // 
-            this.tbExport.Location = new System.Drawing.Point(48, 238);
+            this.tbExport.Location = new System.Drawing.Point(48, 265);
             this.tbExport.Name = "tbExport";
             this.tbExport.ReadOnly = true;
             this.tbExport.Size = new System.Drawing.Size(258, 37);
@@ -230,9 +230,9 @@
             // 
             this.bExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bExport.Location = new System.Drawing.Point(47, 290);
+            this.bExport.Location = new System.Drawing.Point(47, 323);
             this.bExport.Name = "bExport";
-            this.bExport.Size = new System.Drawing.Size(259, 40);
+            this.bExport.Size = new System.Drawing.Size(259, 45);
             this.bExport.TabIndex = 22;
             this.bExport.Text = "Экспорт";
             this.bExport.UseVisualStyleBackColor = false;
@@ -242,9 +242,9 @@
             // 
             this.bPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bPath.Location = new System.Drawing.Point(47, 192);
+            this.bPath.Location = new System.Drawing.Point(47, 214);
             this.bPath.Name = "bPath";
-            this.bPath.Size = new System.Drawing.Size(259, 40);
+            this.bPath.Size = new System.Drawing.Size(259, 45);
             this.bPath.TabIndex = 21;
             this.bPath.Text = "Выберите путь";
             this.bPath.UseVisualStyleBackColor = false;
@@ -254,9 +254,10 @@
             // 
             this.bBack.BackColor = System.Drawing.Color.White;
             this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bBack.Location = new System.Drawing.Point(16, 447);
+            this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bBack.Location = new System.Drawing.Point(16, 499);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(360, 40);
+            this.bBack.Size = new System.Drawing.Size(360, 45);
             this.bBack.TabIndex = 24;
             this.bBack.Text = "Назад в меню";
             this.bBack.UseVisualStyleBackColor = false;
@@ -268,15 +269,15 @@
             // 
             // Spec
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 499);
+            this.ClientSize = new System.Drawing.Size(396, 557);
             this.Controls.Add(this.bBack);
             this.Controls.Add(this.tabDB);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.MaximizeBox = false;
             this.Name = "Spec";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

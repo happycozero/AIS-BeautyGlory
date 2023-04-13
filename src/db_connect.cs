@@ -13,7 +13,7 @@ namespace BeautyGlory
 
         public db_connect()
         {
-            connection = new MySqlConnection("host=localhost;uid=root;pwd=;database=trade1;");
+            connection = new MySqlConnection("host=localhost;uid=root;pwd=root;database=trade1;");
             OpenConnect();
         }
 
