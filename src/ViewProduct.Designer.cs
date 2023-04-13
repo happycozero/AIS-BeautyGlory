@@ -370,11 +370,12 @@
             // 
             // pbPhoto
             // 
-            this.pbPhoto.ErrorImage = null;
+            this.pbPhoto.ErrorImage = global::BeautyGlory.Properties.Resources.img_holder;
             this.pbPhoto.Location = new System.Drawing.Point(1207, 18);
             this.pbPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbPhoto.Name = "pbPhoto";
             this.pbPhoto.Size = new System.Drawing.Size(207, 190);
+            this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPhoto.TabIndex = 21;
             this.pbPhoto.TabStop = false;
             // 
@@ -446,7 +447,7 @@
         private System.Windows.Forms.Button bPhoto;
         private System.Windows.Forms.FolderBrowserDialog folderPhoto;
         private System.Windows.Forms.OpenFileDialog openPhoto;
-        private System.Windows.Forms.Label lUnit;
+        //private System.Windows.Forms.Label lUnit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbDisc;

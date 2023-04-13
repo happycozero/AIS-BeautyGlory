@@ -46,7 +46,7 @@
             this.bSpec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bSpec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bSpec.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bSpec.Location = new System.Drawing.Point(12, 389);
+            this.bSpec.Location = new System.Drawing.Point(12, 371);
             this.bSpec.Name = "bSpec";
             this.bSpec.Size = new System.Drawing.Size(725, 50);
             this.bSpec.TabIndex = 4;
@@ -58,7 +58,7 @@
             // 
             this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bBack.Location = new System.Drawing.Point(12, 540);
+            this.bBack.Location = new System.Drawing.Point(12, 539);
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(725, 50);
             this.bBack.TabIndex = 5;
@@ -126,9 +126,9 @@
             // 
             this.pictureBox1.BackgroundImage = global::BeautyGlory.Properties.Resources.logo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(597, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(604, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 125);
+            this.pictureBox1.Size = new System.Drawing.Size(133, 125);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;

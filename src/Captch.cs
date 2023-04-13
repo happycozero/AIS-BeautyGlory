@@ -63,7 +63,7 @@ namespace BeautyGlory
 
             Random rnd = new Random();
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 7; i++)
             {
                 captch += text[rnd.Next(1, len)];
             }

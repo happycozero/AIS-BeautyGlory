@@ -52,7 +52,7 @@ namespace BeautyGlory
         {
             try
             {
-                if (count_auth > 1)
+                if (count_auth > 0)
                 {
                     MessageBox.Show("Внимание! Теперь для авторизации необходимо ввести капчу.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     captch.ShowDialog();

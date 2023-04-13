@@ -34,8 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lFIO = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             this.bBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bBack.Location = new System.Drawing.Point(12, 313);
+            this.bBack.Location = new System.Drawing.Point(12, 317);
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(725, 50);
             this.bBack.TabIndex = 5;
@@ -85,17 +85,6 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Доступ: Менеджер";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::BeautyGlory.Properties.Resources.logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(597, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // lFIO
             // 
             this.lFIO.AutoSize = true;
@@ -105,6 +94,17 @@
             this.lFIO.Size = new System.Drawing.Size(64, 31);
             this.lFIO.TabIndex = 9;
             this.lFIO.Text = "ФИО";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::BeautyGlory.Properties.Resources.logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(604, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(133, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // MenuManager
             // 

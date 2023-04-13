@@ -52,7 +52,6 @@
             this.bPhoto = new System.Windows.Forms.Button();
             this.folderPhoto = new System.Windows.Forms.FolderBrowserDialog();
             this.openPhoto = new System.Windows.Forms.OpenFileDialog();
-            this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbDisc = new System.Windows.Forms.TextBox();
@@ -66,6 +65,7 @@
             this.cmUnit = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.pbPhoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
@@ -299,25 +299,14 @@
             // 
             this.bPhoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bPhoto.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bPhoto.Location = new System.Drawing.Point(1208, 216);
+            this.bPhoto.Location = new System.Drawing.Point(1207, 216);
             this.bPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bPhoto.Name = "bPhoto";
-            this.bPhoto.Size = new System.Drawing.Size(207, 40);
+            this.bPhoto.Size = new System.Drawing.Size(208, 40);
             this.bPhoto.TabIndex = 23;
             this.bPhoto.Text = "Выбрать фото";
             this.bPhoto.UseVisualStyleBackColor = true;
             this.bPhoto.Click += new System.EventHandler(this.bPhoto_Click);
-            // 
-            // pbPhoto
-            // 
-            this.pbPhoto.ErrorImage = global::BeautyGlory.Properties.Resources.img_holder;
-            this.pbPhoto.Location = new System.Drawing.Point(1207, 18);
-            this.pbPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pbPhoto.Name = "pbPhoto";
-            this.pbPhoto.Size = new System.Drawing.Size(207, 190);
-            this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPhoto.TabIndex = 21;
-            this.pbPhoto.TabStop = false;
             // 
             // label2
             // 
@@ -378,10 +367,10 @@
             this.cmMan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmMan.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmMan.FormattingEnabled = true;
-            this.cmMan.Location = new System.Drawing.Point(400, 128);
+            this.cmMan.Location = new System.Drawing.Point(402, 128);
             this.cmMan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmMan.Name = "cmMan";
-            this.cmMan.Size = new System.Drawing.Size(298, 37);
+            this.cmMan.Size = new System.Drawing.Size(296, 37);
             this.cmMan.TabIndex = 32;
             // 
             // cmSupplier
@@ -456,6 +445,17 @@
             this.label13.Size = new System.Drawing.Size(89, 29);
             this.label13.TabIndex = 39;
             this.label13.Text = "Ед. изм.";
+            // 
+            // pbPhoto
+            // 
+            this.pbPhoto.ErrorImage = global::BeautyGlory.Properties.Resources.img_holder;
+            this.pbPhoto.Location = new System.Drawing.Point(1207, 18);
+            this.pbPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbPhoto.Name = "pbPhoto";
+            this.pbPhoto.Size = new System.Drawing.Size(207, 190);
+            this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPhoto.TabIndex = 21;
+            this.pbPhoto.TabStop = false;
             // 
             // Products
             // 

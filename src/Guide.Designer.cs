@@ -56,8 +56,10 @@
             this.bAdd_Role = new System.Windows.Forms.Button();
             this.dgvRole = new System.Windows.Forms.DataGridView();
             this.tabEmp = new System.Windows.Forms.TabPage();
+            this.cbRole = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbLogin = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -72,8 +74,6 @@
             this.bAdd_Emp = new System.Windows.Forms.Button();
             this.dgvEmp = new System.Windows.Forms.DataGridView();
             this.bBack = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cbRole = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCat)).BeginInit();
             this.tabGuide.SuspendLayout();
             this.tabCat.SuspendLayout();
@@ -376,6 +376,15 @@
             this.tabEmp.Text = "Сотрудники";
             this.tabEmp.UseVisualStyleBackColor = true;
             // 
+            // cbRole
+            // 
+            this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Location = new System.Drawing.Point(779, 120);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(285, 37);
+            this.cbRole.TabIndex = 43;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -391,6 +400,15 @@
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(285, 37);
             this.tbLogin.TabIndex = 41;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(774, 88);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 29);
+            this.label11.TabIndex = 40;
+            this.label11.Text = "Доступ:";
             // 
             // label4
             // 
@@ -563,24 +581,6 @@
             this.bBack.Text = "Назад в меню";
             this.bBack.UseVisualStyleBackColor = false;
             this.bBack.Click += new System.EventHandler(this.bBack_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(774, 88);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(93, 29);
-            this.label11.TabIndex = 40;
-            this.label11.Text = "Доступ:";
-            // 
-            // cbRole
-            // 
-            this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(779, 120);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(285, 37);
-            this.cbRole.TabIndex = 43;
             // 
             // Guide
             // 
