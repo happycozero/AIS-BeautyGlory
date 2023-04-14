@@ -107,6 +107,12 @@
       <DependentUpon>Captch.cs</DependentUpon>
     </Compile>
     <Compile Include="db_connect.cs" />
+    <Compile Include="Special.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Special.designer.cs">
+      <DependentUpon>Special.cs</DependentUpon>
+    </Compile>
     <Compile Include="Guide.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Captch.resx">
       <DependentUpon>Captch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Special.resx">
+      <DependentUpon>Special.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Guide.resx">
       <DependentUpon>Guide.cs</DependentUpon>

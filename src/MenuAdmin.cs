@@ -26,7 +26,7 @@ namespace BeautyGlory
 
         Products prod = new Products();
         Guide guide = new Guide();
-        //Special spec = new Special();
+        Special spec = new Special();
 
         public MenuAdmin()
         {
@@ -71,26 +71,23 @@ namespace BeautyGlory
                 this.Close();
             }
         }
-
         private void bProducts_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             prod.ShowDialog();
             this.Visible = true;
         }
-
         private void bGuide_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             guide.ShowDialog();
             this.Visible = true;
         }
-
-        //private void bSpec_Click_1(object sender, EventArgs e)
-        //{
-        //    this.Visible = false;
-        //    spec.ShowDialog();
-        //    this.Visible = true;
-        //}
+        private void bSpecial_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            spec.ShowDialog();
+            this.Visible = true;
+        }
     }
 }
