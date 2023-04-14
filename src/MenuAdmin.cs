@@ -27,6 +27,7 @@ namespace BeautyGlory
         Products prod = new Products();
         Guide guide = new Guide();
         Special spec = new Special();
+        ViewOrders vieword = new ViewOrders();
 
         public MenuAdmin()
         {
@@ -87,6 +88,13 @@ namespace BeautyGlory
         {
             this.Visible = false;
             spec.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void bOrders_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            vieword.ShowDialog();
             this.Visible = true;
         }
     }

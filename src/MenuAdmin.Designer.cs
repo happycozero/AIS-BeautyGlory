@@ -38,6 +38,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bSpecial = new System.Windows.Forms.Button();
+            this.bOrders = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,13 +126,26 @@
             this.bSpecial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bSpecial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bSpecial.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bSpecial.Location = new System.Drawing.Point(12, 288);
+            this.bSpecial.Location = new System.Drawing.Point(12, 359);
             this.bSpecial.Name = "bSpecial";
             this.bSpecial.Size = new System.Drawing.Size(725, 50);
             this.bSpecial.TabIndex = 1;
             this.bSpecial.Text = "Специальные возможности";
             this.bSpecial.UseVisualStyleBackColor = false;
             this.bSpecial.Click += new System.EventHandler(this.bSpecial_Click);
+            // 
+            // bOrders
+            // 
+            this.bOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bOrders.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bOrders.Location = new System.Drawing.Point(12, 292);
+            this.bOrders.Name = "bOrders";
+            this.bOrders.Size = new System.Drawing.Size(725, 50);
+            this.bOrders.TabIndex = 1;
+            this.bOrders.Text = "Учет заказов";
+            this.bOrders.UseVisualStyleBackColor = false;
+            this.bOrders.Click += new System.EventHandler(this.bOrders_Click);
             // 
             // MenuAdmin
             // 
@@ -144,6 +158,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bBack);
+            this.Controls.Add(this.bOrders);
             this.Controls.Add(this.bSpecial);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -173,5 +188,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button bSpecial;
+        private System.Windows.Forms.Button bOrders;
     }
 }

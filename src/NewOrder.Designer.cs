@@ -90,12 +90,12 @@
             // 
             // lFIO
             // 
-            this.lFIO.Location = new System.Drawing.Point(369, 44);
+            this.lFIO.Location = new System.Drawing.Point(369, 41);
             this.lFIO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lFIO.Name = "lFIO";
             this.lFIO.Size = new System.Drawing.Size(691, 43);
             this.lFIO.TabIndex = 36;
-            this.lFIO.Text = "Date";
+            this.lFIO.Text = "ФИО";
             this.lFIO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // bDel
@@ -223,7 +223,7 @@
             this.lDate.Name = "lDate";
             this.lDate.Size = new System.Drawing.Size(241, 43);
             this.lDate.TabIndex = 31;
-            this.lDate.Text = "Date";
+            this.lDate.Text = "Дата";
             this.lDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dgvCart

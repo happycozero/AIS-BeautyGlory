@@ -72,7 +72,7 @@
             this.lCaptch.Font = new System.Drawing.Font("Comic Sans MS", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lCaptch.ForeColor = System.Drawing.Color.Lime;
             this.lCaptch.Image = global::BeautyGlory.Properties.Resources.captch;
-            this.lCaptch.Location = new System.Drawing.Point(62, 9);
+            this.lCaptch.Location = new System.Drawing.Point(69, 12);
             this.lCaptch.Name = "lCaptch";
             this.lCaptch.Size = new System.Drawing.Size(296, 105);
             this.lCaptch.TabIndex = 6;

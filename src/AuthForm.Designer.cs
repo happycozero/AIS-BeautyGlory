@@ -34,11 +34,11 @@
             this.tbLog = new System.Windows.Forms.TextBox();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbPass = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.cbPass = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // bAuth
@@ -79,7 +79,7 @@
             this.tbPass.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbPass.Location = new System.Drawing.Point(14, 153);
             this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(317, 37);
+            this.tbPass.Size = new System.Drawing.Size(239, 37);
             this.tbPass.TabIndex = 4;
             this.tbPass.Text = "ETMNzL";
             // 
@@ -92,18 +92,6 @@
             this.label2.Size = new System.Drawing.Size(96, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "Пароль:";
-            // 
-            // cbPass
-            // 
-            this.cbPass.AutoSize = true;
-            this.cbPass.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cbPass.Location = new System.Drawing.Point(129, 199);
-            this.cbPass.Name = "cbPass";
-            this.cbPass.Size = new System.Drawing.Size(202, 33);
-            this.cbPass.TabIndex = 6;
-            this.cbPass.Text = "Показать пароль";
-            this.cbPass.UseVisualStyleBackColor = true;
-            this.cbPass.CheckedChanged += new System.EventHandler(this.cbPass_CheckedChanged);
             // 
             // label3
             // 
@@ -149,12 +137,25 @@
             this.label4.TabIndex = 29;
             this.label4.Text = "*";
             // 
+            // cbPass
+            // 
+            this.cbPass.AutoSize = true;
+            this.cbPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPass.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbPass.Image = global::BeautyGlory.Properties.Resources.eye_pass;
+            this.cbPass.Location = new System.Drawing.Point(259, 147);
+            this.cbPass.Name = "cbPass";
+            this.cbPass.Size = new System.Drawing.Size(72, 46);
+            this.cbPass.TabIndex = 6;
+            this.cbPass.UseVisualStyleBackColor = true;
+            this.cbPass.CheckedChanged += new System.EventHandler(this.cbPass_CheckedChanged);
+            // 
             // AuthForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(346, 337);
+            this.ClientSize = new System.Drawing.Size(343, 337);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.linkLabel1);

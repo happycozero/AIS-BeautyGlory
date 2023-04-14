@@ -63,7 +63,7 @@
             this.bBack.Location = new System.Drawing.Point(1086, 800);
             this.bBack.Margin = new System.Windows.Forms.Padding(4);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(207, 44);
+            this.bBack.Size = new System.Drawing.Size(207, 45);
             this.bBack.TabIndex = 23;
             this.bBack.Text = "Назад в меню";
             this.bBack.UseVisualStyleBackColor = true;
@@ -141,9 +141,9 @@
             this.lDate.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lDate.Location = new System.Drawing.Point(16, 38);
             this.lDate.Name = "lDate";
-            this.lDate.Size = new System.Drawing.Size(72, 29);
+            this.lDate.Size = new System.Drawing.Size(61, 29);
             this.lDate.TabIndex = 42;
-            this.lDate.Text = "label2";
+            this.lDate.Text = "Дата";
             // 
             // dgvOrderAll
             // 
@@ -296,12 +296,14 @@
             // 
             // bExcels
             // 
-            this.bExcels.Location = new System.Drawing.Point(14, 795);
+            this.bExcels.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bExcels.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bExcels.Location = new System.Drawing.Point(14, 800);
             this.bExcels.Name = "bExcels";
-            this.bExcels.Size = new System.Drawing.Size(314, 49);
+            this.bExcels.Size = new System.Drawing.Size(314, 45);
             this.bExcels.TabIndex = 48;
-            this.bExcels.Text = "bExcels";
-            this.bExcels.UseVisualStyleBackColor = true;
+            this.bExcels.Text = "Сформировать отчет";
+            this.bExcels.UseVisualStyleBackColor = false;
             this.bExcels.Click += new System.EventHandler(this.bExcels_Click);
             // 
             // ViewOrders

@@ -90,13 +90,13 @@
             // lFIO
             // 
             this.lFIO.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lFIO.Location = new System.Drawing.Point(8, 30);
+            this.lFIO.Location = new System.Drawing.Point(163, 34);
             this.lFIO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lFIO.Name = "lFIO";
             this.lFIO.Size = new System.Drawing.Size(496, 40);
             this.lFIO.TabIndex = 45;
-            this.lFIO.Text = "Date";
-            this.lFIO.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lFIO.Text = "ФИО";
+            this.lFIO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -155,12 +155,12 @@
             // lDate
             // 
             this.lDate.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lDate.Location = new System.Drawing.Point(512, 34);
+            this.lDate.Location = new System.Drawing.Point(8, 34);
             this.lDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lDate.Name = "lDate";
             this.lDate.Size = new System.Drawing.Size(147, 40);
             this.lDate.TabIndex = 32;
-            this.lDate.Text = "Date";
+            this.lDate.Text = "Дата";
             this.lDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // bAddOrder
