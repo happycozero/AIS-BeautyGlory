@@ -41,12 +41,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmUser = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cbNo = new System.Windows.Forms.CheckBox();
-            this.cbYes = new System.Windows.Forms.CheckBox();
+            this.rbAll = new System.Windows.Forms.RadioButton();
+            this.rbFinish = new System.Windows.Forms.RadioButton();
+            this.rbNew = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bSort = new System.Windows.Forms.Button();
             this.dtpDateSort = new System.Windows.Forms.DateTimePicker();
-            this.bExcel = new System.Windows.Forms.Button();
+            this.bExcels = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderAll)).BeginInit();
@@ -57,11 +58,12 @@
             // bBack
             // 
             this.bBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.25F);
-            this.bBack.Location = new System.Drawing.Point(1009, 838);
+            this.bBack.Location = new System.Drawing.Point(1086, 800);
             this.bBack.Margin = new System.Windows.Forms.Padding(4);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(285, 66);
+            this.bBack.Size = new System.Drawing.Size(207, 44);
             this.bBack.TabIndex = 23;
             this.bBack.Text = "Назад в меню";
             this.bBack.UseVisualStyleBackColor = true;
@@ -205,8 +207,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.cbNo);
-            this.groupBox4.Controls.Add(this.cbYes);
+            this.groupBox4.Controls.Add(this.rbAll);
+            this.groupBox4.Controls.Add(this.rbFinish);
+            this.groupBox4.Controls.Add(this.rbNew);
             this.groupBox4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox4.Location = new System.Drawing.Point(1011, 93);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
@@ -217,31 +220,41 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Статус";
             // 
-            // cbNo
+            // rbAll
             // 
-            this.cbNo.AutoSize = true;
-            this.cbNo.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cbNo.Location = new System.Drawing.Point(8, 79);
-            this.cbNo.Margin = new System.Windows.Forms.Padding(4);
-            this.cbNo.Name = "cbNo";
-            this.cbNo.Size = new System.Drawing.Size(128, 33);
-            this.cbNo.TabIndex = 32;
-            this.cbNo.Text = "Завершен";
-            this.cbNo.UseVisualStyleBackColor = true;
-            this.cbNo.CheckedChanged += new System.EventHandler(this.cbNo_CheckedChanged);
+            this.rbAll.AutoSize = true;
+            this.rbAll.Location = new System.Drawing.Point(141, 50);
+            this.rbAll.Name = "rbAll";
+            this.rbAll.Size = new System.Drawing.Size(114, 33);
+            this.rbAll.TabIndex = 33;
+            this.rbAll.TabStop = true;
+            this.rbAll.Text = "Очистка";
+            this.rbAll.UseVisualStyleBackColor = true;
+            this.rbAll.CheckedChanged += new System.EventHandler(this.rbAll_CheckedChanged);
             // 
-            // cbYes
+            // rbFinish
             // 
-            this.cbYes.AutoSize = true;
-            this.cbYes.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cbYes.Location = new System.Drawing.Point(8, 38);
-            this.cbYes.Margin = new System.Windows.Forms.Padding(4);
-            this.cbYes.Name = "cbYes";
-            this.cbYes.Size = new System.Drawing.Size(101, 33);
-            this.cbYes.TabIndex = 2;
-            this.cbYes.Text = "Новый";
-            this.cbYes.UseVisualStyleBackColor = true;
-            this.cbYes.CheckedChanged += new System.EventHandler(this.cbYes_CheckedChanged);
+            this.rbFinish.AutoSize = true;
+            this.rbFinish.Location = new System.Drawing.Point(8, 76);
+            this.rbFinish.Name = "rbFinish";
+            this.rbFinish.Size = new System.Drawing.Size(127, 33);
+            this.rbFinish.TabIndex = 33;
+            this.rbFinish.TabStop = true;
+            this.rbFinish.Text = "Завершен";
+            this.rbFinish.UseVisualStyleBackColor = true;
+            this.rbFinish.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // rbNew
+            // 
+            this.rbNew.AutoSize = true;
+            this.rbNew.Location = new System.Drawing.Point(8, 37);
+            this.rbNew.Name = "rbNew";
+            this.rbNew.Size = new System.Drawing.Size(100, 33);
+            this.rbNew.TabIndex = 33;
+            this.rbNew.TabStop = true;
+            this.rbNew.Text = "Новый";
+            this.rbNew.UseVisualStyleBackColor = true;
+            this.rbNew.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -281,26 +294,23 @@
             this.dtpDateSort.TabIndex = 0;
             this.dtpDateSort.Value = new System.DateTime(2023, 4, 14, 0, 0, 0, 0);
             // 
-            // bExcel
+            // bExcels
             // 
-            this.bExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bExcel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bExcel.Location = new System.Drawing.Point(14, 838);
-            this.bExcel.Margin = new System.Windows.Forms.Padding(4);
-            this.bExcel.Name = "bExcel";
-            this.bExcel.Size = new System.Drawing.Size(285, 66);
-            this.bExcel.TabIndex = 47;
-            this.bExcel.Text = "Сформировать отчет";
-            this.bExcel.UseVisualStyleBackColor = true;
-            this.bExcel.Click += new System.EventHandler(this.bExcel_Click);
+            this.bExcels.Location = new System.Drawing.Point(14, 795);
+            this.bExcels.Name = "bExcels";
+            this.bExcels.Size = new System.Drawing.Size(314, 49);
+            this.bExcels.TabIndex = 48;
+            this.bExcels.Text = "bExcels";
+            this.bExcels.UseVisualStyleBackColor = true;
+            this.bExcels.Click += new System.EventHandler(this.bExcels_Click);
             // 
             // ViewOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1311, 919);
-            this.Controls.Add(this.bExcel);
+            this.ClientSize = new System.Drawing.Size(1311, 857);
+            this.Controls.Add(this.bExcels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bBack);
             this.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -310,7 +320,7 @@
             this.MaximizeBox = false;
             this.Name = "ViewOrders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Заказы | ООО \"Красотка\"";
+            this.Text = "Учет заказов | ООО \"Красотка\"";
             this.Load += new System.EventHandler(this.ViewOrders_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -331,10 +341,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmUser;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox cbNo;
-        private System.Windows.Forms.CheckBox cbYes;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button bExcel;
         private System.Windows.Forms.DataGridView dgvOrderAll;
         private System.Windows.Forms.Label lDate;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -342,5 +349,9 @@
         private System.Windows.Forms.DateTimePicker dtpDateSort;
         private System.Windows.Forms.Button bSort;
         private System.Windows.Forms.Button bDateOrderNew;
+        private System.Windows.Forms.RadioButton rbFinish;
+        private System.Windows.Forms.RadioButton rbNew;
+        private System.Windows.Forms.RadioButton rbAll;
+        private System.Windows.Forms.Button bExcels;
     }
 }

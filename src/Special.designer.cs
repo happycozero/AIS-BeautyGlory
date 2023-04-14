@@ -52,6 +52,10 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bBack = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabDB.SuspendLayout();
             this.tabImport.SuspendLayout();
             this.tabExport.SuspendLayout();
@@ -72,6 +76,8 @@
             // 
             // tabImport
             // 
+            this.tabImport.Controls.Add(this.label5);
+            this.tabImport.Controls.Add(this.label19);
             this.tabImport.Controls.Add(this.label4);
             this.tabImport.Controls.Add(this.cm2);
             this.tabImport.Controls.Add(this.textBox1);
@@ -174,6 +180,8 @@
             // 
             // tabExport
             // 
+            this.tabExport.Controls.Add(this.label7);
+            this.tabExport.Controls.Add(this.label6);
             this.tabExport.Controls.Add(this.label3);
             this.tabExport.Controls.Add(this.cm1);
             this.tabExport.Controls.Add(this.cmExport);
@@ -282,6 +290,50 @@
             this.bBack.UseVisualStyleBackColor = false;
             this.bBack.Click += new System.EventHandler(this.bBack_Click);
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(272, 20);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(19, 23);
+            this.label19.TabIndex = 48;
+            this.label19.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(299, 180);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 23);
+            this.label5.TabIndex = 49;
+            this.label5.Text = "*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(272, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 23);
+            this.label6.TabIndex = 49;
+            this.label6.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(299, 180);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 23);
+            this.label7.TabIndex = 49;
+            this.label7.Text = "*";
+            // 
             // Special
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
@@ -332,6 +384,10 @@
         private System.Windows.Forms.ComboBox cm2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button bBack;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
 

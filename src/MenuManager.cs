@@ -26,6 +26,7 @@ namespace BeautyGlory
 
         ViewProduct viewprod = new ViewProduct();
         NewOrder neworder = new NewOrder();
+        ViewOrders vieword = new ViewOrders();
 
         public MenuManager()
         {
@@ -85,6 +86,11 @@ namespace BeautyGlory
             this.Visible = true;
         }
 
-
+        private void bOrders_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            vieword.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

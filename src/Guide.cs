@@ -138,7 +138,7 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql = @"SELECT user.UserID AS 'ID', user.UserSurname AS 'Фамилия', user.USerName AS 'Имя', user.UserPatronymic AS 'Отчество', user.UserLogin AS 'Логин', user.UserPassword AS 'Пароль',  role.RoleName AS 'Доступ' FROM user INNER JOIN role ON role.RoleID = user.UserRole;";
+            string sql = @"SELECT user.UserID AS 'ID', user.UserSurname AS 'Фамилия', user.USerName AS 'Имя', user.UserPatronymic AS 'Отчество', user.UserLogin AS 'Логин',  role.RoleName AS 'Доступ' FROM user INNER JOIN role ON role.RoleID = user.UserRole;";
 
             MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
             com.ExecuteNonQuery();
@@ -710,8 +710,7 @@ namespace BeautyGlory
                     tbName.Text = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : "";
                     tbMiddle_name.Text = row.Cells[3].Value != null ? row.Cells[3].Value.ToString() : "";
                     tbLogin.Text = row.Cells[4].Value != null ? row.Cells[4].Value.ToString() : "";
-                    tbPass.Text = row.Cells[5].Value != null ? row.Cells[5].Value.ToString() : "";
-                    cbRole.Text = row.Cells[6].Value != null ? row.Cells[6].Value.ToString() : "";
+                    cbRole.Text = row.Cells[5].Value != null ? row.Cells[5].Value.ToString() : "";
 
                     bEdit_Emp.Enabled = true;
                     bDel_Emp.Enabled = true;
@@ -762,6 +761,11 @@ namespace BeautyGlory
             {
                 return 1012;
             }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

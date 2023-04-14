@@ -53,10 +53,12 @@
             // 
             // bBack
             // 
-            this.bBack.Location = new System.Drawing.Point(735, 614);
+            this.bBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bBack.Location = new System.Drawing.Point(761, 613);
             this.bBack.Margin = new System.Windows.Forms.Padding(4);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(325, 70);
+            this.bBack.Size = new System.Drawing.Size(299, 48);
             this.bBack.TabIndex = 23;
             this.bBack.Text = "В меню";
             this.bBack.UseVisualStyleBackColor = true;
@@ -81,7 +83,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1068, 716);
+            this.groupBox2.Size = new System.Drawing.Size(1068, 669);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Корзина";
@@ -99,10 +101,12 @@
             // bDel
             // 
             this.bDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bDel.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bDel.Location = new System.Drawing.Point(1013, 469);
             this.bDel.Margin = new System.Windows.Forms.Padding(4);
             this.bDel.Name = "bDel";
-            this.bDel.Size = new System.Drawing.Size(47, 40);
+            this.bDel.Size = new System.Drawing.Size(47, 43);
             this.bDel.TabIndex = 28;
             this.bDel.Text = "-";
             this.bDel.UseVisualStyleBackColor = true;
@@ -110,13 +114,16 @@
             // 
             // bOrder
             // 
-            this.bOrder.Location = new System.Drawing.Point(15, 614);
+            this.bOrder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.bOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bOrder.Location = new System.Drawing.Point(15, 613);
             this.bOrder.Margin = new System.Windows.Forms.Padding(4);
             this.bOrder.Name = "bOrder";
-            this.bOrder.Size = new System.Drawing.Size(325, 70);
+            this.bOrder.Size = new System.Drawing.Size(299, 48);
             this.bOrder.TabIndex = 35;
             this.bOrder.Text = "Оформить заказ";
-            this.bOrder.UseVisualStyleBackColor = true;
+            this.bOrder.UseVisualStyleBackColor = false;
             this.bOrder.Click += new System.EventHandler(this.bOrder_Click);
             // 
             // tbCount
@@ -144,13 +151,16 @@
             // 
             // bClear
             // 
-            this.bClear.Location = new System.Drawing.Point(375, 614);
+            this.bClear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.bClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bClear.Location = new System.Drawing.Point(388, 613);
             this.bClear.Margin = new System.Windows.Forms.Padding(4);
             this.bClear.Name = "bClear";
-            this.bClear.Size = new System.Drawing.Size(325, 70);
+            this.bClear.Size = new System.Drawing.Size(299, 48);
             this.bClear.TabIndex = 29;
             this.bClear.Text = "Очистить корзину";
-            this.bClear.UseVisualStyleBackColor = true;
+            this.bClear.UseVisualStyleBackColor = false;
             this.bClear.Click += new System.EventHandler(this.bClear_Click);
             // 
             // lCount
@@ -165,12 +175,15 @@
             // bAdd
             // 
             this.bAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bAdd.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bAdd.Location = new System.Drawing.Point(958, 469);
             this.bAdd.Margin = new System.Windows.Forms.Padding(4);
             this.bAdd.Name = "bAdd";
-            this.bAdd.Size = new System.Drawing.Size(47, 41);
+            this.bAdd.Size = new System.Drawing.Size(47, 43);
             this.bAdd.TabIndex = 27;
             this.bAdd.Text = "+";
+            this.bAdd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bAdd.UseVisualStyleBackColor = true;
             this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
@@ -263,7 +276,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1090, 737);
+            this.ClientSize = new System.Drawing.Size(1090, 694);
             this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("Comic Sans MS", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

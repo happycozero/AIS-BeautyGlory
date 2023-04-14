@@ -45,11 +45,13 @@
             // 
             // bBack
             // 
+            this.bBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bBack.Location = new System.Drawing.Point(375, 364);
+            this.bBack.Location = new System.Drawing.Point(382, 364);
             this.bBack.Margin = new System.Windows.Forms.Padding(4);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(306, 48);
+            this.bBack.Size = new System.Drawing.Size(299, 48);
             this.bBack.TabIndex = 23;
             this.bBack.Text = "Закрыть";
             this.bBack.UseVisualStyleBackColor = true;
@@ -163,14 +165,17 @@
             // 
             // bAddOrder
             // 
+            this.bAddOrder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.bAddOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bAddOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bAddOrder.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bAddOrder.Location = new System.Drawing.Point(14, 364);
             this.bAddOrder.Margin = new System.Windows.Forms.Padding(4);
             this.bAddOrder.Name = "bAddOrder";
-            this.bAddOrder.Size = new System.Drawing.Size(306, 48);
+            this.bAddOrder.Size = new System.Drawing.Size(299, 48);
             this.bAddOrder.TabIndex = 25;
-            this.bAddOrder.Text = "Оформить";
-            this.bAddOrder.UseVisualStyleBackColor = true;
+            this.bAddOrder.Text = "Оформить заказ";
+            this.bAddOrder.UseVisualStyleBackColor = false;
             this.bAddOrder.Click += new System.EventHandler(this.bAddOrder_Click);
             // 
             // OrderView
@@ -178,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(696, 439);
+            this.ClientSize = new System.Drawing.Size(696, 426);
             this.Controls.Add(this.bAddOrder);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bBack);

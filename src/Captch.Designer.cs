@@ -39,7 +39,7 @@
             // tbCaptch
             // 
             this.tbCaptch.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbCaptch.Location = new System.Drawing.Point(51, 170);
+            this.tbCaptch.Location = new System.Drawing.Point(30, 170);
             this.tbCaptch.Name = "tbCaptch";
             this.tbCaptch.Size = new System.Drawing.Size(298, 37);
             this.tbCaptch.TabIndex = 1;
@@ -48,7 +48,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(45, 134);
+            this.label2.Location = new System.Drawing.Point(24, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(310, 33);
             this.label2.TabIndex = 3;
@@ -56,21 +56,23 @@
             // 
             // bInput
             // 
+            this.bInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bInput.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bInput.Location = new System.Drawing.Point(51, 221);
+            this.bInput.Location = new System.Drawing.Point(30, 221);
             this.bInput.Name = "bInput";
             this.bInput.Size = new System.Drawing.Size(383, 38);
             this.bInput.TabIndex = 4;
             this.bInput.Text = "Ввести капчу";
-            this.bInput.UseVisualStyleBackColor = true;
+            this.bInput.UseVisualStyleBackColor = false;
             this.bInput.Click += new System.EventHandler(this.bInput_Click);
             // 
             // lCaptch
             // 
             this.lCaptch.Font = new System.Drawing.Font("Comic Sans MS", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCaptch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lCaptch.ForeColor = System.Drawing.Color.Lime;
             this.lCaptch.Image = global::BeautyGlory.Properties.Resources.captch;
-            this.lCaptch.Location = new System.Drawing.Point(83, 9);
+            this.lCaptch.Location = new System.Drawing.Point(62, 9);
             this.lCaptch.Name = "lCaptch";
             this.lCaptch.Size = new System.Drawing.Size(296, 105);
             this.lCaptch.TabIndex = 6;
@@ -81,7 +83,7 @@
             // 
             this.bReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bReload.Image = global::BeautyGlory.Properties.Resources.refresh;
-            this.bReload.Location = new System.Drawing.Point(356, 145);
+            this.bReload.Location = new System.Drawing.Point(335, 145);
             this.bReload.Name = "bReload";
             this.bReload.Size = new System.Drawing.Size(78, 62);
             this.bReload.TabIndex = 5;
@@ -91,7 +93,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(466, 296);
+            this.ClientSize = new System.Drawing.Size(449, 284);
             this.Controls.Add(this.bInput);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.bReload);

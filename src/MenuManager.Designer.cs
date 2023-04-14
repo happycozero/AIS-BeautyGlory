@@ -37,6 +37,7 @@
             this.lFIO = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bNewOrder = new System.Windows.Forms.Button();
+            this.bOrders = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,9 +59,9 @@
             this.bBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bBack.Location = new System.Drawing.Point(12, 347);
+            this.bBack.Location = new System.Drawing.Point(13, 388);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(725, 50);
+            this.bBack.Size = new System.Drawing.Size(724, 50);
             this.bBack.TabIndex = 5;
             this.bBack.Text = "Выйти из учетной записи";
             this.bBack.UseVisualStyleBackColor = true;
@@ -119,17 +120,31 @@
             this.bNewOrder.UseVisualStyleBackColor = false;
             this.bNewOrder.Click += new System.EventHandler(this.bNewOrder_Click);
             // 
+            // bOrders
+            // 
+            this.bOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bOrders.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bOrders.Location = new System.Drawing.Point(13, 291);
+            this.bOrders.Name = "bOrders";
+            this.bOrders.Size = new System.Drawing.Size(725, 50);
+            this.bOrders.TabIndex = 0;
+            this.bOrders.Text = "Учет заказов";
+            this.bOrders.UseVisualStyleBackColor = false;
+            this.bOrders.Click += new System.EventHandler(this.bOrders_Click);
+            // 
             // MenuManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(749, 409);
+            this.ClientSize = new System.Drawing.Size(749, 450);
             this.Controls.Add(this.lFIO);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bBack);
+            this.Controls.Add(this.bOrders);
             this.Controls.Add(this.bNewOrder);
             this.Controls.Add(this.bProducts);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
@@ -157,5 +172,6 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label lFIO;
         private System.Windows.Forms.Button bNewOrder;
+        private System.Windows.Forms.Button bOrders;
     }
 }

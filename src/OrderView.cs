@@ -26,7 +26,7 @@ namespace BeautyGlory
             }
         } 
 
-        private readonly string FileName = Directory.GetCurrentDirectory() + @"\check.docx";
+        private readonly string FileName = Directory.GetCurrentDirectory() + @"Docs\check.docx";
 
         int num_order;
         public bool flagorder = false;
@@ -89,7 +89,7 @@ namespace BeautyGlory
             MySqlDataReader reader = com.ExecuteReader();
             while (reader.Read())
             {
-                cmPP.Items.Add(reader[1].ToString());
+                cmPP.Items.Add(reader[1].ToString() + reader[2].ToString());
             }
 
             connect.CloseConnect();

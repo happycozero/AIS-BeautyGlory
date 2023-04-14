@@ -74,6 +74,14 @@
             this.bAdd_Emp = new System.Windows.Forms.Button();
             this.dgvEmp = new System.Windows.Forms.DataGridView();
             this.bBack = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCat)).BeginInit();
             this.tabGuide.SuspendLayout();
             this.tabCat.SuspendLayout();
@@ -144,6 +152,7 @@
             // 
             // tabCat
             // 
+            this.tabCat.Controls.Add(this.label12);
             this.tabCat.Controls.Add(this.label6);
             this.tabCat.Controls.Add(this.label5);
             this.tabCat.Controls.Add(this.tbCat);
@@ -225,6 +234,7 @@
             // 
             // tabUsers
             // 
+            this.tabUsers.Controls.Add(this.label13);
             this.tabUsers.Controls.Add(this.label8);
             this.tabUsers.Controls.Add(this.label7);
             this.tabUsers.Controls.Add(this.tbRole);
@@ -351,6 +361,12 @@
             // 
             // tabEmp
             // 
+            this.tabEmp.Controls.Add(this.label19);
+            this.tabEmp.Controls.Add(this.label18);
+            this.tabEmp.Controls.Add(this.label17);
+            this.tabEmp.Controls.Add(this.label16);
+            this.tabEmp.Controls.Add(this.label15);
+            this.tabEmp.Controls.Add(this.label14);
             this.tabEmp.Controls.Add(this.cbRole);
             this.tabEmp.Controls.Add(this.label10);
             this.tabEmp.Controls.Add(this.tbLogin);
@@ -373,7 +389,7 @@
             this.tabEmp.Padding = new System.Windows.Forms.Padding(3);
             this.tabEmp.Size = new System.Drawing.Size(1093, 575);
             this.tabEmp.TabIndex = 2;
-            this.tabEmp.Text = "Сотрудники";
+            this.tabEmp.Text = "Пользователи";
             this.tabEmp.UseVisualStyleBackColor = true;
             // 
             // cbRole
@@ -582,6 +598,95 @@
             this.bBack.UseVisualStyleBackColor = false;
             this.bBack.Click += new System.EventHandler(this.bBack_Click);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(220, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(19, 23);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "*";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(169, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(19, 23);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "*";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(109, 14);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(19, 23);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(61, 87);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(19, 23);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(502, 15);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(19, 23);
+            this.label16.TabIndex = 46;
+            this.label16.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(473, 86);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(19, 23);
+            this.label17.TabIndex = 47;
+            this.label17.Text = "*";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(860, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(19, 23);
+            this.label18.TabIndex = 48;
+            this.label18.Text = "*";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(857, 87);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(19, 23);
+            this.label19.TabIndex = 49;
+            this.label19.Text = "*";
+            // 
             // Guide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -650,5 +755,13 @@
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbRole;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
     }
 }

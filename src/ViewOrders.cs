@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+
 
 
 namespace BeautyGlory
@@ -45,7 +47,7 @@ namespace BeautyGlory
 
                 if (AuthForm.checkform == 14741)
                 {
-                    bExcel.Visible = false;
+                    bExcels.Visible = true;
                 }
                 GetRole();
                 dgvFillOrder();
@@ -112,9 +114,8 @@ namespace BeautyGlory
 
         private void cbYes_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbYes.Checked == true)
+            if (rbNew.Checked == true)
             {
-                cbNo.Enabled = false;
                 cmUser.Enabled = false;
                 bSort.Enabled = false;
 
@@ -145,52 +146,6 @@ namespace BeautyGlory
 
             else
             {
-                cbNo.Enabled = true;
-                cmUser.Enabled = true;
-                bSort.Enabled = true;
-
-                dgvFillOrder();
-                FillCell();
-                lCountOrder.Text = "Всего заказов: " + dgvOrderAll.Rows.Count;
-            }
-        }
-
-        private void cbNo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbNo.Checked == true)
-            {
-                cbYes.Enabled = false;
-                cmUser.Enabled = false;
-                bSort.Enabled = false;
-
-                db_connect connection = new db_connect();
-                connection.OpenConnect();
-
-                string sql = @"SELECT `order`.OrderID AS 'OPD', orderproduct.ProductArticleNumber AS 'Артикул', orderproduct.OrderCount AS 'Количество', `order`.OrderCode AS 'Код получения', 
-                            `order`.OrderDeliveryDate AS 'Дата доставки', orderpickuppoint.PickupPoint AS 'Адрес доставки',  `order`.OrderDate AS 'Дата заказа', 
-                            CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Заказчик', orderstatus.Status AS 'Статус заказа' FROM `order`
-                            INNER JOIN orderproduct ON `order`.OrderProductID = orderproduct.OrderID INNER JOIN orderpickuppoint ON orderpickuppoint.idPickupPoint = `order`.OrderPickupPoint
-                            INNER JOIN user ON user.UserID = `order`.OrderClient INNER JOIN orderstatus ON orderstatus.idStatus = `order`.OrderStatus WHERE orderstatus.Status = 'Завершен';";
-
-                MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
-                com.ExecuteNonQuery();
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(com);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-
-                dgvOrderAll.DataSource = dt;
-
-                connection.CloseConnect();
-                FillCell();
-                dgvOrderAll.Columns[0].Visible = false;
-                dgvOrderAll.Columns[3].Visible = false;
-                lCountOrder.Text = "Всего заказов: " + dgvOrderAll.Rows.Count;
-            }
-
-            else
-            {
-                cbYes.Enabled = true;
                 cmUser.Enabled = true;
                 bSort.Enabled = true;
 
@@ -202,8 +157,8 @@ namespace BeautyGlory
 
         private void bBack_Click(object sender, EventArgs e)
         {
-            cbYes.Checked = false;
-            cbNo.Checked = false;
+            rbNew.Checked = false;
+            rbFinish.Checked = false;
             bSort.Enabled = false;
 
             this.Close();
@@ -239,8 +194,6 @@ namespace BeautyGlory
         {
             if (cmUser.SelectedIndex == 0)
             {
-                cbYes.Enabled = true;
-                cbNo.Enabled = true;
                 bSort.Enabled = true;
 
                 dgvFillOrder();
@@ -251,8 +204,8 @@ namespace BeautyGlory
             else
             {
                 string n = cmUser.Text[0].ToString();
-                cbYes.Enabled = false;
-                cbNo.Enabled = false;
+                rbNew.Checked = false;
+                rbFinish.Checked = false;
                 bSort.Enabled = false;
 
                 db_connect connection = new db_connect();
@@ -330,87 +283,12 @@ namespace BeautyGlory
             }
         }
 
-        private void bExcel_Click(object sender, EventArgs e)
-        {
-            db_connect connection = new db_connect();
-            connection.OpenConnect();
-
-            string sql = @"SELECT `order`.OrderID AS 'Номер заказа', orderproduct.ProductArticleNumber AS 'Артикул', orderproduct.OrderCount AS 'Количество', 
-                            CONCAT(EXTRACT(DAY FROM `order`.OrderDeliveryDate), '.', EXTRACT(MONTH FROM `order`.OrderDeliveryDate), '.', EXTRACT(YEAR FROM `order`.OrderDeliveryDate)) AS 'Дата доставки',
-                            orderpickuppoint.PickupPoint AS 'Адрес доставки', CONCAT(EXTRACT(DAY FROM `order`.OrderDate), '.', EXTRACT(MONTH FROM `order`.OrderDate), '.', EXTRACT(YEAR FROM `order`.OrderDate)) AS 'Дата заказа', 
-                            CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Заказчик', orderstatus.Status AS 'Статус заказа' FROM `order`
-                            INNER JOIN orderproduct ON `order`.OrderProductID = orderproduct.OrderID INNER JOIN orderpickuppoint ON orderpickuppoint.idPickupPoint = `order`.OrderPickupPoint
-                            INNER JOIN user ON user.UserID = `order`.OrderClient INNER JOIN orderstatus ON orderstatus.idStatus = `order`.OrderStatus;";
-            MySqlCommand cmd = new MySqlCommand(sql, connection.GetConnect());
-
-            cmd.ExecuteNonQuery();
-
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
-            Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
-            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
-            ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
-
-            Microsoft.Office.Interop.Excel.Range _excelCells1 = (Microsoft.Office.Interop.Excel.Range)ExcelWorkSheet.get_Range("A1", "H1").Cells;
-            _excelCells1.Merge(Type.Missing);
-
-            ExcelApp.Cells[1, 1].EntireRow.Font.Size = 16;
-            ExcelApp.Cells[1, 1].EntireRow.Font.Bold = true;
-            ExcelApp.Cells[1, 1] = "Отчет по всем заказам товаров";
-            ExcelApp.Cells[1, 1].HorizontalAlignment = -4108;
-            ExcelApp.Cells[1, 1].VerticalAlignment = -4108;
-
-            Microsoft.Office.Interop.Excel.Range _excelCells2 = (Microsoft.Office.Interop.Excel.Range)ExcelWorkSheet.get_Range("A2", "H2").Cells;
-            _excelCells2.Merge(Type.Missing);
-
-            ExcelApp.Cells[2, 1].EntireRow.Font.Bold = true;
-            ExcelApp.Cells[2, 1].EntireRow.Font.Size = 16;
-            ExcelApp.Cells[2, 1] = "от " + DateTime.Now.ToString("dd.MM.yyyy");
-            ExcelApp.Cells[2, 1].HorizontalAlignment = -4108;
-            ExcelApp.Cells[2, 1].VerticalAlignment = -4108;
-
-            ExcelApp.Cells[3, 1] = "Номер заказа";
-            ExcelApp.Cells[3, 2] = "Артикул";
-            ExcelApp.Cells[3, 3] = "Количество";
-            ExcelApp.Cells[3, 4] = "Дата доставки заказа";
-            ExcelApp.Cells[3, 5] = "Адрес доставки";
-            ExcelApp.Cells[3, 6] = "Дата заказа";
-            ExcelApp.Cells[3, 7] = "Заказчик";
-            ExcelApp.Cells[3, 8] = "Статус";
-
-            ExcelApp.Range["A3:H100"].Font.Size = 14;
-
-            for (int i = 3; i < dt.Rows.Count + 1; i++)
-            {
-                for (int j = 0; j < dt.Columns.Count; j++)
-                {
-                    if (i == 0)
-                    {
-                        ExcelApp.Cells[i + 1, j + 1] = dt.Rows[0].ItemArray[j].ToString();
-                    }
-                    else
-                    {
-                        ExcelApp.Cells[i + 1, j + 1] = dt.Rows[i - 1].ItemArray[j].ToString();
-                    }
-                }
-            }
-
-            ExcelWorkSheet.Columns.AutoFit();
-            ExcelApp.Visible = true;
-            ExcelApp.UserControl = true;
-            ExcelApp.UserControl = true;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (bSort.Text == "Сортировать")
             {
-                cbYes.Enabled = false;
-                cbNo.Enabled = false;
+                rbNew.Checked = false;
+                rbFinish.Checked = false;
                 cmUser.Enabled = false;
 
                 bSort.Text = "Отменить";
@@ -447,8 +325,6 @@ namespace BeautyGlory
 
             else
             {
-                cbYes.Enabled = true;
-                cbNo.Enabled = true;
                 cmUser.Enabled = true;
 
                 bSort.Text = "Сортировать";
@@ -522,6 +398,211 @@ namespace BeautyGlory
 
             dgvOrderAll.Columns[0].Visible = false;
             dgvOrderAll.Columns[3].Visible = false;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbNew.Checked == true)
+            {
+                cmUser.Enabled = false;
+                bSort.Enabled = false;
+
+                db_connect connection = new db_connect();
+                connection.OpenConnect();
+
+                string sql = @"SELECT `order`.OrderID AS 'OPD', orderproduct.ProductArticleNumber AS 'Артикул', orderproduct.OrderCount AS 'Количество', `order`.OrderCode AS 'Код получения', 
+                            `order`.OrderDeliveryDate AS 'Дата доставки', orderpickuppoint.PickupPoint AS 'Адрес доставки',  `order`.OrderDate AS 'Дата заказа', 
+                            CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Заказчик', orderstatus.Status AS 'Статус заказа' FROM `order`
+                            INNER JOIN orderproduct ON `order`.OrderProductID = orderproduct.OrderID INNER JOIN orderpickuppoint ON orderpickuppoint.idPickupPoint = `order`.OrderPickupPoint
+                            INNER JOIN user ON user.UserID = `order`.OrderClient INNER JOIN orderstatus ON orderstatus.idStatus = `order`.OrderStatus WHERE orderstatus.Status = 'Новый';";
+
+                MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
+                com.ExecuteNonQuery();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dgvOrderAll.DataSource = dt;
+
+                connection.CloseConnect();
+                dgvOrderAll.Columns[0].Visible = false;
+                dgvOrderAll.Columns[3].Visible = false;
+                FillCell();
+                lCountOrder.Text = "Всего заказов: " + dgvOrderAll.Rows.Count;
+            }
+
+            else
+            {
+                cmUser.Enabled = true;
+                bSort.Enabled = true;
+
+                dgvFillOrder();
+                FillCell();
+                lCountOrder.Text = "Всего заказов: " + dgvOrderAll.Rows.Count;
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbFinish.Checked == true)
+            {
+                cmUser.Enabled = false;
+                bSort.Enabled = false;
+
+                db_connect connection = new db_connect();
+                connection.OpenConnect();
+
+                string sql = @"SELECT `order`.OrderID AS 'OPD', orderproduct.ProductArticleNumber AS 'Артикул', orderproduct.OrderCount AS 'Количество', `order`.OrderCode AS 'Код получения', 
+                            `order`.OrderDeliveryDate AS 'Дата доставки', orderpickuppoint.PickupPoint AS 'Адрес доставки',  `order`.OrderDate AS 'Дата заказа', 
+                            CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Заказчик', orderstatus.Status AS 'Статус заказа' FROM `order`
+                            INNER JOIN orderproduct ON `order`.OrderProductID = orderproduct.OrderID INNER JOIN orderpickuppoint ON orderpickuppoint.idPickupPoint = `order`.OrderPickupPoint
+                            INNER JOIN user ON user.UserID = `order`.OrderClient INNER JOIN orderstatus ON orderstatus.idStatus = `order`.OrderStatus WHERE orderstatus.Status = 'Завершен';";
+
+                MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
+                com.ExecuteNonQuery();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dgvOrderAll.DataSource = dt;
+
+                connection.CloseConnect();
+                FillCell();
+                dgvOrderAll.Columns[0].Visible = false;
+                dgvOrderAll.Columns[3].Visible = false;
+                lCountOrder.Text = "Всего заказов: " + dgvOrderAll.Rows.Count;
+            }
+
+            else
+            {
+                cmUser.Enabled = true;
+                bSort.Enabled = true;
+
+                dgvFillOrder();
+                FillCell();
+                lCountOrder.Text = "Всего заказов: " + dgvOrderAll.Rows.Count;
+            }
+        }
+
+        private void rbAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAll.Checked == true)
+            {
+                cmUser.Enabled = false;
+                bSort.Enabled = false;
+
+                db_connect connection = new db_connect();
+                connection.OpenConnect();
+
+                string sql = @"SELECT order.OrderID AS 'OPD', orderproduct.ProductArticleNumber AS 'Артикул', orderproduct.OrderCount AS 'Количество', order.OrderCode AS 'Код получения',
+                                order.OrderDeliveryDate AS 'Дата доставки', orderpickuppoint.PickupPoint AS 'Адрес доставки',  order.OrderDate AS 'Дата заказа',
+                                CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Заказчик', orderstatus.Status AS 'Статус заказа' FROM order
+                                INNER JOIN orderproduct ON order.OrderProductID = orderproduct.OrderID INNER JOIN orderpickuppoint ON orderpickuppoint.idPickupPoint = order.OrderPickupPoint
+                                INNER JOIN user ON user.UserID = order.OrderClient INNER JOIN orderstatus ON orderstatus.idStatus = order.OrderStatus WHERE orderstatus.Status IN ('Завершен', 'Новый');";
+
+                MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
+                com.ExecuteNonQuery();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dgvOrderAll.DataSource = dt;
+
+                connection.CloseConnect();
+                FillCell();
+                dgvOrderAll.Columns[0].Visible = false;
+                dgvOrderAll.Columns[3].Visible = false;
+                lCountOrder.Text = "Всего заказов: " + dgvOrderAll.Rows.Count;
+            }
+
+            else
+            {
+                cmUser.Enabled = true;
+                bSort.Enabled = true;
+
+                dgvFillOrder();
+                FillCell();
+                lCountOrder.Text = "Всего заказов: " + dgvOrderAll.Rows.Count;
+            }
+        }
+
+        private void bExcels_Click(object sender, EventArgs e)
+        {
+            db_connect connection = new db_connect();
+            connection.OpenConnect();
+
+            string sql = @"SELECT `order`.OrderID AS 'Номер заказа', orderproduct.ProductArticleNumber AS 'Артикул', orderproduct.OrderCount AS 'Количество', 
+                            CONCAT(EXTRACT(DAY FROM `order`.OrderDeliveryDate), '.', EXTRACT(MONTH FROM `order`.OrderDeliveryDate), '.', EXTRACT(YEAR FROM `order`.OrderDeliveryDate)) AS 'Дата доставки',
+                            orderpickuppoint.PickupPoint AS 'Адрес доставки', CONCAT(EXTRACT(DAY FROM `order`.OrderDate), '.', EXTRACT(MONTH FROM `order`.OrderDate), '.', EXTRACT(YEAR FROM `order`.OrderDate)) AS 'Дата заказа', 
+                            CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Заказчик', orderstatus.Status AS 'Статус заказа' FROM `order`
+                            INNER JOIN orderproduct ON `order`.OrderProductID = orderproduct.OrderID INNER JOIN orderpickuppoint ON orderpickuppoint.idPickupPoint = `order`.OrderPickupPoint
+                            INNER JOIN user ON user.UserID = `order`.OrderClient INNER JOIN orderstatus ON orderstatus.idStatus = `order`.OrderStatus;";
+            MySqlCommand cmd = new MySqlCommand(sql, connection.GetConnect());
+
+            cmd.ExecuteNonQuery();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
+            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
+            ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+
+            Microsoft.Office.Interop.Excel.Range _excelCells1 = (Microsoft.Office.Interop.Excel.Range)ExcelWorkSheet.get_Range("A1", "H1").Cells;
+            _excelCells1.Merge(Type.Missing);
+
+            ExcelApp.Cells[1, 1].EntireRow.Font.Size = 16;
+            ExcelApp.Cells[1, 1].EntireRow.Font.Bold = true;
+            ExcelApp.Cells[1, 1] = "Отчет по всем заказам товаров";
+            ExcelApp.Cells[1, 1].HorizontalAlignment = -4108;
+            ExcelApp.Cells[1, 1].VerticalAlignment = -4108;
+
+            Microsoft.Office.Interop.Excel.Range _excelCells2 = (Microsoft.Office.Interop.Excel.Range)ExcelWorkSheet.get_Range("A2", "H2").Cells;
+            _excelCells2.Merge(Type.Missing);
+
+            ExcelApp.Cells[2, 1].EntireRow.Font.Bold = true;
+            ExcelApp.Cells[2, 1].EntireRow.Font.Size = 16;
+            ExcelApp.Cells[2, 1] = "от " + DateTime.Now.ToString("dd.MM.yyyy");
+            ExcelApp.Cells[2, 1].HorizontalAlignment = -4108;
+            ExcelApp.Cells[2, 1].VerticalAlignment = -4108;
+
+            ExcelApp.Cells[3, 1] = "Номер заказа";
+            ExcelApp.Cells[3, 2] = "Артикул";
+            ExcelApp.Cells[3, 3] = "Количество";
+            ExcelApp.Cells[3, 4] = "Дата доставки заказа";
+            ExcelApp.Cells[3, 5] = "Адрес доставки";
+            ExcelApp.Cells[3, 6] = "Дата заказа";
+            ExcelApp.Cells[3, 7] = "Заказчик";
+            ExcelApp.Cells[3, 8] = "Статус";
+
+            ExcelApp.Range["A3:H100"].Font.Size = 14;
+
+            for (int i = 3; i < dt.Rows.Count + 1; i++)
+            {
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    if (i == 0)
+                    {
+                        ExcelApp.Cells[i + 1, j + 1] = dt.Rows[0].ItemArray[j].ToString();
+                    }
+                    else
+                    {
+                        ExcelApp.Cells[i + 1, j + 1] = dt.Rows[i - 1].ItemArray[j].ToString();
+                    }
+                }
+            }
+
+            ExcelWorkSheet.Columns.AutoFit();
+            ExcelApp.Visible = true;
+            ExcelApp.UserControl = true;
+            ExcelApp.UserControl = true;
+
         }
     }
 }

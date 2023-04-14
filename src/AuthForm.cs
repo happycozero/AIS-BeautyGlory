@@ -139,7 +139,7 @@ namespace BeautyGlory
                                     break;
 
                                 case 3:
-                                    checkform = 0;
+                                    checkform = 14741;
                                     this.Visible = false;
                                     menuadmin.ShowDialog();
                                     this.Visible = true;
