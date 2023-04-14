@@ -265,7 +265,7 @@ namespace BeautyGlory
             db_connect connection = new db_connect();
             connection.OpenConnect();
 
-            string sql2 = @"SELECT idPickupPoint FROM `orderpickuppoint` WHERE PickupPoint = '" + cmPP.Text + "';";
+            string sql2 = @"SELECT idPickupPoint FROM `orderpickuppoint` WHERE PostCode = '" + cmPP.Text + "';";
 
             MySqlCommand com2 = new MySqlCommand(sql2, connection.GetConnect());
             int idpp = Convert.ToInt32(com2.ExecuteScalar());

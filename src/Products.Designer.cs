@@ -66,6 +66,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.pbPhoto = new System.Windows.Forms.PictureBox();
+            this.tbFind = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
@@ -73,11 +75,11 @@
             // tbDesc
             // 
             this.tbDesc.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbDesc.Location = new System.Drawing.Point(134, 18);
+            this.tbDesc.Location = new System.Drawing.Point(895, 45);
             this.tbDesc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDesc.Multiline = true;
             this.tbDesc.Name = "tbDesc";
-            this.tbDesc.Size = new System.Drawing.Size(248, 242);
+            this.tbDesc.Size = new System.Drawing.Size(294, 215);
             this.tbDesc.TabIndex = 0;
             // 
             // dgvProduct
@@ -108,7 +110,7 @@
             this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.Color.Gray;
-            this.dgvProduct.Location = new System.Drawing.Point(5, 313);
+            this.dgvProduct.Location = new System.Drawing.Point(5, 334);
             this.dgvProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvProduct.MultiSelect = false;
             this.dgvProduct.Name = "dgvProduct";
@@ -123,7 +125,7 @@
             this.dgvProduct.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProduct.RowHeadersVisible = false;
             this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduct.Size = new System.Drawing.Size(1409, 392);
+            this.dgvProduct.Size = new System.Drawing.Size(1409, 371);
             this.dgvProduct.TabIndex = 1;
             this.dgvProduct.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduct_CellMouseClick);
             // 
@@ -131,7 +133,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(6, 12);
+            this.label1.Location = new System.Drawing.Point(890, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 29);
             this.label1.TabIndex = 2;
@@ -139,6 +141,7 @@
             // 
             // bEdit
             // 
+            this.bEdit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bEdit.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -153,6 +156,7 @@
             // 
             // bAdd
             // 
+            this.bAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bAdd.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -167,6 +171,7 @@
             // 
             // bDel
             // 
+            this.bDel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bDel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -181,6 +186,7 @@
             // 
             // bBack
             // 
+            this.bBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bBack.Location = new System.Drawing.Point(1246, 760);
@@ -188,7 +194,7 @@
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(169, 44);
             this.bBack.TabIndex = 6;
-            this.bBack.Text = "Назад в меню";
+            this.bBack.Text = "В меню";
             this.bBack.UseVisualStyleBackColor = true;
             this.bBack.Click += new System.EventHandler(this.bBack_Click);
             // 
@@ -196,7 +202,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(396, 12);
+            this.label4.Location = new System.Drawing.Point(44, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(167, 29);
             this.label4.TabIndex = 10;
@@ -205,10 +211,10 @@
             // tbName
             // 
             this.tbName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbName.Location = new System.Drawing.Point(402, 45);
+            this.tbName.Location = new System.Drawing.Point(50, 45);
             this.tbName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(298, 37);
+            this.tbName.Size = new System.Drawing.Size(296, 37);
             this.tbName.TabIndex = 11;
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
@@ -216,7 +222,7 @@
             // 
             this.lCount.AutoSize = true;
             this.lCount.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCount.Location = new System.Drawing.Point(0, 711);
+            this.lCount.Location = new System.Drawing.Point(0, 713);
             this.lCount.Name = "lCount";
             this.lCount.Size = new System.Drawing.Size(231, 29);
             this.lCount.TabIndex = 12;
@@ -225,7 +231,7 @@
             // tbPrice
             // 
             this.tbPrice.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbPrice.Location = new System.Drawing.Point(732, 128);
+            this.tbPrice.Location = new System.Drawing.Point(392, 135);
             this.tbPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPrice.MaxLength = 11;
             this.tbPrice.Name = "tbPrice";
@@ -237,7 +243,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(727, 96);
+            this.label6.Location = new System.Drawing.Point(387, 102);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 29);
             this.label6.TabIndex = 13;
@@ -247,7 +253,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(396, 96);
+            this.label7.Location = new System.Drawing.Point(44, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(176, 29);
             this.label7.TabIndex = 15;
@@ -256,7 +262,7 @@
             // tbQuantly
             // 
             this.tbQuantly.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbQuantly.Location = new System.Drawing.Point(732, 223);
+            this.tbQuantly.Location = new System.Drawing.Point(392, 223);
             this.tbQuantly.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbQuantly.MaxLength = 6;
             this.tbQuantly.Name = "tbQuantly";
@@ -268,7 +274,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(727, 191);
+            this.label8.Location = new System.Drawing.Point(387, 191);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 29);
             this.label8.TabIndex = 17;
@@ -278,7 +284,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(396, 191);
+            this.label9.Location = new System.Drawing.Point(44, 191);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(121, 29);
             this.label9.TabIndex = 19;
@@ -289,10 +295,10 @@
             this.cmCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmCategory.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmCategory.FormattingEnabled = true;
-            this.cmCategory.Location = new System.Drawing.Point(402, 223);
+            this.cmCategory.Location = new System.Drawing.Point(50, 223);
             this.cmCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmCategory.Name = "cmCategory";
-            this.cmCategory.Size = new System.Drawing.Size(298, 37);
+            this.cmCategory.Size = new System.Drawing.Size(296, 37);
             this.cmCategory.TabIndex = 20;
             // 
             // bPhoto
@@ -302,7 +308,7 @@
             this.bPhoto.Location = new System.Drawing.Point(1207, 216);
             this.bPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bPhoto.Name = "bPhoto";
-            this.bPhoto.Size = new System.Drawing.Size(208, 40);
+            this.bPhoto.Size = new System.Drawing.Size(207, 44);
             this.bPhoto.TabIndex = 23;
             this.bPhoto.Text = "Выбрать фото";
             this.bPhoto.UseVisualStyleBackColor = true;
@@ -312,7 +318,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(727, 12);
+            this.label2.Location = new System.Drawing.Point(387, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 29);
             this.label2.TabIndex = 26;
@@ -322,7 +328,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(1000, 16);
+            this.label3.Location = new System.Drawing.Point(660, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 29);
             this.label3.TabIndex = 28;
@@ -331,7 +337,7 @@
             // tbDisc
             // 
             this.tbDisc.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbDisc.Location = new System.Drawing.Point(1008, 48);
+            this.tbDisc.Location = new System.Drawing.Point(665, 45);
             this.tbDisc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDisc.MaxLength = 3;
             this.tbDisc.Name = "tbDisc";
@@ -343,7 +349,7 @@
             // tbDiscMax
             // 
             this.tbDiscMax.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbDiscMax.Location = new System.Drawing.Point(1008, 128);
+            this.tbDiscMax.Location = new System.Drawing.Point(665, 135);
             this.tbDiscMax.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDiscMax.MaxLength = 3;
             this.tbDiscMax.Name = "tbDiscMax";
@@ -356,7 +362,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(1002, 96);
+            this.label5.Location = new System.Drawing.Point(660, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 29);
             this.label5.TabIndex = 30;
@@ -367,7 +373,7 @@
             this.cmMan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmMan.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmMan.FormattingEnabled = true;
-            this.cmMan.Location = new System.Drawing.Point(402, 128);
+            this.cmMan.Location = new System.Drawing.Point(49, 135);
             this.cmMan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmMan.Name = "cmMan";
             this.cmMan.Size = new System.Drawing.Size(296, 37);
@@ -378,7 +384,7 @@
             this.cmSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmSupplier.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmSupplier.FormattingEnabled = true;
-            this.cmSupplier.Location = new System.Drawing.Point(732, 45);
+            this.cmSupplier.Location = new System.Drawing.Point(392, 45);
             this.cmSupplier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmSupplier.Name = "cmSupplier";
             this.cmSupplier.Size = new System.Drawing.Size(228, 37);
@@ -398,7 +404,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(1080, 128);
+            this.label10.Location = new System.Drawing.Point(734, 138);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 29);
             this.label10.TabIndex = 35;
@@ -408,7 +414,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(1080, 48);
+            this.label11.Location = new System.Drawing.Point(734, 48);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 29);
             this.label11.TabIndex = 36;
@@ -419,7 +425,7 @@
             this.cmUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmUnit.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmUnit.FormattingEnabled = true;
-            this.cmUnit.Location = new System.Drawing.Point(1008, 224);
+            this.cmUnit.Location = new System.Drawing.Point(666, 223);
             this.cmUnit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmUnit.Name = "cmUnit";
             this.cmUnit.Size = new System.Drawing.Size(71, 37);
@@ -429,7 +435,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(960, 128);
+            this.label12.Location = new System.Drawing.Point(621, 134);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(28, 29);
             this.label12.TabIndex = 38;
@@ -440,7 +446,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(1002, 192);
+            this.label13.Location = new System.Drawing.Point(661, 191);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 29);
             this.label13.TabIndex = 39;
@@ -450,12 +456,30 @@
             // 
             this.pbPhoto.ErrorImage = global::BeautyGlory.Properties.Resources.img_holder;
             this.pbPhoto.Location = new System.Drawing.Point(1207, 18);
-            this.pbPhoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbPhoto.Name = "pbPhoto";
-            this.pbPhoto.Size = new System.Drawing.Size(207, 190);
+            this.pbPhoto.Size = new System.Drawing.Size(207, 191);
             this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPhoto.TabIndex = 21;
+            this.pbPhoto.TabIndex = 42;
             this.pbPhoto.TabStop = false;
+            // 
+            // tbFind
+            // 
+            this.tbFind.Location = new System.Drawing.Point(134, 279);
+            this.tbFind.Name = "tbFind";
+            this.tbFind.Size = new System.Drawing.Size(212, 40);
+            this.tbFind.TabIndex = 40;
+            this.tbFind.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.Location = new System.Drawing.Point(44, 283);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(84, 29);
+            this.label14.TabIndex = 41;
+            this.label14.Text = "Поиск:";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // Products
             // 
@@ -463,11 +487,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1424, 817);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.tbFind);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.cmUnit);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.tbPhoto);
             this.Controls.Add(this.cmSupplier);
             this.Controls.Add(this.cmMan);
@@ -495,6 +518,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvProduct);
             this.Controls.Add(this.tbDesc);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
             this.Font = new System.Drawing.Font("Comic Sans MS", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -547,5 +573,7 @@
         private System.Windows.Forms.ComboBox cmUnit;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tbFind;
+        private System.Windows.Forms.Label label14;
     }
 }

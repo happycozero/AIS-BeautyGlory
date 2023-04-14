@@ -578,7 +578,7 @@
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(210, 40);
             this.bBack.TabIndex = 16;
-            this.bBack.Text = "Назад в меню";
+            this.bBack.Text = "В меню";
             this.bBack.UseVisualStyleBackColor = false;
             this.bBack.Click += new System.EventHandler(this.bBack_Click);
             // 

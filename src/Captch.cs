@@ -26,9 +26,18 @@ namespace BeautyGlory
             if (tbCaptch.Text == "")
             {
                 MessageBox.Show("Ошибка. Введите капчу!", "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                bInput.Enabled = false;
+                bReload.Enabled = false;
+
+                Thread.Sleep(10000);
+
+                bInput.Enabled = true;
+                bReload.Enabled = true;
             }
+
             else
             {
+
                 if (lCaptch.Text == tbCaptch.Text)
                 {
                     tbCaptch.Clear();
@@ -38,16 +47,15 @@ namespace BeautyGlory
 
                 else
                 {
-                    MessageBox.Show("Ошибка! Капча неверная.\n Повторите попытку через 10 секунд.", "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ошибка. Капча неверная! Повторите попытку через 10 секунд.", "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     bInput.Enabled = false;
                     bReload.Enabled = false;
 
-                    Task.Delay(10000).ContinueWith(_ =>
-                    {
-                        bInput.Invoke((MethodInvoker)(() => bInput.Enabled = true));
-                        bReload.Invoke((MethodInvoker)(() => bReload.Enabled = true));
-                    });
+                    Thread.Sleep(10000);
+
+                    bInput.Enabled = true;
+                    bReload.Enabled = true;
 
                     GenCaptch();
                     tbCaptch.Clear();
@@ -63,7 +71,7 @@ namespace BeautyGlory
 
             Random rnd = new Random();
 
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
                 captch += text[rnd.Next(1, len)];
             }

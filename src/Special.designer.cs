@@ -63,7 +63,7 @@
             this.tabDB.Controls.Add(this.tabImport);
             this.tabDB.Controls.Add(this.tabExport);
             this.tabDB.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabDB.Location = new System.Drawing.Point(16, 18);
+            this.tabDB.Location = new System.Drawing.Point(45, 16);
             this.tabDB.Margin = new System.Windows.Forms.Padding(7);
             this.tabDB.Name = "tabDB";
             this.tabDB.SelectedIndex = 0;
@@ -150,24 +150,26 @@
             // 
             // bFile
             // 
+            this.bFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bFile.Location = new System.Drawing.Point(32, 116);
             this.bFile.Name = "bFile";
             this.bFile.Size = new System.Drawing.Size(259, 45);
             this.bFile.TabIndex = 18;
             this.bFile.Text = "Выберите файл";
-            this.bFile.UseVisualStyleBackColor = true;
+            this.bFile.UseVisualStyleBackColor = false;
             this.bFile.Click += new System.EventHandler(this.bFile_Click);
             // 
             // bImport
             // 
+            this.bImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bImport.Location = new System.Drawing.Point(32, 321);
             this.bImport.Name = "bImport";
             this.bImport.Size = new System.Drawing.Size(259, 45);
             this.bImport.TabIndex = 17;
             this.bImport.Text = "Импорт";
-            this.bImport.UseVisualStyleBackColor = true;
+            this.bImport.UseVisualStyleBackColor = false;
             this.bImport.Click += new System.EventHandler(this.bImport_Click);
             // 
             // tabExport
@@ -240,24 +242,26 @@
             // 
             // bExport
             // 
+            this.bExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bExport.Location = new System.Drawing.Point(32, 321);
             this.bExport.Name = "bExport";
             this.bExport.Size = new System.Drawing.Size(259, 45);
             this.bExport.TabIndex = 22;
             this.bExport.Text = "Экспорт";
-            this.bExport.UseVisualStyleBackColor = true;
+            this.bExport.UseVisualStyleBackColor = false;
             this.bExport.Click += new System.EventHandler(this.bExport_Click);
             // 
             // bPath
             // 
+            this.bPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bPath.Location = new System.Drawing.Point(32, 116);
             this.bPath.Name = "bPath";
             this.bPath.Size = new System.Drawing.Size(259, 45);
             this.bPath.TabIndex = 21;
             this.bPath.Text = "Выберите путь";
-            this.bPath.UseVisualStyleBackColor = true;
+            this.bPath.UseVisualStyleBackColor = false;
             this.bPath.Click += new System.EventHandler(this.bPath_Click);
             // 
             // openFileDialog1
@@ -266,12 +270,13 @@
             // 
             // bBack
             // 
+            this.bBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bBack.BackColor = System.Drawing.Color.White;
             this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bBack.Location = new System.Drawing.Point(16, 455);
+            this.bBack.Location = new System.Drawing.Point(49, 460);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(336, 62);
+            this.bBack.Size = new System.Drawing.Size(332, 50);
             this.bBack.TabIndex = 17;
             this.bBack.Text = "В меню";
             this.bBack.UseVisualStyleBackColor = false;
@@ -281,7 +286,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 529);
+            this.ClientSize = new System.Drawing.Size(432, 522);
             this.Controls.Add(this.bBack);
             this.Controls.Add(this.tabDB);
             this.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));

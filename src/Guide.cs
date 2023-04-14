@@ -70,9 +70,9 @@ namespace BeautyGlory
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
 
-                        dgvRole.DataSource = dt;
+                        dgvRole.RowTemplate.Height = 50;
 
-                        dgvRole.RowTemplate.Height = 60;
+                        dgvRole.DataSource = dt;
 
                         foreach (DataGridViewColumn column in dgvRole.Columns)
                         {
@@ -108,7 +108,10 @@ namespace BeautyGlory
                         using (var adapter = new MySqlDataAdapter(com))
                         {
                             DataTable dt = new DataTable();
+
                             adapter.Fill(dt);
+
+                            dgvCat.RowTemplate.Height = 50;
 
                             dgvCat.DataSource = dt;
 
@@ -142,11 +145,12 @@ namespace BeautyGlory
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(com);
             DataTable dt = new DataTable();
+
+            dgvEmp.RowTemplate.Height = 40;
+
             adapter.Fill(dt);
 
             dgvEmp.DataSource = dt;
-
-            dgvCat.RowTemplate.Height = 60;
 
             dgvEmp.Columns[0].Visible = false;
             foreach (DataGridViewColumn column in dgvEmp.Columns)

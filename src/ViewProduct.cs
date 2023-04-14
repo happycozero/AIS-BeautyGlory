@@ -173,6 +173,7 @@ namespace BeautyGlory
         {
             try
             {
+                id_prod = dgvProduct.Rows[e.RowIndex].Cells[0].Value.ToString();
                 tbName.Text = dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString();
                 tbDesc.Text = dgvProduct.Rows[e.RowIndex].Cells[2].Value.ToString();
                 tbPrice.Text = dgvProduct.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -485,6 +486,48 @@ namespace BeautyGlory
             {
                 MessageBox.Show("Ошибка! " + msg.Message, "Возникла ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (tbFind.Text.Length > 2)
+            {
+                //cmFiltr.Enabled = false;
+
+                db_connect connection = new db_connect();
+                connection.OpenConnect();
+
+                string sql = @"SELECT product.ProductArticleNumber AS 'Артикул', 
+                         product.ProductName AS 'Название', product.ProductDescription AS 'Описание', 
+                         product.ProductCost AS 'Цена', productcategory.Category AS 'Категория', 
+                         productmanufacturer.Manufacturer AS 'Производитель', productsupplier.Supplier AS 'Поставщик',
+                         product.ProductQuantityInStock AS 'Количество', productunit.unit AS 'Ед.измерения', 
+                         product.ProductDiscountAmount AS 'Действующая скидка', ProductMaxDiscount AS 'Максимальная скидка', 
+                         product.ProductPhoto AS 'Изображение' FROM product INNER JOIN productmanufacturer ON product.ProductManufacturer = productmanufacturer.idManufacturer
+                         INNER JOIN productsupplier ON product.ProductSupplier = productsupplier.idSupplier INNER JOIN productunit ON product.ProductUnit = productunit.idUnit
+                         INNER JOIN productcategory ON product.ProductCategory = productcategory.idCategory WHERE product.ProductName LIKE '%" + tbFind.Text + "%' OR product.ProductArticleNumber LIKE '%" + tbFind.Text + "%';";
+
+                MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
+                com.ExecuteNonQuery();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dgvProduct.DataSource = dt;
+
+                dgvProduct.Columns[7].Visible = false;
+
+                connection.CloseConnect();
+                Count();
+            }
+
+            else
+            {
+                //cmFiltr.Enabled = true;
+                ProductFill();
+                Count();
             }
         }
 

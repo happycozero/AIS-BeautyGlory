@@ -17,15 +17,15 @@ namespace BeautyGlory
         {
             try
             {
-                string exportPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BackupDataBaseCSV");
+                string exportPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BackupDataBaseCSV_" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"));
                 if (!Directory.Exists(exportPath))
                 {
                     Directory.CreateDirectory(exportPath);
                 }
 
-                using (MySqlConnection connection = new MySqlConnection("server=localhost;database=trade1;uid=root;pwd=;"))
+                using (db_connect db = new db_connect())
                 {
-                    connection.Open();
+                    MySqlConnection connection = db.GetConnect();
                     DataTable schema = connection.GetSchema("Tables");
                     foreach (DataRow row in schema.Rows)
                     {

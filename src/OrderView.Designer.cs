@@ -189,7 +189,7 @@
             this.MaximizeBox = false;
             this.Name = "OrderView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Оформление заказа";
+            this.Text = "Оформление заказа | ООО \"Красотка\"";
             this.Load += new System.EventHandler(this.OrderView_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

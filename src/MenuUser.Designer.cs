@@ -98,7 +98,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(12, 165);
+            this.button1.Location = new System.Drawing.Point(12, 160);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(725, 50);
             this.button1.TabIndex = 11;
@@ -108,12 +108,12 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::BeautyGlory.Properties.Resources.logo;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(604, 12);
+            this.pictureBox2.Image = global::BeautyGlory.Properties.Resources.logo;
+            this.pictureBox2.Location = new System.Drawing.Point(627, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(133, 125);
-            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.Size = new System.Drawing.Size(110, 100);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
             // MenuUser
@@ -136,7 +136,7 @@
             this.MaximizeBox = false;
             this.Name = "MenuUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Меню | ООО \"Красотка\"";
+            this.Text = "Меню пользователя | ООО \"Красотка\"";
             this.Load += new System.EventHandler(this.MenuUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

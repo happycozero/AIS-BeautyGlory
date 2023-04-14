@@ -272,7 +272,7 @@
             this.MaximizeBox = false;
             this.Name = "NewOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Заказать товар || ООО \"Рулевой\"";
+            this.Text = "Заказ товара | ООО \"Красотка\"";
             this.Load += new System.EventHandler(this.NewOrder_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tbCount)).EndInit();

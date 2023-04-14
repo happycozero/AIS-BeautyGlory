@@ -45,7 +45,7 @@
             this.bProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bProducts.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bProducts.Location = new System.Drawing.Point(12, 165);
+            this.bProducts.Location = new System.Drawing.Point(12, 160);
             this.bProducts.Name = "bProducts";
             this.bProducts.Size = new System.Drawing.Size(725, 50);
             this.bProducts.TabIndex = 0;
@@ -58,7 +58,7 @@
             this.bBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bBack.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bBack.Location = new System.Drawing.Point(12, 317);
+            this.bBack.Location = new System.Drawing.Point(12, 347);
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(725, 50);
             this.bBack.TabIndex = 5;
@@ -98,13 +98,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::BeautyGlory.Properties.Resources.logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(604, 12);
+            this.pictureBox1.Image = global::BeautyGlory.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(627, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 125);
+            this.pictureBox1.Size = new System.Drawing.Size(110, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
             // bNewOrder
@@ -112,20 +111,20 @@
             this.bNewOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.bNewOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bNewOrder.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bNewOrder.Location = new System.Drawing.Point(12, 221);
+            this.bNewOrder.Location = new System.Drawing.Point(12, 224);
             this.bNewOrder.Name = "bNewOrder";
             this.bNewOrder.Size = new System.Drawing.Size(725, 50);
             this.bNewOrder.TabIndex = 0;
             this.bNewOrder.Text = "Корзина";
             this.bNewOrder.UseVisualStyleBackColor = false;
-            this.bNewOrder.Click += new System.EventHandler(this.bProducts_Click);
+            this.bNewOrder.Click += new System.EventHandler(this.bNewOrder_Click);
             // 
             // MenuManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(749, 379);
+            this.ClientSize = new System.Drawing.Size(749, 409);
             this.Controls.Add(this.lFIO);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -140,7 +139,7 @@
             this.MaximizeBox = false;
             this.Name = "MenuManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Меню";
+            this.Text = "Меню менеджера | ООО \"Красотка\"";
             this.Load += new System.EventHandler(this.MenuManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
