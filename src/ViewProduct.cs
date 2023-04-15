@@ -459,27 +459,36 @@ namespace BeautyGlory
                 bool flag = false;
                 string count = "";
 
-                db_connect connect = new db_connect();
-                connect.OpenConnect();
-
-                string sql = "SELECT Quantity FROM cart WHERE idUser = " + AuthForm.id_user + " AND idProduct = '" + id_prod + "';";
-
-                MySqlCommand com = new MySqlCommand(sql, connect.GetConnect());
-
-                try
+                // Создаем экземпляр класса db_connect и открываем соединение с базой данных
+                using (db_connect connect = new db_connect())
                 {
-                    count = com.ExecuteScalar().ToString();
-                    flag = false;
-                }
+                    connect.OpenConnect();
 
-                catch
-                {
-                    flag = true;
-                    return flag;
+                    // Формируем запрос к базе данных
+                    string sql = "SELECT Quantity FROM cart WHERE idUser = @idUser AND idProduct = @idProduct;";
+
+                    // Создаем экземпляр класса MySqlCommand и передаем ему текст запроса и объект подключения к базе данных
+                    using (MySqlCommand com = new MySqlCommand(sql, connect.GetConnect()))
+                    {
+                        // Добавляем параметры к запросу
+                        com.Parameters.AddWithValue("@idUser", AuthForm.id_user);
+                        com.Parameters.AddWithValue("@idProduct", id_prod);
+
+                        // Выполняем запрос и получаем результат в переменную count
+                        object result = com.ExecuteScalar();
+                        if (result != null)
+                        {
+                            count = result.ToString();
+                            flag = false;
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
+                    }
                 }
 
                 return flag;
-
             }
 
             catch (Exception msg)

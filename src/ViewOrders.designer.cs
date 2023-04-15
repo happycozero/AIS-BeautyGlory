@@ -242,12 +242,12 @@
             // rbAll
             // 
             this.rbAll.AutoSize = true;
-            this.rbAll.Location = new System.Drawing.Point(141, 50);
+            this.rbAll.Location = new System.Drawing.Point(160, 48);
             this.rbAll.Name = "rbAll";
-            this.rbAll.Size = new System.Drawing.Size(114, 33);
+            this.rbAll.Size = new System.Drawing.Size(66, 33);
             this.rbAll.TabIndex = 33;
             this.rbAll.TabStop = true;
-            this.rbAll.Text = "Очистка";
+            this.rbAll.Text = "Все";
             this.rbAll.UseVisualStyleBackColor = true;
             this.rbAll.CheckedChanged += new System.EventHandler(this.rbAll_CheckedChanged);
             // 

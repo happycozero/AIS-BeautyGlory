@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
+using Microsoft.Office.Interop.Word;
 
 namespace BeautyGlory
 {
@@ -89,7 +90,7 @@ namespace BeautyGlory
             MySqlDataReader reader = com.ExecuteReader();
             while (reader.Read())
             {
-                cmPP.Items.Add(reader[1].ToString() + reader[2].ToString());
+                cmPP.Items.Add(reader[1].ToString() + " " + reader[2].ToString());
             }
 
             connect.CloseConnect();
@@ -131,7 +132,7 @@ namespace BeautyGlory
         {
             try
             {
-                DialogResult dg = MessageBox.Show("Вы действительно хотите оформить заказ номер - " + num_order + "?", "Оформление заказа", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dg = MessageBox.Show("Хотите оформить заказ номер - " + num_order + "?", "Оформление заказа", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (dg == DialogResult.Yes)
                 {
@@ -151,7 +152,7 @@ namespace BeautyGlory
 
                     MessageBox.Show("Успешно заказ оформлен!\nКод для получения заказа: " + Convert.ToString(GetCode() - 1) + "\nЗаказ будет доставлен - " + DateTime.Now.AddDays(5).ToString("dd.MM.yyyy г.") + "\nПо адресу: " + cmPP.Text, "Оформление заказа", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    DialogResult result = MessageBox.Show("Желаете распечатать чек? Для заказа №" + num_order + "?", "Оформление заказа", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult result = MessageBox.Show("Распечатать чек?", "Оформление заказа", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (DialogResult.Yes == result)
                     {
@@ -186,13 +187,29 @@ namespace BeautyGlory
                 ReplaceWordStub("{date}", DateTime.Now.ToString("dd.MM.yyyy"), wordd);
                 ReplaceWordStub("{date_d}", DateTime.Now.AddDays(5).ToString("dd.MM.yyyy"), wordd);
 
+                // Создаем таблицу
+                Table table = wordd.Tables.Add(wordd.Bookmarks["info"].Range, NewOrder.N_global + 1, 3);
+
+                // Задаем линии для границ таблицы
+                table.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
+                table.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
+
+                // Задаем форматирование для шапки таблицы
+                table.Rows[1].Range.Bold = 1;
+                table.Cell(1, 1).Range.Text = "Артикул";
+                table.Cell(1, 2).Range.Text = "Количество";
+                table.Cell(1, 3).Range.Text = "Цена";
+
+                // Заполняем таблицу данными из массива
                 for (int i = 0; i < NewOrder.N_global; i++)
                 {
-                    wordd.Bookmarks["info"].Range.Text = NewOrder.art_global[i] + "; " + NewOrder.quan_global[i] + "; " + NewOrder.price_global[i] + "\n";
+                    table.Cell(i + 2, 1).Range.Text = NewOrder.art_global[i];
+                    table.Cell(i + 2, 2).Range.Text = NewOrder.quan_global[i];
+                    table.Cell(i + 2, 3).Range.Text = NewOrder.price_global[i];
                 }
 
                 #region FIO
-                
+
                 string FIO = "";
 
                 db_connect connection = new db_connect();

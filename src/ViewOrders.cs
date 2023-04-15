@@ -10,8 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-
-
 namespace BeautyGlory
 {
     public partial class ViewOrders : Form
