@@ -102,12 +102,12 @@ namespace BeautyGlory
             {
                 if (Convert.ToString(dgvOrderAll.Rows[i].Cells[8].Value) == "Новый")
                 {
-                    dgvOrderAll.Rows[i].Cells[8].Style.BackColor = Color.DarkGreen;
+                    dgvOrderAll.Rows[i].Cells[8].Style.BackColor = Color.PaleGreen;
                 }
 
                 else
                 {
-                    dgvOrderAll.Rows[i].Cells[8].Style.BackColor = Color.DarkRed;
+                    dgvOrderAll.Rows[i].Cells[8].Style.BackColor = Color.IndianRed;
                 }
             }
         }
@@ -266,7 +266,7 @@ namespace BeautyGlory
             {
                 if (dgvOrderAll.Rows[e.RowIndex].Cells[8].Value.ToString() == "Новый")
                 {
-                    DialogResult dg = MessageBox.Show("Вы действительно хотите завершить данный заказ?\nВнимание для завершения заказа потребуется код получения или код администратора!", "Завершение заказа", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dg = MessageBox.Show("Вы действительно хотите завершить данный заказ?\n", "Завершение заказа", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (dg == DialogResult.Yes)
                     {
@@ -337,14 +337,29 @@ namespace BeautyGlory
 
         private void dgvOrderAll_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            try
+            {
+                if (e.RowIndex >= 0 && e.RowIndex < dgvOrderAll.Rows.Count)
+                {
+                    bDateOrderNew.Enabled = true;
+
+                    id_order = dgvOrderAll.Rows[e.RowIndex].Cells[0].Value.ToString();
+                }
+            }
+
+            catch (Exception)
+            {
+                ;
+            }
+
             bDateOrderNew.Enabled = true;
 
-            id_order = dgvOrderAll.Rows[e.RowIndex].Cells[0].Value.ToString();
+
         }
 
         private void bDateOrderNew_Click(object sender, EventArgs e)
         {
-            DialogResult dg = MessageBox.Show("Вы действительно хотите изменить дату доставки?", "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dg = MessageBox.Show("Вы действительно хотите изменить дату доставки?", "Информация о доставке", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dg == DialogResult.Yes)
             {
@@ -369,7 +384,7 @@ namespace BeautyGlory
 
                 bDateOrderNew.Enabled = false;
 
-                MessageBox.Show("Успешно! Дата доставки заказа перенесена на выбранную дату.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Успешно! Дата доставки заказа перенесена на выбранную дату.", "Информация о доставке", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -496,11 +511,12 @@ namespace BeautyGlory
                 db_connect connection = new db_connect();
                 connection.OpenConnect();
 
-                string sql = @"SELECT order.OrderID AS 'OPD', orderproduct.ProductArticleNumber AS 'Артикул', orderproduct.OrderCount AS 'Количество', order.OrderCode AS 'Код получения',
-                                order.OrderDeliveryDate AS 'Дата доставки', orderpickuppoint.PickupPoint AS 'Адрес доставки',  order.OrderDate AS 'Дата заказа',
-                                CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Заказчик', orderstatus.Status AS 'Статус заказа' FROM order
-                                INNER JOIN orderproduct ON order.OrderProductID = orderproduct.OrderID INNER JOIN orderpickuppoint ON orderpickuppoint.idPickupPoint = order.OrderPickupPoint
-                                INNER JOIN user ON user.UserID = order.OrderClient INNER JOIN orderstatus ON orderstatus.idStatus = order.OrderStatus WHERE orderstatus.Status IN ('Завершен', 'Новый');";
+                string sql = @"SELECT `order`.OrderID AS 'OPD', orderproduct.ProductArticleNumber AS 'Артикул', orderproduct.OrderCount AS 'Количество', `order`.OrderCode AS 'Код получения', 
+                            `order`.OrderDeliveryDate AS 'Дата доставки', orderpickuppoint.PickupPoint AS 'Адрес доставки',  `order`.OrderDate AS 'Дата заказа', 
+                            CONCAT(user.UserSurname, ' ', user.UserName, ' ', user.UserPatronymic) AS 'Заказчик', orderstatus.Status AS 'Статус заказа' FROM `order`
+                            INNER JOIN orderproduct ON `order`.OrderProductID = orderproduct.OrderID INNER JOIN orderpickuppoint ON orderpickuppoint.idPickupPoint = `order`.OrderPickupPoint
+                            INNER JOIN user ON user.UserID = `order`.OrderClient INNER JOIN orderstatus ON orderstatus.idStatus = `order`.OrderStatus WHERE orderstatus.Status IN ('Завершен', 'Новый');";
+
 
                 MySqlCommand com = new MySqlCommand(sql, connection.GetConnect());
                 com.ExecuteNonQuery();
@@ -572,6 +588,8 @@ namespace BeautyGlory
             ExcelApp.Cells[2, 1].HorizontalAlignment = -4108;
             ExcelApp.Cells[2, 1].VerticalAlignment = -4108;
 
+            ExcelApp.Range["A3:H3"].EntireRow.Font.Bold = true;
+
             ExcelApp.Cells[3, 1] = "Номер заказа";
             ExcelApp.Cells[3, 2] = "Артикул";
             ExcelApp.Cells[3, 3] = "Количество";
@@ -581,7 +599,11 @@ namespace BeautyGlory
             ExcelApp.Cells[3, 7] = "Заказчик";
             ExcelApp.Cells[3, 8] = "Статус";
 
-            ExcelApp.Range["A3:H100"].Font.Size = 14;
+            ExcelApp.Range["A1:H100" + (dt.Rows.Count + 2)].Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+            ExcelApp.Range["A1:H100" + (dt.Rows.Count + 2)].Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+
+
+            ExcelApp.Range["A1:H100"].Font.Size = 14;
 
             for (int i = 3; i < dt.Rows.Count + 1; i++)
             {
@@ -602,6 +624,11 @@ namespace BeautyGlory
             ExcelApp.Visible = true;
             ExcelApp.UserControl = true;
             ExcelApp.UserControl = true;
+
+        }
+
+        private void dgvOrderAll_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

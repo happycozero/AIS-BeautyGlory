@@ -37,6 +37,7 @@
             this.lRole = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.bOrders = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,6 +117,19 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // bOrders
+            // 
+            this.bOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.bOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bOrders.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bOrders.Location = new System.Drawing.Point(12, 226);
+            this.bOrders.Name = "bOrders";
+            this.bOrders.Size = new System.Drawing.Size(725, 50);
+            this.bOrders.TabIndex = 11;
+            this.bOrders.Text = "Корзина";
+            this.bOrders.UseVisualStyleBackColor = false;
+            this.bOrders.Click += new System.EventHandler(this.bOrders_Click);
+            // 
             // MenuUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 30F);
@@ -123,6 +137,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(749, 378);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.bOrders);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lRole);
             this.Controls.Add(this.lFIO);
@@ -154,5 +169,6 @@
         public System.Windows.Forms.Label lRole;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button bOrders;
     }
 }

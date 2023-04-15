@@ -41,6 +41,7 @@
             this.dgvCat = new System.Windows.Forms.DataGridView();
             this.tabGuide = new System.Windows.Forms.TabControl();
             this.tabCat = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbCat = new System.Windows.Forms.TextBox();
@@ -48,6 +49,7 @@
             this.bUpd_Cat = new System.Windows.Forms.Button();
             this.bAdd_Cat = new System.Windows.Forms.Button();
             this.tabUsers = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbRole = new System.Windows.Forms.TextBox();
@@ -56,6 +58,12 @@
             this.bAdd_Role = new System.Windows.Forms.Button();
             this.dgvRole = new System.Windows.Forms.DataGridView();
             this.tabEmp = new System.Windows.Forms.TabPage();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbLogin = new System.Windows.Forms.TextBox();
@@ -74,14 +82,6 @@
             this.bAdd_Emp = new System.Windows.Forms.Button();
             this.dgvEmp = new System.Windows.Forms.DataGridView();
             this.bBack = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCat)).BeginInit();
             this.tabGuide.SuspendLayout();
             this.tabCat.SuspendLayout();
@@ -102,7 +102,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -168,6 +168,19 @@
             this.tabCat.TabIndex = 0;
             this.tabCat.Text = "Категории";
             this.tabCat.UseVisualStyleBackColor = true;
+            this.tabCat.Click += new System.EventHandler(this.tabCat_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(220, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(19, 23);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "*";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label6
             // 
@@ -251,6 +264,17 @@
             this.tabUsers.Text = "Роли";
             this.tabUsers.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(169, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(19, 23);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "*";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -325,7 +349,7 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvRole.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
@@ -391,6 +415,72 @@
             this.tabEmp.TabIndex = 2;
             this.tabEmp.Text = "Пользователи";
             this.tabEmp.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(857, 87);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(19, 23);
+            this.label19.TabIndex = 49;
+            this.label19.Text = "*";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(860, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(19, 23);
+            this.label18.TabIndex = 48;
+            this.label18.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(473, 86);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(19, 23);
+            this.label17.TabIndex = 47;
+            this.label17.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(502, 15);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(19, 23);
+            this.label16.TabIndex = 46;
+            this.label16.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(61, 87);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(19, 23);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "*";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(109, 14);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(19, 23);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "*";
             // 
             // cbRole
             // 
@@ -550,7 +640,7 @@
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvEmp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
@@ -597,95 +687,6 @@
             this.bBack.Text = "В меню";
             this.bBack.UseVisualStyleBackColor = false;
             this.bBack.Click += new System.EventHandler(this.bBack_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(220, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(19, 23);
-            this.label12.TabIndex = 28;
-            this.label12.Text = "*";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(169, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(19, 23);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "*";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(109, 14);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(19, 23);
-            this.label14.TabIndex = 44;
-            this.label14.Text = "*";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(61, 87);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(19, 23);
-            this.label15.TabIndex = 45;
-            this.label15.Text = "*";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(502, 15);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(19, 23);
-            this.label16.TabIndex = 46;
-            this.label16.Text = "*";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(473, 86);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(19, 23);
-            this.label17.TabIndex = 47;
-            this.label17.Text = "*";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(860, 15);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(19, 23);
-            this.label18.TabIndex = 48;
-            this.label18.Text = "*";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(857, 87);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(19, 23);
-            this.label19.TabIndex = 49;
-            this.label19.Text = "*";
             // 
             // Guide
             // 

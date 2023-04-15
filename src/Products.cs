@@ -598,7 +598,7 @@ namespace BeautyGlory
             {
                 if (Convert.ToInt32(dgvProduct.Rows[i].Cells[7].Value) == 0)
                 {
-                    dgvProduct.Rows[i].Cells[7].Style.BackColor = Color.DarkRed;
+                    dgvProduct.Rows[i].Cells[7].Style.BackColor = Color.IndianRed;
                 }
             }
         }
@@ -678,6 +678,11 @@ namespace BeautyGlory
         }
 
         private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

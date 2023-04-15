@@ -26,7 +26,7 @@ namespace BeautyGlory
             }
         } 
 
-        private readonly string FileName = Directory.GetCurrentDirectory() + @"Docs\check.docx";
+        private readonly string FileName = Directory.GetCurrentDirectory() + @"\check.docx";
 
         int num_order;
         public bool flagorder = false;

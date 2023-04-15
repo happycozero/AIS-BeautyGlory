@@ -14,7 +14,8 @@ namespace BeautyGlory
     public partial class MenuUser : Form
     {
         Products prod = new Products();
-        ViewProduct vprod = new ViewProduct(); 
+        ViewProduct vprod = new ViewProduct();
+        NewOrder neword = new NewOrder();
 
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
@@ -85,6 +86,13 @@ namespace BeautyGlory
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bOrders_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            neword.ShowDialog();
+            this.Visible = true;
         }
     }
 }

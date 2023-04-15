@@ -767,5 +767,10 @@ namespace BeautyGlory
         {
 
         }
+
+        private void tabCat_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

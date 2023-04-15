@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `trade1` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `trade1`;
+CREATE DATABASE  IF NOT EXISTS `trade` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `trade`;
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: trade1
@@ -32,7 +32,7 @@ CREATE TABLE `cart` (
   `Price` decimal(19,2) NOT NULL,
   `Quantity` int NOT NULL,
   PRIMARY KEY (`idCart`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES (47,6,'','13',1930.30,1),(48,5,'','Крем',1212.26,3);
+INSERT INTO `cart` VALUES (69,444,'U933T6','Кисть для макияжа',1862.00,1),(70,444,'N725R4','13',1930.30,2),(71,444,'S672R5','Масло для губ',1900.00,2);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,20 +54,21 @@ DROP TABLE IF EXISTS `order`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order` (
   `OrderID` int NOT NULL AUTO_INCREMENT,
-  `OrderDeliveryDate` date NOT NULL,
-  `OrderDate` date NOT NULL,
+  `OrderProductID` int DEFAULT NULL,
   `OrderCode` int NOT NULL,
+  `OrderDeliveryDate` date NOT NULL,
   `OrderPickupPoint` int NOT NULL,
+  `OrderDate` date NOT NULL,
   `OrderClient` int NOT NULL,
   `OrderStatus` int NOT NULL,
   PRIMARY KEY (`OrderID`),
   KEY `OrderStatus_idx` (`OrderStatus`),
   KEY `OrderClient_idx` (`OrderClient`),
   KEY `OrderPickupPoint_idx` (`OrderPickupPoint`),
-  CONSTRAINT `OrderClient` FOREIGN KEY (`OrderClient`) REFERENCES `user` (`UserID`),
-  CONSTRAINT `OrderPickupPoint` FOREIGN KEY (`OrderPickupPoint`) REFERENCES `orderpickuppoint` (`idPickupPoint`),
-  CONSTRAINT `OrderStatus` FOREIGN KEY (`OrderStatus`) REFERENCES `orderstatus` (`idStatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `OrderClient` FOREIGN KEY (`OrderClient`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `OrderPickupPoint` FOREIGN KEY (`OrderPickupPoint`) REFERENCES `orderpickuppoint` (`idPickupPoint`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `OrderStatus` FOREIGN KEY (`OrderStatus`) REFERENCES `orderstatus` (`idStatus`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +77,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (1,'2015-05-20','2009-05-20',611,25,22,1),(2,'2016-05-20','2010-05-20',612,26,20,2),(3,'2017-05-20','2011-05-20',613,27,33,1),(4,'2018-05-20','2012-05-20',614,28,10,1),(5,'2019-05-20','2013-05-20',615,29,25,2),(6,'2020-05-20','2014-05-20',616,30,16,1),(7,'2021-05-20','2015-05-20',617,31,7,1),(8,'2022-05-20','2016-05-20',618,32,18,1),(9,'2023-05-20','2017-05-20',619,33,38,1),(10,'2024-05-20','2018-05-20',620,34,5,1),(11,'2025-05-20','2019-05-20',621,24,33,1),(12,'2026-05-20','2020-05-20',622,21,7,2),(13,'2027-05-20','2021-05-20',623,23,18,1),(14,'2028-05-20','2022-05-20',624,12,38,1),(15,'2029-05-20','2023-05-20',625,16,10,2),(16,'2030-05-20','2024-05-20',626,6,25,1),(17,'2031-05-20','2025-05-20',627,23,16,1),(18,'2001-06-20','2026-05-20',628,1,5,1),(19,'2002-06-20','2027-05-20',629,4,22,1),(20,'2003-06-20','2028-05-20',630,7,20,1);
+INSERT INTO `order` VALUES (1,NULL,611,'2015-05-20',25,'2009-05-20',22,1),(2,NULL,612,'2016-05-20',26,'2010-05-20',20,2),(3,NULL,613,'2017-05-20',27,'2011-05-20',33,1),(4,NULL,614,'2018-05-20',28,'2012-05-20',10,1),(5,NULL,615,'2019-05-20',29,'2013-05-20',25,2),(6,NULL,616,'2020-05-20',30,'2014-05-20',16,1),(7,NULL,617,'2021-05-20',31,'2015-05-20',7,1),(8,NULL,618,'2022-05-20',32,'2016-05-20',18,1),(9,NULL,619,'2023-05-20',33,'2017-05-20',38,1),(10,NULL,620,'2024-05-20',34,'2018-05-20',5,1),(11,NULL,621,'2025-05-20',24,'2019-05-20',33,1),(12,NULL,622,'2026-05-20',21,'2020-05-20',7,2),(13,NULL,623,'2027-05-20',23,'2021-05-20',18,1),(14,NULL,624,'2028-05-20',12,'2022-05-20',38,1),(15,NULL,625,'2029-05-20',16,'2023-05-20',10,2),(16,NULL,626,'2030-05-20',6,'2024-05-20',25,1),(17,NULL,627,'2031-05-20',23,'2025-05-20',16,1),(18,NULL,628,'2001-06-20',1,'2026-05-20',5,1),(19,NULL,629,'2002-06-20',4,'2027-05-20',22,1),(20,NULL,630,'2003-06-20',7,'2028-05-20',20,2),(25,25,631,'2023-04-19',19,'2023-04-14',444,1),(26,26,632,'2023-04-19',20,'2023-04-14',444,2),(27,27,633,'2023-04-19',20,'2023-04-14',444,2),(28,28,634,'2023-04-20',24,'2023-04-15',1,2),(29,29,635,'2023-04-20',20,'2023-04-15',444,1),(30,30,636,'2023-04-20',22,'2023-04-15',444,1),(31,31,637,'2023-04-20',20,'2023-04-15',444,2),(32,32,638,'2023-04-20',18,'2023-04-15',3,1);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,10 +117,7 @@ CREATE TABLE `orderproduct` (
   `OrderID` int NOT NULL,
   `ProductArticleNumber` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `OrderCount` int NOT NULL,
-  PRIMARY KEY (`OrderID`,`ProductArticleNumber`),
-  KEY `ProductArticleNumber` (`ProductArticleNumber`),
-  CONSTRAINT `orderproduct_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order` (`OrderID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `orderproduct_ibfk_2` FOREIGN KEY (`ProductArticleNumber`) REFERENCES `product` (`ProductArticleNumber`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`OrderID`,`ProductArticleNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -129,7 +127,7 @@ CREATE TABLE `orderproduct` (
 
 LOCK TABLES `orderproduct` WRITE;
 /*!40000 ALTER TABLE `orderproduct` DISABLE KEYS */;
-INSERT INTO `orderproduct` VALUES (1,'А112Т4',3),(2,'H936R5',1),(3,'K892T6',5),(4,'H792T5',3),(5,'K782T5',2),(6,'D682R2',1),(7,'B782T5',1),(8,'K963R5',2),(9,'S672R5',2),(10,'N725R4',2),(11,'U933T6',5),(12,'L726D4',1),(13,'N826F5',1),(14,'L902F5',1),(15,'G729T5',1),(16,'K902F4',2),(17,'H782R4',2),(18,'V627S4',1),(19,'G892T6',3);
+INSERT INTO `orderproduct` VALUES (1,'А112Т4',3),(2,'H936R5',1),(3,'K892T6',5),(4,'H792T5',3),(5,'K782T5',2),(6,'D682R2',1),(7,'B782T5',1),(8,'K963R5',2),(9,'S672R5',2),(10,'N725R4',2),(11,'U933T6',5),(12,'L726D4',1),(13,'N826F5',1),(14,'L902F5',1),(15,'G729T5',1),(16,'K902F4',2),(17,'H782R4',2),(18,'V627S4',1),(19,'G892T6',3),(20,'V627S4',1),(21,'V672S5',1),(22,'V672S5',1),(23,'U933T6',1),(24,'V627S4',1),(25,'V672S5',1),(26,'G892T6',1),(26,'U933T6',2),(27,'V672S5',1),(28,'U933T6',7),(28,'V627S4',1),(29,'K963R5',5),(29,'V627S4',1),(30,'V627S4',1),(31,'V672S5',1),(32,'K902F4',1),(32,'K963R5',1),(32,'L902F5',2),(32,'N725R4',1),(32,'V672S5',1);
 /*!40000 ALTER TABLE `orderproduct` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +142,7 @@ CREATE TABLE `orderstatus` (
   `idStatus` int NOT NULL AUTO_INCREMENT,
   `Status` varchar(60) NOT NULL,
   PRIMARY KEY (`idStatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +151,7 @@ CREATE TABLE `orderstatus` (
 
 LOCK TABLES `orderstatus` WRITE;
 /*!40000 ALTER TABLE `orderstatus` DISABLE KEYS */;
-INSERT INTO `orderstatus` VALUES (1,'Новый'),(2,'Завершен');
+INSERT INTO `orderstatus` VALUES (1,'Новый'),(2,'Завершен'),(3,'Отменен');
 /*!40000 ALTER TABLE `orderstatus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,16 +165,16 @@ DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `ProductArticleNumber` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `ProductName` text NOT NULL,
-  `ProductDescription` text NOT NULL,
+  `ProductDescription` text,
   `ProductCategory` int NOT NULL,
-  `ProductPhoto` text NOT NULL,
+  `ProductPhoto` text,
   `ProductManufacturer` int NOT NULL,
   `ProductCost` decimal(19,4) NOT NULL,
   `ProductDiscountAmount` tinyint DEFAULT NULL,
   `ProductQuantityInStock` int NOT NULL,
   `ProductUnit` int NOT NULL,
   `ProductSupplier` int NOT NULL,
-  `ProductMaxDiscount` int NOT NULL,
+  `ProductMaxDiscount` int DEFAULT NULL,
   PRIMARY KEY (`ProductArticleNumber`),
   KEY `ProductUnit_idx` (`ProductUnit`),
   KEY `ProductCategory_idx` (`ProductCategory`),
@@ -195,7 +193,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES ('A283F5','Пудра','Пудра для лица, MAC studio fix powder plus foundation',11,'',10,3200.0000,3,17,1,1,25),('B782T5','Пудра','Компактная пудра с эффектом сияния, MAC extra dimension skinfinish',11,'',10,3200.0000,3,15,1,2,15),('C672R4','Палетка','Палетка для сияния лица, DIOR BACKSTAGE glow face palette',9,'',7,3200.0000,3,12,1,1,10),('D672R5','Тушь для ресниц','Тушь для ресниц влагостойкая,VIVIENNE SABO cabaret latex',1,'',1,500.0000,2,17,1,1,15),('D682R2','Скульптор лица','Скульптор для лица, ESTRADE mon secret',8,'',6,250.0000,4,14,1,2,5),('G729T5','Тушь для ресниц','Тушь для ресниц со сценическим эффектом, VIVIENNE SABO cabaret premiere',1,'G729T5.jpg',1,400.0000,2,14,1,2,15),('G892T6','Гель для бровей','VIVIENNE SABO HAUTE COUTURE FIXATEUR BROW&LASH FIXING GEL',2,'G892T6.jpg',1,384.0000,2,14,1,2,15),('H198T5','Карандаш для губ','Карандаш для губ, PUPA true lips',7,'H198T5.jpg',5,500.0000,2,16,1,1,15),('H782R4','Тушь для ресниц','Суперобъемная тушь для ресниц, ART-VISAGE chicago',1,'',4,300.0000,2,5,1,1,15),('H792T5','Помада','Жидкая губная помада, SIGMA BEAUTY liquid lipstick',5,'H792T5.jpg',1,1500.0000,3,16,1,1,25),('H936R5','Тени для бровей','VIVIENNE SABO BROW ARCADE EYEBROW SHADOW DUO',3,'H936R5.jpg',1,380.0000,4,21,1,2,20),('J892T5','Крем','BB 10, ERBORIAN bb creme',10,'',8,4000.0000,4,7,1,2,5),('K782T5','Подводка','Подводка-фломастер для глаз, ART-VISAGE cat eyes',6,'K782T5.jpg',4,3255.0000,3,7,1,2,30),('K892T6','Тени для век','ПАЛИТРА ТЕНЕЙ ДЛЯ ВЕК С ЭФФЕКТОМ ЕСТЕСТВЕННОГО СИЯНИЯ',3,'K892T6.jpg',3,3630.0000,4,8,1,1,20),('K902F4','Тени для век','Палетка для контурирования лица, SIGMA BEAUTY sculpt highlight + contour palette',3,'',1,3700.0000,3,25,1,2,10),('K902R5','Пудра','Пудра-компакт, DARLING* plush air',11,'',11,1215.0000,4,13,1,2,15),('K921G6','Скульптор лица','Тройная палетка для скульптурирования, NYX PROFESSIONAL MAKEUP 3 steps to sculpt face sculpting palette',8,'',9,700.0000,4,6,1,1,40),('K963R5','Масло для губ','Масло для губ, ESTRADE treatment lip oil',5,'',6,180.0000,2,6,1,2,5),('L726D4','Румяна','Румяна для лица, MAC sheertone blush',12,'',10,2300.0000,2,9,1,2,15),('L902F5','Румяна','Кремовые румяна, ART-VISAGE cream blushf',12,'',4,324.0000,3,9,1,2,5),('M788G5','Румяна','Румяна для лица, MAC mineralize blush',12,'',10,2790.0000,2,23,1,1,30),('N725R4','13','Устойчивый 13, MAC kajal crayon',13,'',10,1990.0000,3,7,1,2,15),('N826F5','Минеральная пудра','Минеральная прозрачная пудра для фиксации макияжа, NYX PROFESSIONAL MAKEUP studio finishing powder shade',11,'',9,1000.0000,4,15,1,1,10),('S672R5','Масло для губ','Масло-тинт для губ, DARLING* lava lamp',5,'',11,2000.0000,5,19,1,1,15),('U933T6','Кисть для макияжа','УНИВЕРСАЛЬНАЯ КИСТЬ КАБУКИ, SIGMA BEAUTY 3dhd® kabuki',4,'U933T6.jpg',1,1900.0000,2,15,1,2,30),('V627S4','Крем','CC крем \"Абсолютное совершенство\"\", cc color correcting cream\"',10,'',8,1237.0000,2,18,1,2,5),('V672S5','Жидкие тени','Жидкие тени-глиттер для век,DARLING* soul sisters',3,'',11,810.0000,4,15,1,2,30),('Y276S4','Пудра','Перламутровая пудра, MAC mineralize skinfinish',11,'',10,3190.0000,2,15,1,1,10),('А112Т4','Тушь для ресниц','SIGMA BEAUTY sinuosity lash',1,'А112Т4.jpg',1,1400.0000,4,6,1,1,30);
+INSERT INTO `product` VALUES ('A283F5','Пудра','Пудра для лица, MAC studio fix powder plus foundation',11,'',10,3200.0000,3,17,1,1,25),('B782T5','Пудра','Компактная пудра с эффектом сияния, MAC extra dimension skinfinish',11,'',10,3200.0000,3,15,1,2,15),('C672R4','Палетка','Палетка для сияния лица, DIOR BACKSTAGE glow face palette',9,'',7,3200.0000,3,12,1,1,10),('D672R5','Тушь для ресниц','Тушь для ресниц влагостойкая,VIVIENNE SABO cabaret latex',1,'',1,500.0000,2,17,1,1,15),('D682R2','Скульптор лица','Скульптор для лица, ESTRADE mon secret',8,'',6,250.0000,4,14,1,2,5),('G729T5','Тушь для ресниц','Тушь для ресниц со сценическим эффектом, VIVIENNE SABO cabaret premiere',1,'G729T5.jpg',1,400.0000,2,14,1,2,15),('G892T6','Гель для бровей','VIVIENNE SABO HAUTE COUTURE FIXATEUR BROW&LASH FIXING GEL',2,'G892T6.jpg',1,384.0000,2,13,1,2,15),('H198T5','Карандаш для губ','Карандаш для губ, PUPA true lips',7,'H198T5.jpg',5,500.0000,2,16,1,1,15),('H782R4','Тушь для ресниц','Суперобъемная тушь для ресниц, ART-VISAGE chicago',1,'',4,300.0000,2,5,1,1,15),('H792T5','Помада','Жидкая губная помада, SIGMA BEAUTY liquid lipstick',5,'H792T5.jpg',1,1500.0000,3,16,1,1,25),('H936R5','Тени для бровей','VIVIENNE SABO BROW ARCADE EYEBROW SHADOW DUO',3,'H936R5.jpg',1,380.0000,4,21,1,2,20),('J892T5','Крем','BB 10, ERBORIAN bb creme',10,'',8,4000.0000,4,7,1,2,5),('K782T5','Подводка','Подводка-фломастер для глаз, ART-VISAGE cat eyes',6,'K782T5.jpg',4,3255.0000,3,7,1,2,30),('K892T6','Тени для век','ПАЛИТРА ТЕНЕЙ ДЛЯ ВЕК С ЭФФЕКТОМ ЕСТЕСТВЕННОГО СИЯНИЯ',3,'K892T6.jpg',3,3630.0000,4,8,1,1,20),('K902F4','Тени для век','Палетка для контурирования лица, SIGMA BEAUTY sculpt highlight + contour palette',3,'',1,3700.0000,3,24,1,2,10),('K902R5','Пудра','Пудра-компакт, DARLING* plush air',11,'',11,1215.0000,4,13,1,2,15),('K921G6','Скульптор лица','Тройная палетка для скульптурирования, NYX PROFESSIONAL MAKEUP 3 steps to sculpt face sculpting palette',8,'',9,700.0000,4,6,1,1,40),('K963R5','Масло для губ','Масло для губ, ESTRADE treatment lip oil',5,'',6,180.0000,2,0,1,2,5),('L726D4','Румяна','Румяна для лица, MAC sheertone blush',12,'',10,2300.0000,2,9,1,2,15),('L902F5','Румяна','Кремовые румяна, ART-VISAGE cream blushf',12,'',4,324.0000,3,7,1,2,5),('M788G5','Румяна','Румяна для лица, MAC mineralize blush',12,'',10,2790.0000,2,23,1,1,30),('N725R4','13','Устойчивый 13, MAC kajal crayon',13,'',10,1990.0000,3,4,1,2,15),('N826F5','Минеральная пудра','Минеральная прозрачная пудра для фиксации макияжа, NYX PROFESSIONAL MAKEUP studio finishing powder shade',11,'',9,1000.0000,4,15,1,1,10),('S672R5','Масло для губ','Масло-тинт для губ, DARLING* lava lamp',5,'',11,2000.0000,5,17,1,1,15),('U933T6','Кисть для макияжа','УНИВЕРСАЛЬНАЯ КИСТЬ КАБУКИ, SIGMA BEAUTY 3dhd® kabuki',4,'U933T6.jpg',1,1900.0000,2,4,1,2,30),('V627S4','Крем','CC крем \"Абсолютное совершенство\"\", cc color correcting cream\"',10,'F683T5.jpg',8,1237.0000,2,13,1,2,5),('V672S5','Жидкие тени','Жидкие тени-глиттер для век,DARLING* soul sisters',3,'',11,810.0000,4,9,1,2,30),('Y276S4','Пудра','Перламутровая пудра, MAC mineralize skinfinish',11,'',10,3190.0000,2,15,1,1,10),('А112Т4','Тушь для ресниц','SIGMA BEAUTY sinuosity lash',1,'А112Т4.jpg',1,1400.0000,4,6,1,1,30);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,7 +313,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (1,'Клиент'),(2,'Менеджер'),(3,'Администратор');
+INSERT INTO `role` VALUES (1,'Клиент'),(2,'Менеджер '),(3,'Админ');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -337,7 +335,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`UserID`),
   KEY `UserRole` (`UserRole`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`UserRole`) REFERENCES `role` (`RoleID`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=446 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -346,7 +344,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Алексеев','Владислав','Аркадьевич','loginDEbct2018','Qg3gff',1),(2,'Савельева ','Евфросиния','Арсеньевна','loginDEvtg2018','ETMNzL',3),(3,'Никонов ','Мэлс','Лукьевич','loginDEuro2018','a1MIcO',1),(4,'Горшкова ','Агафья','Онисимовна','loginDEpst2018','0CyGnX',1),(5,'Горбачёв','Пантелеймон','Германович','loginDEpsu2018','Vx9cQ{',2),(6,'Ершова ','Иванна','Максимовна','loginDEzqs2018','qM9p7i',2),(7,'Туров ','Денис','Геласьевич','loginDEioe2018','yMPu&2',2),(8,'Носова ','Наина','Эдуардовна','loginDEcmk2018','3f+b0+',3),(9,'Куликов ','Андрей','Святославович','loginDEfsp2018','&dtlI+',1),(10,'Нестеров ','Агафон','Георгьевич','loginDExcd2018','SZXZNL',1),(11,'Козлов ','Геласий','Христофорович','loginDEvlf2018','O5mXc2',2),(12,'Борисова ','Анжелика','Анатольевна','loginDEanv2018','Xiq}M3',3),(13,'Суханов ','Станислав','Фролович','loginDEzde2018','tlO3x&',2),(14,'Тетерина ','Феврония','Эдуардовна','loginDEriv2018','GJ2mHL',2),(15,'Муравьёва ','Александра','Ростиславовна','loginDEhcp2018','n2nfRl',2),(16,'Новикова ','Лукия','Ярославовна','loginDEwjv2018','ZfseKA',2),(17,'Агафонова ','Лариса','Михаиловна','loginDEiry2018','5zu7+}',2),(18,'Сергеева ','Агата','Юрьевна','loginDEgbr2018','}+Ex1*',2),(19,'Колобова ','Елена','Евгеньевна','loginDExxv2018','+daE|T',2),(20,'Ситников ','Николай','Филатович','loginDEbto2018','b1iYMI',1),(21,'Белов ','Роман','Иринеевич','loginDEfbs2018','v90Rep',2),(22,'Волкова ','Алла','Лукьевна','loginDEple2018','WlW+l8',3),(23,'Кудрявцева ','Таисия','Игоревна','loginDEhhx2018','hmCHeQ',2),(24,'Семёнова ','Октябрина','Христофоровна','loginDEayn2018','Ka2Fok',2),(25,'Смирнов ','Сергей','Яковович','loginDEwld2018','y9HStF',2),(26,'Брагина ','Алина','Валерьевна','loginDEhuu2018','X31OEf',1),(27,'Евсеев ','Игорь','Донатович','loginDEmjb2018','5mm{ch',2),(28,'Суворов ','Илья','Евсеевич','loginDEdgp2018','1WfJjo',2),(29,'Котов ','Денис','Мартынович','loginDEgyi2018','|7nYPc',3),(30,'Бобылёва ','Юлия','Егоровна','loginDEmvn2018','Mrr9e0',1),(31,'Брагин ','Бронислав','Георгьевич','loginDEfoj2018','nhGc+D',3),(32,'Александров ','Владимир','Дамирович','loginDEuuo2018','42XmH1',1),(33,'Фокин ','Ириней','Ростиславович','loginDEhsj2018','s+jrMW',1),(34,'Воронов ','Митрофан','Антонович','loginDEvht2018','zMyS8Z',1),(35,'Маслов ','Мстислав','Антонинович','loginDEeqo2018','l5CBqA',1),(36,'Щербаков ','Георгий','Богданович','loginDExrf2018','mhpRIT',1),(37,'Кириллова ','Эмилия','Федосеевна','loginDEfku2018','a1m+8c',2),(38,'Васильев ','Серапион','Макарович','loginDExix2018','hzxtnn',3),(39,'Галкина ','Олимпиада','Владленовна','loginDEqrf2018','mI8n58',2),(40,'Яковлева ','Ксения','Онисимовна','loginDEhlk2018','g0jSed',1),(41,'Калашникова ','Александра','Владимировна','loginDEwoe2018','yOtw2F',3),(42,'Медведьева ','Таисия','Тихоновна','loginDExyu2018','7Fg}9p',1),(43,'Карпова ','Ольга','Лукьевна','loginDEcor2018','2cIrC8',1),(44,'Герасимов ','Мстислав','Дамирович','loginDEqon2018','YeFbh6',2),(45,'Тимофеева ','Ксения','Валерьевна','loginDEyfd2018','8aKdb0',1),(46,'Горбунов ','Вячеслав','Станиславович','loginDEtto2018','qXYDuu',2),(47,'Кошелева ','Кира','Владиславовна','loginDEdal2018','cJWXL0',2),(48,'Панфилова ','Марина','Борисовна','loginDEbjs2018','Xap2ct',2),(49,'Кудрявцев ','Матвей','Игоревич','loginDEdof2018','kD|LRU',2),(50,'Зуев ','Эдуард','Пантелеймонович','loginDEsnh2018','#ИМЯ?',2);
+INSERT INTO `user` VALUES (1,'Алексеев','Владислав','Аркадьевич','loginDEbct2018','Qg3gff',1),(2,'Савельева ','Евфросиния','Арсеньевна','loginDEvtg2018','ETMNzL',3),(3,'Никонов ','Мэлс','Лукьевич','loginDEuro2018','a1MIcO',1),(4,'Горшкова ','Агафья','Онисимовна','loginDEpst2018','0CyGnX',1),(5,'Горбачёв','Пантелеймон','Германович','loginDEpsu2018','Vx9cQ{',2),(6,'Ершова ','Иванна','Максимовна','loginDEzqs2018','qM9p7i',2),(7,'Туров ','Денис','Геласьевич','loginDEioe2018','yMPu&2',2),(8,'Носова ','Наина','Эдуардовна','loginDEcmk2018','3f+b0+',3),(9,'Куликов ','Андрей','Святославович','loginDEfsp2018','&dtlI+',1),(10,'Нестеров ','Агафон','Георгьевич','loginDExcd2018','SZXZNL',1),(11,'Козлов ','Геласий','Христофорович','loginDEvlf2018','O5mXc2',2),(12,'Борисова ','Анжелика','Анатольевна','loginDEanv2018','Xiq}M3',3),(13,'Суханов ','Станислав','Фролович','loginDEzde2018','tlO3x&',2),(14,'Тетерина ','Феврония','Эдуардовна','loginDEriv2018','GJ2mHL',2),(15,'Муравьёва ','Александра','Ростиславовна','loginDEhcp2018','n2nfRl',2),(16,'Новикова ','Лукия','Ярославовна','loginDEwjv2018','ZfseKA',2),(17,'Агафонова ','Лариса','Михаиловна','loginDEiry2018','5zu7+}',2),(18,'Сергеева ','Агата','Юрьевна','loginDEgbr2018','}+Ex1*',2),(19,'Колобова ','Елена','Евгеньевна','loginDExxv2018','+daE|T',2),(20,'Ситников ','Николай','Филатович','loginDEbto2018','b1iYMI',1),(21,'Белов ','Роман','Иринеевич','loginDEfbs2018','v90Rep',2),(22,'Волкова ','Алла','Лукьевна','loginDEple2018','WlW+l8',3),(23,'Кудрявцева ','Таисия','Игоревна','loginDEhhx2018','hmCHeQ',2),(24,'Семёнова ','Октябрина','Христофоровна','loginDEayn2018','Ka2Fok',2),(25,'Смирнов ','Сергей','Яковович','loginDEwld2018','y9HStF',2),(26,'Брагина ','Алина','Валерьевна','loginDEhuu2018','X31OEf',1),(27,'Евсеев ','Игорь','Донатович','loginDEmjb2018','5mm{ch',2),(28,'Суворов ','Илья','Евсеевич','loginDEdgp2018','1WfJjo',2),(29,'Котов ','Денис','Мартынович','loginDEgyi2018','|7nYPc',3),(30,'Бобылёва ','Юлия','Егоровна','loginDEmvn2018','Mrr9e0',1),(31,'Брагин ','Бронислав','Георгьевич','loginDEfoj2018','nhGc+D',3),(32,'Александров ','Владимир','Дамирович','loginDEuuo2018','42XmH1',1),(33,'Фокин ','Ириней','Ростиславович','loginDEhsj2018','s+jrMW',1),(34,'Воронов ','Митрофан','Антонович','loginDEvht2018','zMyS8Z',1),(35,'Маслов ','Мстислав','Антонинович','loginDEeqo2018','l5CBqA',1),(36,'Щербаков ','Георгий','Богданович','loginDExrf2018','mhpRIT',1),(37,'Кириллова ','Эмилия','Федосеевна','loginDEfku2018','a1m+8c',2),(38,'Васильев ','Серапион','Макарович','loginDExix2018','hzxtnn',3),(39,'Галкина ','Олимпиада','Владленовна','loginDEqrf2018','mI8n58',2),(40,'Яковлева ','Ксения','Онисимовна','loginDEhlk2018','g0jSed',1),(41,'Калашникова ','Александра','Владимировна','loginDEwoe2018','yOtw2F',3),(42,'Медведьева ','Таисия','Тихоновна','loginDExyu2018','7Fg}9p',1),(43,'Карпова ','Ольга','Лукьевна','loginDEcor2018','2cIrC8',1),(44,'Герасимов ','Мстислав','Дамирович','loginDEqon2018','YeFbh6',2),(45,'Тимофеева ','Ксения','Валерьевна','loginDEyfd2018','8aKdb0',1),(46,'Горбунов ','Вячеслав','Станиславович','loginDEtto2018','qXYDuu',2),(47,'Кошелева ','Кира','Владиславовна','loginDEdal2018','cJWXL0',2),(48,'Панфилова ','Марина','Борисовна','loginDEbjs2018','Xap2ct',2),(49,'Кудрявцев ','Матвей','Игоревич','loginDEdof2018','kD|LRU',2),(50,'Зуев ','Эдуард','Пантелеймонович','loginDEsnh2018','#ИМЯ?',2),(444,'Кошелева ','Кира','Владиславовна','manager','manager',2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -367,4 +365,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-14  7:19:36
+-- Dump completed on 2023-04-15  6:31:12

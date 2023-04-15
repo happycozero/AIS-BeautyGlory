@@ -179,7 +179,7 @@
     <EmbeddedResource Include="ViewProduct.resx">
       <DependentUpon>ViewProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Docs\check.docx">
+    <None Include="check.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">

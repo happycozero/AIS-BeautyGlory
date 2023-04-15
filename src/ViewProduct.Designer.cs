@@ -290,7 +290,7 @@
             // tbDisc
             // 
             this.tbDisc.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbDisc.Location = new System.Drawing.Point(665, 135);
+            this.tbDisc.Location = new System.Drawing.Point(665, 45);
             this.tbDisc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDisc.MaxLength = 6;
             this.tbDisc.Name = "tbDisc";
@@ -301,7 +301,7 @@
             // tbDiscMax
             // 
             this.tbDiscMax.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbDiscMax.Location = new System.Drawing.Point(665, 45);
+            this.tbDiscMax.Location = new System.Drawing.Point(665, 135);
             this.tbDiscMax.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDiscMax.MaxLength = 6;
             this.tbDiscMax.Name = "tbDiscMax";
@@ -379,6 +379,7 @@
             this.pbPhoto.Location = new System.Drawing.Point(1207, 18);
             this.pbPhoto.Name = "pbPhoto";
             this.pbPhoto.Size = new System.Drawing.Size(207, 191);
+            this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPhoto.TabIndex = 37;
             this.pbPhoto.TabStop = false;
             // 
