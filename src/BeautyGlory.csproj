@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Excel">
       <HintPath>DLL\Microsoft.Office.Interop.Excel.dll</HintPath>
@@ -209,6 +212,9 @@
     <None Include="Resources\captch.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Photo\F683T5.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
